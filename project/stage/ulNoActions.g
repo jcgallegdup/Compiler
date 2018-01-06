@@ -1,5 +1,5 @@
 grammar ulNoActions;
-				
+                
 @members
 {
 protected void mismatch (IntStream input, int ttype, BitSet follow)
@@ -24,17 +24,57 @@ public void recoverFromMismatchedSet (IntStream input,
         }
 }
 
-program : IF NEWLINE
-	;
+/*
+ * This is a subset of the ulGrammar to show you how
+ * to make new production rules.
+ * You will need to:
+ *  - change type to be compoundType and include appropriate productions
+ *  - introduce optional formalParameters
+ *  - change functionBody to include variable declarations and statements 
+ */
 
+program : function+ 
+    ;
+
+function: functionDecl functionBody
+    ;
+
+functionDecl: type identifier '(' ')'
+    ;
+
+functionBody: '{' '}'
+    ;
+
+identifier : ID
+    ;
+
+type:    TYPE
+    ;
 
 /* Lexer */
-	 
-IF	: 'if'
-	;
+     
+IF    : 'if'
+    ;
 
-/* NB: This will not be part of your grammar.  Whitespace should be ignored.  
-       This is only here so that you have a complete example 
+/*
+ * FIXME:
+ * Change this to match the specification for identifier
+ * 
  */
-NEWLINE: '\n'
-	;
+ID    : 'foo' 
+    ;
+
+/* Fixme: add the other types here */
+TYPE    : 'int'
+    ;
+
+/* These two lines match whitespace and comments 
+ * and ignore them.
+ * You want to leave these as last in the file.  
+ * Add new lexical rules above 
+ */
+WS      : ( '\t' | ' ' | ('\r' | '\n') )+ { $channel = HIDDEN;}
+        ;
+
+COMMENT : '//' ~('\r' | '\n')* ('\r' | '\n') { $channel = HIDDEN;}
+        ;
