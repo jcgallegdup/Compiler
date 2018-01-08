@@ -28,27 +28,38 @@ public void recoverFromMismatchedSet (IntStream input,
  * This is a subset of the ulGrammar to show you how
  * to make new production rules.
  * You will need to:
- *  - change type to be compoundType and include appropriate productions
- *  - introduce optional formalParameters
  *  - change functionBody to include variable declarations and statements 
  */
 
-program : function+ 
+program : function+
     ;
 
 function: functionDecl functionBody
     ;
 
-functionDecl: type identifier '(' ')'
+functionDecl
+	: compoundType identifier '(' formalParams ')'
     ;
 
 functionBody: '{' '}'
     ;
 
-identifier : ID
+formalParams
+	:	compoundType identifier moreFormals*
+	|
     ;
 
-type:    TYPE
+moreFormals
+	:	',' compoundType identifier
+	;
+
+identifier: ID
+    ;
+
+// TODO: validate order of rules here
+compoundType
+	: TYPE
+	| TYPE '[' NUMBER ']'
     ;
 
 /* Lexer */
@@ -59,14 +70,25 @@ IF    : 'if'
 /*
  * FIXME:
  * Change this to match the specification for identifier
- * 
- */
-ID    : 'foo' 
-    ;
-
+ *
+*/
 /* Fixme: add the other types here */
 TYPE    : 'int'
+	| 'float'
+	| 'char'
+	| 'string'
+	| 'boolean'
+	| 'void'
     ;
+
+ID    : ('a'..'z' | 'A'..'Z' | '_')('a'..'z' | 'A'..'Z' | '_' | NUMBER)*
+    ;
+
+// assumed INT by compoundType
+NUMBER
+	: DIGIT+
+    ;
+
 
 /* These two lines match whitespace and comments 
  * and ignore them.
@@ -78,3 +100,7 @@ WS      : ( '\t' | ' ' | ('\r' | '\n') )+ { $channel = HIDDEN;}
 
 COMMENT : '//' ~('\r' | '\n')* ('\r' | '\n') { $channel = HIDDEN;}
         ;
+
+fragment DIGIT
+    :	'0'..'9'
+    ;
