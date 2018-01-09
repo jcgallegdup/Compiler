@@ -8,9 +8,21 @@ int [0000008912] _1094385) {
 print false;
 print identifier ;
 print true;
+print 0;
+print 1
+;
+print
+2
+;
 print identifier ;}
 
 char f12345098_234fXx_ (char lowercase , float UPPERCASE, boolean ______, void _1234567890) {
+print 0;
+print 1
+;
+print
+2
+;;;
             print IDENTIFIER ;print IDENTIFIER ;
 print IDENTIFIER ;}
 
@@ -20,6 +32,12 @@ float _O_123456789 (boolean AAas_2394dkKJD, float __Ka235, string _KDJ___123, fl
 int [100] _123456_FooZ (float _____1, void __KDkk1236,         string __3426Kka) {
  print MMmm0__945 ; print
 true
+;
+print 0;
+print 1
+;
+print
+2
 ;
 print 
 MMmm0__945 ;print MMmm0__945 ;}
@@ -38,7 +56,7 @@ string f12345098_234fXx_ (void askj_234wf, int D0_1234Kkk) {
 LL_kk98 
 ;print
 true
-;}
+; print 000009;}
 
 
 void f12345098_234fXx_ (     int [234] _234JKDd,

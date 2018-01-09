@@ -1,9 +1,10 @@
 void fO_123456789_Xa () {
 
+print 00091283745;
 print identifier ;
 print
 true
-;
+;print 0912837; ; ; ;
 print identifier ;
 print true ;
 print identifier ;}
@@ -11,41 +12,29 @@ print identifier ;}
 char f12345098_234fXx_ ( ) {
             print IDENTIFIER ;print IDENTIFIER ;
 print false
-;
+; print 1; print 2; print 3;
 print IDENTIFIER ;}
 
 float _O_123456789 ( ) {
-  print _iD109 ;print _iD109 ;print _iD109 ;}
+  print _iD109 ;print _iD109 ;print 999; print _iD109 ;}
 
 int [100] _123456_FooZ ( ) {
- print MMmm0__945 ;
+ print MMmm0__945 ; print 999
+; ; ; 
 print 
 MMmm0__945 ;print
 false
 ;print MMmm0__945 ;}
 
 int _____123567FkoP ( ) {
- print _09 ; print _09 ; 
+ print _09 ; print _09 ; print 09;
 print _09 
-;}
+;print 1;}
 
 string f12345098_234fXx_ ( ) {
  print LL_kk98
  ;print 
-
+1;print
 
 LL_kk98 
 ;}
-
-
-void f12345098_234fXx_ (     int [234] _234JKDd,
-int ___1Kk, 
-
-
-string _123KkksldjbB_) {
-
-
-print true;
-print 
-
-asdflkjSLDKFJ ;}

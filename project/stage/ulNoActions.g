@@ -63,7 +63,7 @@ statement
 
 expr
 	: ID
-	| LITERAL
+	| literal
 	;
 
 identifier: ID
@@ -73,6 +73,11 @@ identifier: ID
 compoundType
 	: TYPE
 	| TYPE '[' INTCONSTANT ']'
+    ;
+
+literal : 'true'
+	| 'false'
+	| INTCONSTANT
     ;
 
 /* Lexer */
@@ -94,10 +99,6 @@ TYPE    : 'int'
 	| 'string'
 	| 'boolean'
 	| 'void'
-    ;
-
-LITERAL	: 'true'
-	| 'false'
     ;
 
 ID    : ('a'..'z' | 'A'..'Z' | '_')('a'..'z' | 'A'..'Z' | '_' | DIGIT)*
