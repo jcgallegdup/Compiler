@@ -70,7 +70,7 @@ identifier: ID
 // TODO: validate order of rules here
 compoundType
 	: TYPE
-	| TYPE '[' NUMBER ']'
+	| TYPE '[' INTCONSTANT ']'
     ;
 
 /* Lexer */
@@ -97,8 +97,7 @@ TYPE    : 'int'
 ID    : ('a'..'z' | 'A'..'Z' | '_')('a'..'z' | 'A'..'Z' | '_' | DIGIT)*
     ;
 
-// assumed INT by compoundType
-NUMBER
+INTCONSTANT
 	: DIGIT+
     ;
 
