@@ -5,8 +5,9 @@ void fO_123456789_Xa (int asdf_kdf23_ , int [000089] MEOW_meow_1094385, int [ 01
 
 int [0000008912] _1094385) {
 
+print false;
 print identifier ;
-print identifier ;
+print true;
 print identifier ;}
 
 char f12345098_234fXx_ (char lowercase , float UPPERCASE, boolean ______, void _1234567890) {
@@ -17,12 +18,15 @@ float _O_123456789 (boolean AAas_2394dkKJD, float __Ka235, string _KDJ___123, fl
   print _iD109 ;print _iD109 ;print _iD109 ;}
 
 int [100] _123456_FooZ (float _____1, void __KDkk1236,         string __3426Kka) {
- print MMmm0__945 ;
+ print MMmm0__945 ; print
+true
+;
 print 
 MMmm0__945 ;print MMmm0__945 ;}
 
 int _____123567FkoP (string __123Kk, string __234IKk, string __234IKk, string __234IKk, int UPPERCASE) {
- print _09 ; print _09 ; 
+ print _09 ; print _09 ; print false
+;
 print _09 
 ;}
 
@@ -32,6 +36,8 @@ string f12345098_234fXx_ (void askj_234wf, int D0_1234Kkk) {
 
 
 LL_kk98 
+;print
+true
 ;}
 
 

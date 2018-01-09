@@ -1,11 +1,17 @@
 void fO_123456789_Xa () {
 
 print identifier ;
+print
+true
+;
 print identifier ;
+print true ;
 print identifier ;}
 
 char f12345098_234fXx_ ( ) {
             print IDENTIFIER ;print IDENTIFIER ;
+print false
+;
 print IDENTIFIER ;}
 
 float _O_123456789 ( ) {
@@ -14,7 +20,9 @@ float _O_123456789 ( ) {
 int [100] _123456_FooZ ( ) {
  print MMmm0__945 ;
 print 
-MMmm0__945 ;print MMmm0__945 ;}
+MMmm0__945 ;print
+false
+;print MMmm0__945 ;}
 
 int _____123567FkoP ( ) {
  print _09 ; print _09 ; 
@@ -37,6 +45,7 @@ int ___1Kk,
 string _123KkksldjbB_) {
 
 
+print true;
 print 
 
 asdflkjSLDKFJ ;}

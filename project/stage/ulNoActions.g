@@ -62,7 +62,9 @@ statement
 	;
 
 expr
-	: ID;
+	: ID
+	| LITERAL
+	;
 
 identifier: ID
     ;
@@ -92,6 +94,10 @@ TYPE    : 'int'
 	| 'string'
 	| 'boolean'
 	| 'void'
+    ;
+
+LITERAL	: 'true'
+	| 'false'
     ;
 
 ID    : ('a'..'z' | 'A'..'Z' | '_')('a'..'z' | 'A'..'Z' | '_' | DIGIT)*

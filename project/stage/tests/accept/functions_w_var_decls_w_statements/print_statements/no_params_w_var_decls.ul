@@ -10,7 +10,8 @@ lowercase
 
 
 
-;;;print identifier ;}
+;;;print identifier ; ; print false; print true ; ; ; 
+;}
 
 char fF1_jJ2_ ( ) { 
 boolean _kK1_jJ2;char fF1_jJ2_;int [100] K1k_J2j_;int 
@@ -25,7 +26,7 @@ lowercase
 
 
 
-;;;print IDENTIFIER ;}float _0fF_9zZ ( ) { 
+;;print true;;print IDENTIFIER ;}float _0fF_9zZ ( ) { 
 
 
 boolean _kK1_jJ2
@@ -36,7 +37,10 @@ boolean _kK1_jJ2
 
 _____;string 
 lowercase
-;void UPPERCASE;;;;print _009133kK ;}
+;void UPPERCASE;;;;print _009133kK ;
+print 
+true
+;;}
 
 
 
@@ -82,5 +86,6 @@ void UPPERCASE ( ) {string
 lowercase
 ;void UPPERCASE; 
 ;
+print false;
 ;;print lkadLDKJF ;}
 

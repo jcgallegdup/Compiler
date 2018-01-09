@@ -12,7 +12,9 @@ _____1
 
 fO_123456789_Xa;
 
-print identifier ;}
+print true; print false;
+print identifier ;
+print false;}
 
 char f12345098_234fXx_ (char lowercase , float UPPERCASE, boolean ______, void _1234567890) {
     void fO_123456789_Xa;int [0000008912] _1094385;char f12345098_234fXx_;float 
@@ -22,7 +24,9 @@ char f12345098_234fXx_ (char lowercase , float UPPERCASE, boolean ______, void _
 
     fO_123456789_Xa;
 
-            print IDENTIFIER ;}
+           print true; print
+false
+;print IDENTIFIER ;}
 
 float _O_123456789 (boolean AAas_2394dkKJD, float __Ka235, string _KDJ___123, float __Ka235, string _KD1J___123, float __Ka235, string _KDJ___123) {
     void fO_123456789_Xa;int [0000008912] _1094385;char f12345098_234fXx_;float 
@@ -40,7 +44,7 @@ int [100] _123456_FooZ (float _____1, void __KDkk1236,         string __3426Kka)
 
 
     fO_123456789_Xa;
- print MMmm0__945 ;}
+ print true;print MMmm0__945 ;}
 
 int _____123567FkoP (string __123Kk, string __234IKk, string __234IKk, string __234IKk, int UPPERCASE) {
 
@@ -50,7 +54,8 @@ int _____123567FkoP (string __123Kk, string __234IKk, string __234IKk, string __
 
 
     fO_123456789_Xa;
- print _09 ;}
+ print _09 ;
+print false;}
 
 string f12345098_234fXx_ (void askj_234wf, int D0_1234Kkk) {
 
@@ -76,4 +81,6 @@ string _123KkksldjbB_) {
 
     fO_123456789_Xa;
 
-print asdflkjSLDKFJ ;}
+print asdflkjSLDKFJ ;print 
+
+true; print false;}
