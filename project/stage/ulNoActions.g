@@ -58,7 +58,11 @@ varDecl :	compoundType identifier ';'
 
 statement
 	:	 ';'
+	|	 PRINT expr ';'
 	;
+
+expr
+	: ID;
 
 identifier: ID
     ;
@@ -73,6 +77,8 @@ compoundType
      
 IF    : 'if'
     ;
+
+PRINT	:'print';
 
 /*
  * FIXME:
