@@ -41,7 +41,7 @@ functionDecl
 	: compoundType identifier '(' formalParams ')'
     ;
 
-functionBody: '{' varDecl* '}'
+functionBody: '{' varDecl* statement* '}'
     ;
 
 formalParams
@@ -54,6 +54,10 @@ moreFormals
 	;
 
 varDecl :	compoundType identifier ';'
+	;
+
+statement
+	:	 ';'
 	;
 
 identifier: ID
