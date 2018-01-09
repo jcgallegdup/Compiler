@@ -81,7 +81,7 @@ TYPE    : 'int'
 	| 'void'
     ;
 
-ID    : ('a'..'z' | 'A'..'Z' | '_')('a'..'z' | 'A'..'Z' | '_' | NUMBER)*
+ID    : ('a'..'z' | 'A'..'Z' | '_')('a'..'z' | 'A'..'Z' | '_' | DIGIT)*
     ;
 
 // assumed INT by compoundType
