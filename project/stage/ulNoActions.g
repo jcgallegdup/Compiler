@@ -78,6 +78,7 @@ compoundType
 literal : 'true'
 	| 'false'
 	| INTCONSTANT
+	| FLOATCONSTANT
     ;
 
 /* Lexer */
@@ -107,6 +108,8 @@ ID    : ('a'..'z' | 'A'..'Z' | '_')('a'..'z' | 'A'..'Z' | '_' | DIGIT)*
 INTCONSTANT
 	: DIGIT+
     ;
+
+FLOATCONSTANT: DIGIT+ '.' DIGIT+;
 
 
 /* These two lines match whitespace and comments 
