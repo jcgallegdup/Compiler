@@ -5,9 +5,9 @@ tests=$(find tests/$1 -type f -name "*.ul" | sed 's/\/\//\//')
 for filename in $tests
 do
     # TODO ensure that Compiler.class exists in current dir
-    echo "Running $filename"
+    echo "* Running $filename"
     output=$(java Compiler $filename)
-    echo ""
+    echo "\n\n"
 done
 
 numTests="$(echo $tests | wc -w)"
