@@ -7,6 +7,19 @@ void main (    ) {
     print 'C';
     print '_';
 
+    print "if";
+    print "void";
+    print "float";
+    print "ifvoid";
+    print "print";print
+    "false"
+    ;
+
+    print "STRING";
+    print "string"; print "12345"; print "0";
+    print "____"; print "iDentifi3R";
+    print "___1234567890JUANISHERE";
+
     print 
     1000
     ;
@@ -22,7 +35,10 @@ void main (    ) {
 boolean fOOO_123 ( int iXiX_09, boolean KKK, void meRP_, float _1, int [00019]num, int[0]cR  ) {
     void iDentifi3R_;int[0]cR
     ;
-    boolean KKK;
+    boolean KKK;;
+    ;;;print "STRING"
+
+    ;
     print 1;
     print 
     1000
@@ -33,6 +49,7 @@ boolean fOOO_123 ( int iXiX_09, boolean KKK, void meRP_, float _1, int [00019]nu
     print 1000000.0;
     print true;
     ;
-    ; ; ;
+    ; ;print"meep"; ;
+    ; ;print"123___if"; ;
     print false;
 }
