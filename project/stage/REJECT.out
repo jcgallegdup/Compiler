@@ -111,42 +111,52 @@ line 3:0 no viable alternative at input '}'
 
 
 
-* Running tests/reject/bad_print_statements/before_var_decl.ul
+* Running tests/reject/bad_statements/bad_expr_semicolon_statements/before_var_decl.ul
 line 3:4 mismatched input 'void' expecting '}'
 
 
 
-* Running tests/reject/bad_print_statements/missing_semicolon.ul
+* Running tests/reject/bad_statements/bad_expr_semicolon_statements/missing_semicolon.ul
+line 1:0 required (...)+ loop did not match anything at input 'flaot'
+
+
+
+* Running tests/reject/bad_statements/bad_print_statements/before_var_decl.ul
+line 3:4 mismatched input 'void' expecting '}'
+
+
+
+* Running tests/reject/bad_statements/bad_print_statements/missing_semicolon.ul
 line 1:0 required (...)+ loop did not match anything at input 'boolea'
 
 
 
-* Running tests/reject/bad_print_statements/no_literal.ul
+* Running tests/reject/bad_statements/bad_print_statements/no_literal.ul
 line 2:10 no viable alternative at input ';'
 
 
 
-* Running tests/reject/bad_print_statements/uppercase_print.ul
+* Running tests/reject/bad_statements/bad_print_statements/uppercase_print.ul
 line 2:10 mismatched input '"me"' expecting ';'
 
 
 
-* Running tests/reject/bad_println_statements/before_var_decl.ul
+* Running tests/reject/bad_statements/bad_println_statements/before_var_decl.ul
 line 3:4 mismatched input 'void' expecting '}'
 
 
 
-* Running tests/reject/bad_println_statements/missing_semicolon.ul
+* Running tests/reject/bad_statements/bad_println_statements/missing_semicolon.ul
 line 1:0 required (...)+ loop did not match anything at input 'boolea'
 
 
 
-* Running tests/reject/bad_println_statements/no_literal.ul
+* Running tests/reject/bad_statements/bad_println_statements/no_literal.ul
 line 2:12 no viable alternative at input ';'
 
 
 
-* Running tests/reject/bad_println_statements/uppercase_println.ul
+* Running tests/reject/bad_statements/bad_println_statements/uppercase_println.ul
 line 2:10 mismatched input '"me"' expecting ';'
 
 
@@ -196,9 +206,5 @@ line 5:0 mismatched input '}' expecting ';'
 
 
 
-* Running tests/reject/bad_var_decl/no_space_between_type_and_id.ul
 
-
-
-
-Ran       39 tests:
+Ran       40 tests:
