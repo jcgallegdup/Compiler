@@ -58,6 +58,7 @@ varDecl :	compoundType identifier ';'
 
 statement
 	:	 ';'
+	|    expr ';'
 	|	 PRINT expr ';'
     |    PRINTLN expr ';'
 	;
