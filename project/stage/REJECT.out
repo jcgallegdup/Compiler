@@ -131,6 +131,26 @@ line 2:4 mismatched input 'PRINT' expecting '}'
 
 
 
+* Running tests/reject/bad_println_statements/before_var_decl.ul
+line 3:4 mismatched input 'void' expecting '}'
+
+
+
+* Running tests/reject/bad_println_statements/missing_semicolon.ul
+line 1:0 required (...)+ loop did not match anything at input 'boolea'
+
+
+
+* Running tests/reject/bad_println_statements/no_literal.ul
+line 2:12 no viable alternative at input ';'
+
+
+
+* Running tests/reject/bad_println_statements/uppercase_println.ul
+line 2:4 mismatched input 'PRINT' expecting '}'
+
+
+
 * Running tests/reject/bad_var_decl/after_empty_statement.ul
 line 2:5 mismatched input 'int' expecting '}'
 
@@ -182,4 +202,4 @@ line 3:4 mismatched input 'voidInVarName' expecting '}'
 
 
 
-Ran       35 tests:
+Ran       39 tests:

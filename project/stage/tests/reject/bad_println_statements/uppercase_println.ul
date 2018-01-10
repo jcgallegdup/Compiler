@@ -1,0 +1,6 @@
+void main() {
+    PRINT "me";
+}
+void main() {
+    PRINTLN "me";
+}

@@ -59,6 +59,7 @@ varDecl :	compoundType identifier ';'
 statement
 	:	 ';'
 	|	 PRINT expr ';'
+    |    PRINTLN expr ';'
 	;
 
 expr
@@ -89,6 +90,8 @@ IF    : 'if'
     ;
 
 PRINT	:'print';
+
+PRINTLN	:'println';
 
 /*
  * FIXME:

@@ -1,0 +1,3 @@
+boolea foo() {
+    println 1
+}
