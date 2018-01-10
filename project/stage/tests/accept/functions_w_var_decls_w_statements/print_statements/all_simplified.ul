@@ -53,3 +53,58 @@ boolean fOOO_123 ( int iXiX_09, boolean KKK, void meRP_, float _1, int [00019]nu
     ; ;print"123___if"; ;
     print false;
 }
+void main (    ) {
+    void iDentifi3R_;
+    println 1;
+
+    println '1';
+    println 'c';
+    println 'C';
+    println '_';
+
+    println "if";
+    println "void";
+    println "float";
+    println "ifvoid";
+    println "print";print
+    "false"
+    ;
+
+    println "STRING";
+    println "string"; print "12345"; print "0";
+    println "____"; print "iDentifi3R";
+    println "___1234567890JUANISHERE";
+
+    println 
+    1000
+    ;
+    println 0.10000;
+    println 00000.19;
+    println 1000000.0;
+    println true;
+    ;
+    ; ; ;
+    println false;
+}
+
+boolean fOOO_123 ( int iXiX_09, boolean KKK, void meRP_, float _1, int [00019]num, int[0]cR  ) {
+    void iDentifi3R_;int[0]cR
+    ;
+    boolean KKK;;
+    ;;;println "STRING"
+
+    ;
+    println 1;
+    println 
+    1000
+    ;
+    println '0'; print 'Z'; print 'z'; print '_';
+    println 0.10000;
+    println 00000.19;
+    println 1000000.0;
+    println true;
+    ;
+    ; ;println"meep"; ;
+    ; ;println"123___if"; ;
+    println false;
+}
