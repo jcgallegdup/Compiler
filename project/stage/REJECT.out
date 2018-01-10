@@ -1,0 +1,185 @@
+* Running tests/reject/bad_func_decl/bad_ids/function_bad_id_1.ul
+line 1:0 no viable alternative at input 'void'
+
+
+
+* Running tests/reject/bad_func_decl/bad_ids/function_bad_id_1foo.ul
+line 1:0 no viable alternative at input 'void'
+
+
+
+* Running tests/reject/bad_func_decl/bad_params/multiple_params_extra_comma.ul
+line 9:1 no viable alternative at input ')'
+
+
+
+* Running tests/reject/bad_func_decl/bad_params/multiple_params_misplaced_comma.ul
+line 6:0 mismatched input 'int' expecting ')'
+
+
+
+* Running tests/reject/bad_func_decl/bad_params/multiple_params_missing_comma.ul
+line 6:0 mismatched input 'int' expecting ')'
+
+
+
+* Running tests/reject/bad_func_decl/bad_params/multiple_params_missing_id.ul
+line 1:24 no viable alternative at input 'int'
+
+
+
+* Running tests/reject/bad_func_decl/bad_params/no_param_w_comma.ul
+line 1:27 no viable alternative at input ','
+
+
+
+* Running tests/reject/bad_func_decl/bad_params/no_param_w_comma_w_id.ul
+line 1:27 no viable alternative at input 'INT'
+
+
+
+* Running tests/reject/bad_func_decl/bad_params/no_param_w_comma_w_type.ul
+line 1:27 no viable alternative at input 'int'
+
+
+
+* Running tests/reject/bad_func_decl/bad_params/no_param_w_id.ul
+line 1:27 no viable alternative at input 'idNameThanks'
+
+
+
+* Running tests/reject/bad_func_decl/bad_params/no_param_w_type.ul
+line 1:27 no viable alternative at input 'int'
+
+
+
+* Running tests/reject/bad_func_decl/bad_types/function_bad_type_VOID.ul
+line 1:0 required (...)+ loop did not match anything at input 'VOID'
+
+
+
+* Running tests/reject/bad_literals/char_missing_end_quote.ul
+line 2:12 mismatched character 'e' expecting '''
+line 3:0 no viable alternative at input '}'
+
+
+
+* Running tests/reject/bad_literals/print/bad_float.ul
+line 3:15 mismatched input 'k' expecting ';'
+
+
+
+* Running tests/reject/bad_literals/print/char_one_excl.ul
+line 2:11 mismatched character '!' expecting set null
+line 2:13 no viable alternative at input ';'
+
+
+
+* Running tests/reject/bad_literals/print/empty_char.ul
+line 2:11 mismatched character ''' expecting set null
+line 3:0 no viable alternative at input '}'
+
+
+
+* Running tests/reject/bad_literals/print/empty_string.ul
+line 2:11 required (...)+ loop did not match anything at character '"'
+line 2:12 no viable alternative at input ';'
+
+
+
+* Running tests/reject/bad_literals/print/one_space_char.ul
+line 2:11 mismatched character ' ' expecting set null
+line 2:13 no viable alternative at input ';'
+
+
+
+* Running tests/reject/bad_literals/print/string_w_excl.ul
+line 2:14 mismatched character '!' expecting '"'
+line 2:16 no viable alternative at input ';'
+
+
+
+* Running tests/reject/bad_literals/print/string_w_spaces.ul
+line 2:25 mismatched character ' ' expecting '"'
+line 2:27 no viable alternative at input ';'
+
+
+
+* Running tests/reject/bad_literals/string_missing_end_quote.ul
+line 2:13 mismatched character ';' expecting '"'
+line 3:0 no viable alternative at input '}'
+
+
+
+* Running tests/reject/bad_print_statements/before_var_decl.ul
+line 3:4 mismatched input 'void' expecting '}'
+
+
+
+* Running tests/reject/bad_print_statements/missing_semicolon.ul
+line 1:0 required (...)+ loop did not match anything at input 'boolea'
+
+
+
+* Running tests/reject/bad_print_statements/no_literal.ul
+line 2:10 no viable alternative at input ';'
+
+
+
+* Running tests/reject/bad_print_statements/uppercase_print.ul
+line 2:4 mismatched input 'PRINT' expecting '}'
+
+
+
+* Running tests/reject/bad_var_decl/after_empty_statement.ul
+line 2:5 mismatched input 'int' expecting '}'
+
+
+
+* Running tests/reject/bad_var_decl/after_print_char.ul
+line 3:4 mismatched input 'void' expecting '}'
+
+
+
+* Running tests/reject/bad_var_decl/after_print_float.ul
+line 3:4 mismatched input 'void' expecting '}'
+
+
+
+* Running tests/reject/bad_var_decl/after_print_id.ul
+line 3:4 mismatched input 'void' expecting '}'
+
+
+
+* Running tests/reject/bad_var_decl/after_print_int.ul
+line 3:4 mismatched input 'void' expecting '}'
+
+
+
+* Running tests/reject/bad_var_decl/bad_id_start_w_num.ul
+line 3:4 no viable alternative at input 'void'
+
+
+
+* Running tests/reject/bad_var_decl/incorrect_type.ul
+line 3:4 mismatched input 'voiD' expecting '}'
+
+
+
+* Running tests/reject/bad_var_decl/misplaced_semicolon.ul
+line 2:39 mismatched input 'int' expecting ';'
+
+
+
+* Running tests/reject/bad_var_decl/missing_semicolon.ul
+line 5:0 mismatched input '}' expecting ';'
+
+
+
+* Running tests/reject/bad_var_decl/no_space_between_type_and_id.ul
+line 3:4 mismatched input 'voidInVarName' expecting '}'
+
+
+
+
+Ran       35 tests:
