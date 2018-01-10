@@ -1,0 +1,4 @@
+boolean f(int m) {
+    print 1;
+    void meep;
+}
