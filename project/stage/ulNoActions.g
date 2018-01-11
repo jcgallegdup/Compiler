@@ -62,9 +62,12 @@ statement
 	|	 PRINT expr ';'
     |    PRINTLN expr ';'
     	| RETURN expr? ';'
+    	| WHILE '(' expr ')' block
     	| ID EQUALS expr ';'
     	| ID '[' expr ']' EQUALS expr ';'
 	;
+
+block 	:'{' statement* '}';
 
 expr
 	: ID
@@ -92,6 +95,8 @@ literal : 'true'
      
 IF    : 'if'
     ;
+
+WHILE 	:'while';
 
 PRINT	:'print';
 

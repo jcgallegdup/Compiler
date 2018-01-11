@@ -111,6 +111,46 @@ line 3:0 no viable alternative at input '}'
 
 
 
+* Running tests/reject/bad_statements/bad_assignments/aggregate_types/assign_to_keyword.ul
+line 2:10 no viable alternative at input 'if'
+
+
+
+* Running tests/reject/bad_statements/bad_assignments/aggregate_types/before_var_decl.ul
+line 3:4 mismatched input 'int' expecting '}'
+
+
+
+* Running tests/reject/bad_statements/bad_assignments/aggregate_types/missing_semicolon.ul
+line 4:0 mismatched input '}' expecting ';'
+
+
+
+* Running tests/reject/bad_statements/bad_assignments/aggregate_types/no_literal.ul
+line 2:16 no viable alternative at input ';'
+
+
+
+* Running tests/reject/bad_statements/bad_assignments/scalar_types/assign_to_keyword.ul
+line 2:9 no viable alternative at input 'if'
+
+
+
+* Running tests/reject/bad_statements/bad_assignments/scalar_types/before_var_decl.ul
+line 3:4 mismatched input 'int' expecting '}'
+
+
+
+* Running tests/reject/bad_statements/bad_assignments/scalar_types/missing_semicolon.ul
+line 4:0 mismatched input '}' expecting ';'
+
+
+
+* Running tests/reject/bad_statements/bad_assignments/scalar_types/no_literal.ul
+line 2:9 no viable alternative at input ';'
+
+
+
 * Running tests/reject/bad_statements/bad_expr_semicolon_statements/before_var_decl.ul
 line 3:4 mismatched input 'void' expecting '}'
 
@@ -176,6 +216,31 @@ line 2:11 mismatched input 'void' expecting ';'
 
 
 
+* Running tests/reject/bad_statements/bad_while/before_var_decl.ul
+line 3:4 mismatched input 'boolean' expecting '}'
+
+
+
+* Running tests/reject/bad_statements/bad_while/compound_assignment_in_condition.ul
+line 2:16 mismatched input '[' expecting ')'
+
+
+
+* Running tests/reject/bad_statements/bad_while/missing_brace.ul
+line 0:-1 mismatched input '<EOF>' expecting '}'
+
+
+
+* Running tests/reject/bad_statements/bad_while/scalar_assignment_in_condition.ul
+line 2:16 mismatched input '=' expecting ')'
+
+
+
+* Running tests/reject/bad_statements/bad_while/var_decl_in_condition.ul
+line 2:11 no viable alternative at input 'void'
+
+
+
 * Running tests/reject/bad_var_decl/after_empty_statement.ul
 line 2:5 mismatched input 'int' expecting '}'
 
@@ -222,44 +287,4 @@ line 5:0 mismatched input '}' expecting ';'
 
 
 
-* Running tests/reject/bad_statements/bad_assignments/aggregate_types/assign_to_keyword.ul
-line 2:10 no viable alternative at input 'if'
-
-
-
-* Running tests/reject/bad_statements/bad_assignments/aggregate_types/before_var_decl.ul
-line 3:4 mismatched input 'int' expecting '}'
-
-
-
-* Running tests/reject/bad_statements/bad_assignments/aggregate_types/missing_semicolon.ul
-line 4:0 mismatched input '}' expecting ';'
-
-
-
-* Running tests/reject/bad_statements/bad_assignments/aggregate_types/no_literal.ul
-line 2:16 no viable alternative at input ';'
-
-
-
-* Running tests/reject/bad_statements/bad_assignments/scalar_types/assign_to_keyword.ul
-line 2:9 no viable alternative at input 'if'
-
-
-
-* Running tests/reject/bad_statements/bad_assignments/scalar_types/before_var_decl.ul
-line 3:4 mismatched input 'int' expecting '}'
-
-
-
-* Running tests/reject/bad_statements/bad_assignments/scalar_types/missing_semicolon.ul
-line 4:0 mismatched input '}' expecting ';'
-
-
-
-* Running tests/reject/bad_statements/bad_assignments/scalar_types/no_literal.ul
-line 2:9 no viable alternative at input ';'
-
-
-
-Ran       51 tests:
+Ran       56 tests:

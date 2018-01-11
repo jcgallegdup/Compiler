@@ -1,0 +1,23 @@
+void m(){
+    while (1) {
+
+    }
+
+    while ("_01STRING") {
+        print "WOOP";
+    }
+
+    while ('c') {
+        println false;
+        identifier;
+    }
+
+    while (000.901) {
+        while (true) {
+            return ;
+            return 'c';
+        }
+    }
+    while (true) { ;; id[001]=WOOP; }
+    while (ID) { identifier="GOOD";}
+}	
