@@ -222,22 +222,22 @@ line 5:0 mismatched input '}' expecting ';'
 
 
 
-* Running tests/reject/bad_statements/bad_assignments/assign_to_keyword.ul
+* Running tests/reject/bad_statements/bad_assignments/scalar_types/assign_to_keyword.ul
 line 2:9 no viable alternative at input 'if'
 
 
 
-* Running tests/reject/bad_statements/bad_assignments/before_var_decl.ul
+* Running tests/reject/bad_statements/bad_assignments/scalar_types/before_var_decl.ul
 line 3:4 mismatched input 'int' expecting '}'
 
 
 
-* Running tests/reject/bad_statements/bad_assignments/missing_semicolon.ul
+* Running tests/reject/bad_statements/bad_assignments/scalar_types/missing_semicolon.ul
 line 4:0 mismatched input '}' expecting ';'
 
 
 
-* Running tests/reject/bad_statements/bad_assignments/no_literal.ul
+* Running tests/reject/bad_statements/bad_assignments/scalar_types/no_literal.ul
 line 2:9 no viable alternative at input ';'
 
 
