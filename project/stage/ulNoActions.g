@@ -61,6 +61,7 @@ statement
 	|    expr ';'
 	|	 PRINT expr ';'
     |    PRINTLN expr ';'
+    	| RETURN expr? ';'
 	;
 
 expr
@@ -93,6 +94,8 @@ IF    : 'if'
 PRINT	:'print';
 
 PRINTLN	:'println';
+
+RETURN	:'return';
 
 /*
  * FIXME:

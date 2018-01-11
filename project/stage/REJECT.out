@@ -161,6 +161,21 @@ line 2:10 mismatched input '"me"' expecting ';'
 
 
 
+* Running tests/reject/bad_statements/bad_return_statements/before_var_decl.ul
+line 3:4 mismatched input 'boolean' expecting '}'
+
+
+
+* Running tests/reject/bad_statements/bad_return_statements/missing_semicolon.ul
+line 3:0 mismatched input '}' expecting ';'
+
+
+
+* Running tests/reject/bad_statements/bad_return_statements/return_var_decl.ul
+line 2:11 mismatched input 'void' expecting ';'
+
+
+
 * Running tests/reject/bad_var_decl/after_empty_statement.ul
 line 2:5 mismatched input 'int' expecting '}'
 
@@ -207,4 +222,4 @@ line 5:0 mismatched input '}' expecting ';'
 
 
 
-Ran       40 tests:
+Ran       43 tests:
