@@ -161,23 +161,53 @@ line 1:0 required (...)+ loop did not match anything at input 'flaot'
 
 
 
+* Running tests/reject/bad_statements/bad_expr_w_parentheses/in_compound_assignment.ul
+line 2:12 mismatched input ']' expecting ')'
+
+
+
+* Running tests/reject/bad_statements/bad_expr_w_parentheses/in_if.ul
+line 2:12 mismatched input ')' expecting '{'
+
+
+
+* Running tests/reject/bad_statements/bad_expr_w_parentheses/in_if_else.ul
+line 3:6 mismatched input 'else' expecting '}'
+
+
+
+* Running tests/reject/bad_statements/bad_expr_w_parentheses/in_print.ul
+line 2:14 mismatched input ')' expecting ';'
+
+
+
+* Running tests/reject/bad_statements/bad_expr_w_parentheses/in_scalar_assignment.ul
+line 2:14 mismatched input ';' expecting ')'
+
+
+
+* Running tests/reject/bad_statements/bad_expr_w_parentheses/in_while.ul
+line 2:18 mismatched input ')' expecting '{'
+
+
+
 * Running tests/reject/bad_statements/bad_if/before_var_decl.ul
-line 3:4 no viable alternative at input 'boolean'
+line 3:4 mismatched input 'boolean' expecting '}'
 
 
 
 * Running tests/reject/bad_statements/bad_if/compound_assignment_in_condition.ul
-line 2:13 no viable alternative at input '['
+line 2:13 mismatched input '[' expecting ')'
 
 
 
 * Running tests/reject/bad_statements/bad_if/missing_brace.ul
-line 0:-1 no viable alternative at input '<EOF>'
+line 0:-1 mismatched input '<EOF>' expecting '}'
 
 
 
 * Running tests/reject/bad_statements/bad_if/scalar_assignment_in_condition.ul
-line 2:13 no viable alternative at input '='
+line 2:13 mismatched input '=' expecting ')'
 
 
 
@@ -192,7 +222,7 @@ line 3:4 mismatched input 'boolean' expecting '}'
 
 
 * Running tests/reject/bad_statements/bad_if_else/compound_assignment_in_condition.ul
-line 2:13 no viable alternative at input '['
+line 2:13 mismatched input '[' expecting ')'
 
 
 
@@ -207,7 +237,7 @@ line 2:4 mismatched input 'else' expecting '}'
 
 
 * Running tests/reject/bad_statements/bad_if_else/lone_else_within_if.ul
-line 3:8 no viable alternative at input 'else'
+line 3:8 mismatched input 'else' expecting '}'
 
 
 
@@ -217,7 +247,7 @@ line 0:-1 mismatched input '<EOF>' expecting '}'
 
 
 * Running tests/reject/bad_statements/bad_if_else/scalar_assignment_in_condition.ul
-line 2:13 no viable alternative at input '='
+line 2:13 mismatched input '=' expecting ')'
 
 
 
@@ -352,4 +382,4 @@ line 5:0 mismatched input '}' expecting ';'
 
 
 
-Ran       69 tests:
+Ran       75 tests:

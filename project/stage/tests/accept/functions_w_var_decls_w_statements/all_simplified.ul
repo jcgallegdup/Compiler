@@ -14,6 +14,11 @@ void main (    ) {
     print "print";print
     "false"
     ;
+    print "float";
+    print "ifvoid";
+    print "print";print
+    "false"
+    ;
 
     print "STRING";
     print "string"; print "12345"; print "0";
@@ -41,6 +46,7 @@ void main (    ) {
     _09;
     iI_10;
 }
+
 
 boolean fOOO_123 ( int iXiX_09, boolean KKK, void meRP_, float _1, int [00019]num, int[0]cR  ) {
     void iDentifi3R_;int[0]cR
@@ -441,3 +447,83 @@ void m(){
     if (true) { ;; id[001]=WOOP; }
     if (ID) { identifier="GOOD";}
 }	
+
+float test_expr_w_parentheses() {
+    print ('1');
+    print (('c'));
+    print ((('C')));
+    print ('_');
+
+    print ("if");
+    print ((("void")));
+    print 
+    (
+    1000
+    )
+    ;
+    print (((0.10000)));
+    print (00000.19);
+    print ((true));
+    ;
+    ; ; ;
+    print (false
+    );
+
+    ("string"); "sS_00912"; "___"; "UPPER";
+    ('c');
+    (1); (((0001))); ((1.0001)); 000.0;
+
+    (identifier) ;
+    ((ID));
+    (((iI_10)));
+    println ('1');
+    println (('c'));
+    println ((('C')));
+    println ('_');
+
+    println ("if");
+    println ((("void")));
+    println 
+    (
+    1000
+    )
+    ;
+    println (((0.10000)));
+    println (00000.19);
+    println ((true));
+    ;
+
+    return ("if");
+    return ((("void")));
+    return 
+    (
+    1000
+    )
+    ;
+    return (((0.10000)));
+    return (00000.19);
+    return ((true));
+    ;
+
+    if (((1))) {
+
+    }
+
+    if ((("_01STRING"))) {
+        print "WOOP";
+    }
+
+    if (('c')) {
+        println false;
+        identifier;
+    }
+
+    if ((000.901)) {
+        if ((true)) {
+            return ;
+            return ('c');
+        }
+    }
+    if (true) { ;; id[((001))]=(((WOOP))); }
+    if (ID) { identifier=(("GOOD"));}
+}

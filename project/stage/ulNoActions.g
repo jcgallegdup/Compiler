@@ -78,6 +78,7 @@ block 	: '{' statement* '}';
 expr
 	: ID
 	| literal
+    | '(' expr ')'
 	;
 
 identifier: ID
