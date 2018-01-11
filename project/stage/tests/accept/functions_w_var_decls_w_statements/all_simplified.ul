@@ -385,6 +385,27 @@ void main () {
     woop = "STRING";
     wOOP = "string";
     __nopeO_12= "____0912";
+    if (1) {
+
+    }
+
+    if ("_01STRING") {
+        print "WOOP";
+    }
+
+    if ('c') {
+        println false;
+        identifier;
+    }
+
+    if (000.901) {
+        if (true) {
+            return ;
+            return 'c';
+        }
+    }
+    if (true) { ;; id[001]=WOOP; }
+    if (ID) { identifier="GOOD";}
 
     identifer[     1       ]=00001;
     IDENTIFIER["STRING"]=id;
@@ -397,3 +418,26 @@ void main () {
     wOOP[identifier] = "string";
     __nopeO_12[ID_]="____0912";
 }
+void m(){
+    if (1) {
+
+    }
+
+    if ("_01STRING") {
+        print "WOOP";
+    }
+
+    if ('c') {
+        println false;
+        identifier;
+    }
+
+    if (000.901) {
+        if (true) {
+            return ;
+            return 'c';
+        }
+    }
+    if (true) { ;; id[001]=WOOP; }
+    if (ID) { identifier="GOOD";}
+}	

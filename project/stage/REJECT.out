@@ -161,6 +161,31 @@ line 1:0 required (...)+ loop did not match anything at input 'flaot'
 
 
 
+* Running tests/reject/bad_statements/bad_if/before_var_decl.ul
+line 3:4 mismatched input 'boolean' expecting '}'
+
+
+
+* Running tests/reject/bad_statements/bad_if/compound_assignment_in_condition.ul
+line 2:13 mismatched input '[' expecting ')'
+
+
+
+* Running tests/reject/bad_statements/bad_if/missing_brace.ul
+line 0:-1 mismatched input '<EOF>' expecting '}'
+
+
+
+* Running tests/reject/bad_statements/bad_if/scalar_assignment_in_condition.ul
+line 2:13 mismatched input '=' expecting ')'
+
+
+
+* Running tests/reject/bad_statements/bad_if/var_decl_in_condition.ul
+line 2:8 no viable alternative at input 'void'
+
+
+
 * Running tests/reject/bad_statements/bad_print_statements/before_var_decl.ul
 line 3:4 mismatched input 'void' expecting '}'
 
@@ -287,4 +312,4 @@ line 5:0 mismatched input '}' expecting ';'
 
 
 
-Ran       56 tests:
+Ran       61 tests:

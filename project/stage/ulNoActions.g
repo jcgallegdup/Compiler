@@ -63,6 +63,7 @@ statement
     |    PRINTLN expr ';'
     	| RETURN expr? ';'
     	| WHILE '(' expr ')' block
+    	| IF '(' expr ')' block
     	| ID EQUALS expr ';'
     	| ID '[' expr ']' EQUALS expr ';'
 	;

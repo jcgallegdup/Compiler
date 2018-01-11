@@ -1,0 +1,28 @@
+void m(){
+    if (1) {
+
+    }
+
+    if ("_01STRING") {
+        print "WOOP";
+    }
+
+    if ('c') {
+        println false;
+        identifier;
+    }
+
+    if (000.901) {
+        if (true) {
+            return ;
+            return 'c';
+        }
+        
+        while (true) {
+            return ;
+            return 'c';
+        }
+    }
+    if (true) { ;; id[001]=WOOP; }
+    if (ID) { identifier="GOOD";}
+}	
