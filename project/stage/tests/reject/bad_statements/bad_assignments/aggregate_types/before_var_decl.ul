@@ -1,0 +1,4 @@
+void main() {
+    id[0001] = 1;
+    int id;
+}

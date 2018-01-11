@@ -286,6 +286,17 @@ void main (    ) {
     ; ; ;
     return false;
 
+
+    identifer[     1       ]=00001;
+    IDENTIFIER["STRING"]=id;
+    _ANOTHER_ID[   0000.91001 ]
+    =
+    0.00109
+    ;
+    _09['c'] = 09;
+    woop[false]= "STRING";
+    wOOP[identifier] = "string";
+    __nopeO_12[ID_]="____0912";
     "string"; "sS_00912"; "___"; "UPPER";
     'c'; '0'; '_'; 'C';
     1; 0001; 1.0001; 000.0;
@@ -325,6 +336,17 @@ boolean fOOO_123 ( int iXiX_09, boolean KKK, void meRP_, float _1, int [00019]nu
     return 00000.19;
     return 1000000.0;
     return true;
+
+    identifer[     1       ]=00001;
+    IDENTIFIER["STRING"]=id;
+    _ANOTHER_ID[   0000.91001 ]
+    =
+    0.00109
+    ;
+    _09['c'] = 09;
+    woop[false]= "STRING";
+    wOOP[identifier] = "string";
+    __nopeO_12[ID_]="____0912";
     ;
     ; ;return"meep"; ;
     ; ;return"123___if"; ;
@@ -351,4 +373,27 @@ void main () {
     woop = "STRING";
     wOOP = "string";
     __nopeO_12= "____0912";
+}
+void main () {
+    identifer = 00001;
+    IDENTIFIER=id;
+    _ANOTHER_ID
+    =
+    0.00109
+    ;
+    _09 = 09;
+    woop = "STRING";
+    wOOP = "string";
+    __nopeO_12= "____0912";
+
+    identifer[     1       ]=00001;
+    IDENTIFIER["STRING"]=id;
+    _ANOTHER_ID[   0000.91001 ]
+    =
+    0.00109
+    ;
+    _09['c'] = 09;
+    woop[false]= "STRING";
+    wOOP[identifier] = "string";
+    __nopeO_12[ID_]="____0912";
 }

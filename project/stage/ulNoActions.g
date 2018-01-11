@@ -63,6 +63,7 @@ statement
     |    PRINTLN expr ';'
     	| RETURN expr? ';'
     	| ID EQUALS expr ';'
+    	| ID '[' expr ']' EQUALS expr ';'
 	;
 
 expr

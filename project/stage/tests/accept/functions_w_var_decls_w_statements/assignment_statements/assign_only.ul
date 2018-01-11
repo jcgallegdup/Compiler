@@ -9,4 +9,15 @@ void main () {
     woop = "STRING";
     wOOP = "string";
     __nopeO_12= "____0912";
+
+    identifer[     1       ]=00001;
+    IDENTIFIER["STRING"]=id;
+    _ANOTHER_ID[   0000.91001 ]
+    =
+    0.00109
+    ;
+    _09['c'] = 09;
+    woop[false]= "STRING";
+    wOOP[identifier] = "string";
+    __nopeO_12[ID_]="____0912";
 }
