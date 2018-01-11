@@ -62,13 +62,18 @@ statement
 	|	 PRINT expr ';'
     |    PRINTLN expr ';'
     	| RETURN expr? ';'
+    	| ifStatement
     	| WHILE '(' expr ')' block
-    	| IF '(' expr ')' block
     	| ID EQUALS expr ';'
     	| ID '[' expr ']' EQUALS expr ';'
 	;
 
-block 	:'{' statement* '}';
+ifStatement options {backtrack=true;}
+	: IF '(' expr ')' block ELSE block
+	| IF '(' expr ')' block
+    ;
+
+block 	: '{' statement* '}';
 
 expr
 	: ID
@@ -96,6 +101,8 @@ literal : 'true'
      
 IF    : 'if'
     ;
+
+ELSE	:'else';
 
 WHILE 	:'while';
 

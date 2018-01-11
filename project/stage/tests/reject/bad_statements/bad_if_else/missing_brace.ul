@@ -1,0 +1,7 @@
+boolean f() {
+    if ( "ok" ) {
+
+    } else {
+
+
+}

@@ -1,0 +1,3 @@
+int F() {
+    if(  temp=0 ) { } else {}
+}
