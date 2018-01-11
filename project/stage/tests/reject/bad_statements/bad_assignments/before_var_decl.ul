@@ -1,0 +1,4 @@
+void main() {
+    id = 1;
+    int id;
+}

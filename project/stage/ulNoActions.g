@@ -62,6 +62,7 @@ statement
 	|	 PRINT expr ';'
     |    PRINTLN expr ';'
     	| RETURN expr? ';'
+    	| ID EQUALS expr ';'
 	;
 
 expr
@@ -96,6 +97,8 @@ PRINT	:'print';
 PRINTLN	:'println';
 
 RETURN	:'return';
+
+EQUALS 	: '=';
 
 /*
  * FIXME:
