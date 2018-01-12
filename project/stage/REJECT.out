@@ -201,6 +201,16 @@ line 3:4 mismatched input 'void' expecting '}'
 
 
 
+* Running tests/reject/bad_statements/bad_func_calls/extra_comma.ul
+line 2:15 no viable alternative at input ')'
+
+
+
+* Running tests/reject/bad_statements/bad_func_calls/missing_comma.ul
+line 2:21 mismatched input '5' expecting ')'
+
+
+
 * Running tests/reject/bad_statements/bad_if/before_var_decl.ul
 line 3:4 mismatched input 'boolean' expecting '}'
 
@@ -392,4 +402,4 @@ line 5:0 mismatched input '}' expecting ';'
 
 
 
-Ran       77 tests:
+Ran       79 tests:

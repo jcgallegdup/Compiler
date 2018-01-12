@@ -65,11 +65,19 @@ expr
     ;
 
 exprAtom
-        : ID '[' expr ']'
+        : ID '(' exprList ')'
+        | ID '[' expr ']'
         | ID
         | literal
         | '(' expr ')'
     ;
+
+exprList
+        : expr exprMore*
+        |
+    ;
+
+exprMore: ',' expr;
 
 identifier: ID;
 

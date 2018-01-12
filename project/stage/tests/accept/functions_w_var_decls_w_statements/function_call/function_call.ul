@@ -1,0 +1,15 @@
+void m() {
+    id ( expr );
+    id ( expr('c') );
+    id ( ((expr("STRING") )));
+    id ( id ( (( expr ( 1 ) )) ) );
+    
+    ___VALID_ID (
+        ((arg1)),
+        "anotherArg123",
+        IDENTIFIER1 [ funcCall(0, 'c') ], 
+        RATTLED ( true, false, "MEEP")
+    );
+
+    ;
+}
