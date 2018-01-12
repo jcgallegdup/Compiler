@@ -1,0 +1,4 @@
+void m() {
+    expr [ expr ];
+    void d = 1;
+}

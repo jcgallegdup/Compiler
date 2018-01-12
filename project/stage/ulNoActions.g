@@ -41,7 +41,7 @@ moreFormals: ',' compoundType identifier;
 
 varDecl: compoundType identifier ';';
 
-statement
+statement options {backtrack=true;}
         : ';'
         | expr ';'
         | PRINT expr ';'
@@ -61,10 +61,15 @@ ifStatement options {backtrack=true;}
 block: '{' statement* '}';
 
 expr
-        : ID
+        : exprAtom
+    ;
+
+exprAtom
+        : ID '[' expr ']'
+        | ID
         | literal
         | '(' expr ')'
-        ;
+    ;
 
 identifier: ID;
 

@@ -191,13 +191,23 @@ line 2:18 mismatched input ')' expecting '{'
 
 
 
+* Running tests/reject/bad_statements/bad_expr_with_key_access/bad_nested_expr.ul
+line 2:24 mismatched input '_' expecting ')'
+
+
+
+* Running tests/reject/bad_statements/bad_expr_with_key_access/before_var_decl.ul
+line 3:4 mismatched input 'void' expecting '}'
+
+
+
 * Running tests/reject/bad_statements/bad_if/before_var_decl.ul
 line 3:4 mismatched input 'boolean' expecting '}'
 
 
 
 * Running tests/reject/bad_statements/bad_if/compound_assignment_in_condition.ul
-line 2:13 mismatched input '[' expecting ')'
+line 2:16 mismatched input '=' expecting ')'
 
 
 
@@ -207,7 +217,7 @@ line 0:-1 mismatched input '<EOF>' expecting '}'
 
 
 * Running tests/reject/bad_statements/bad_if/scalar_assignment_in_condition.ul
-line 2:13 mismatched input '=' expecting ')'
+line 2:9 no viable alternative at input 'temp'
 
 
 
@@ -222,7 +232,7 @@ line 3:4 mismatched input 'boolean' expecting '}'
 
 
 * Running tests/reject/bad_statements/bad_if_else/compound_assignment_in_condition.ul
-line 2:13 mismatched input '[' expecting ')'
+line 2:16 mismatched input '=' expecting ')'
 
 
 
@@ -247,7 +257,7 @@ line 0:-1 mismatched input '<EOF>' expecting '}'
 
 
 * Running tests/reject/bad_statements/bad_if_else/scalar_assignment_in_condition.ul
-line 2:13 mismatched input '=' expecting ')'
+line 2:9 no viable alternative at input 'temp'
 
 
 
@@ -317,7 +327,7 @@ line 3:4 mismatched input 'boolean' expecting '}'
 
 
 * Running tests/reject/bad_statements/bad_while/compound_assignment_in_condition.ul
-line 2:16 mismatched input '[' expecting ')'
+line 2:19 mismatched input '=' expecting ')'
 
 
 
@@ -327,7 +337,7 @@ line 0:-1 mismatched input '<EOF>' expecting '}'
 
 
 * Running tests/reject/bad_statements/bad_while/scalar_assignment_in_condition.ul
-line 2:16 mismatched input '=' expecting ')'
+line 2:12 no viable alternative at input 'temp'
 
 
 
@@ -382,4 +392,4 @@ line 5:0 mismatched input '}' expecting ';'
 
 
 
-Ran       75 tests:
+Ran       77 tests:
