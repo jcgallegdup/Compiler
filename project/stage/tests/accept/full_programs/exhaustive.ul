@@ -603,7 +603,7 @@ void m(){
     } else { println "d"; print 1; if (1) { } else { if (true) {expr;} } }
     if (true) { ;; id[001]=WOOP; } else { ;;;; }
     if (ID) { identifier="GOOD";} else {}
-} else 	
+} 	
 void m(){
     if (1) {
 
