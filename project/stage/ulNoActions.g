@@ -60,9 +60,13 @@ ifStatement options {backtrack=true;}
 
 block: '{' statement* '}';
 
-expr
-        : exprAtom
-    ;
+expr: lessThanExpr ('==' lessThanExpr)*;
+
+lessThanExpr: addExpr ('<' addExpr)*;
+
+addExpr: multExpr (('+'|'-') multExpr)*;
+
+multExpr: exprAtom ('*' exprAtom)*;
 
 exprAtom
         : ID '(' exprList ')'

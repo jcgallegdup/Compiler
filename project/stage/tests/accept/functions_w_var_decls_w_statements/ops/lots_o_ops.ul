@@ -1,0 +1,5 @@
+void main() {
+    id + 4 * 3 - id[1  ] - 0 * funcCall("string", "anotherArg");
+    ((id + 4) * 3 - id[true]) - 0 * funcCall(false, 000.0001, anotheCall(id[  0001.0001]));
+    (('c') * "string" - 1) * 000.000 + ID * false;
+}
