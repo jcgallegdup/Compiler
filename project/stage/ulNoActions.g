@@ -28,18 +28,18 @@ program: function+ EOF;
 
 function: functionDecl functionBody;
 
-functionDecl: compoundType identifier '(' formalParams ')';
+functionDecl: compoundType ID '(' formalParams ')';
 
 functionBody: '{' varDecl* statement* '}';
 
 formalParams
-        : compoundType identifier moreFormals*
+        : compoundType ID moreFormals*
         |
     ;
 
-moreFormals: ',' compoundType identifier;
+moreFormals: ',' compoundType ID;
 
-varDecl: compoundType identifier ';';
+varDecl: compoundType ID ';';
 
 statement options {backtrack=true;}
         : ';'
@@ -82,8 +82,6 @@ exprList
     ;
 
 exprMore: ',' expr;
-
-identifier: ID;
 
 compoundType
         : TYPE
