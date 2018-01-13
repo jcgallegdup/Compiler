@@ -4,7 +4,7 @@
 
 ### Testing
 - move to `stage` directory: `cd project/stage`
-- build project: `make clean && make`
+- build project: `make`
 
 #### Run Existing Tests
 - optionally specify whether to run accept or reject inputs:
