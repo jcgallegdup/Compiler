@@ -24,6 +24,7 @@ void main (    ) {
     print "string"; print "12345"; print "0";
     print "____"; print "iDentifi3R";
     print "___1234567890JUANISHERE";
+    print "this is a string _ 123 009";
 
     print 
     1000
@@ -110,6 +111,7 @@ void main (    ) {
     println "string"; print "12345"; print "0";
     println "____"; print "iDentifi3R";
     println "___1234567890JUANISHERE";
+    println "this is a string _ 123 009";
 
     println 
     1000
@@ -195,6 +197,7 @@ void main (    ) {
     return "string"; print "12345"; print "0";
     return "____"; print "iDentifi3R";
     return "___1234567890JUANISHERE";
+    return "this is a string _ 123 009";
 
     return 
     1000
@@ -210,6 +213,7 @@ void main (    ) {
     "string"; "sS_00912"; "___"; "UPPER";
     'c'; '0'; '_'; 'C';
     1; 0001; 1.0001; 000.0;
+    "     WOOP this is a string baby";
 
     identifier ;
     ID;
@@ -303,6 +307,7 @@ void main (    ) {
     woop[false]= "STRING";
     wOOP[identifier] = "string";
     __nopeO_12[ID_]="____0912";
+    id[" this 123 _ THIS"];
     "string"; "sS_00912"; "___"; "UPPER";
     'c'; '0'; '_'; 'C';
     1; 0001; 1.0001; 000.0;
@@ -408,6 +413,12 @@ void main () {
         if (true) {
             return ;
             return 'c';
+        }
+    }
+    if ("this is a string") { 
+        while ("STRING OK") {
+                if (' ') {}
+            print " ";
         }
     }
     if (true) { ;; id[001]=WOOP; }

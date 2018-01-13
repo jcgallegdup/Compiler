@@ -87,21 +87,9 @@ line 2:12 no viable alternative at input ';'
 
 
 
-* Running tests/reject/bad_literals/print/one_space_char.ul
-line 2:11 mismatched character ' ' expecting set null
-line 2:13 no viable alternative at input ';'
-
-
-
 * Running tests/reject/bad_literals/print/string_w_excl.ul
 line 2:14 mismatched character '!' expecting '"'
 line 2:16 no viable alternative at input ';'
-
-
-
-* Running tests/reject/bad_literals/print/string_w_spaces.ul
-line 2:25 mismatched character ' ' expecting '"'
-line 2:27 no viable alternative at input ';'
 
 
 
@@ -407,4 +395,4 @@ line 5:0 mismatched input '}' expecting ';'
 
 
 
-Ran       80 tests:
+Ran       78 tests:
