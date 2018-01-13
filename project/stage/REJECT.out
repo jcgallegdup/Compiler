@@ -93,6 +93,21 @@ line 3:0 no viable alternative at input '}'
 
 
 
+* Running tests/reject/bad_programs/junk_after_funcs.ul
+line 9:0 mismatched input 'junk' expecting EOF
+
+
+
+* Running tests/reject/bad_programs/junk_before_first_func.ul
+line 1:0 required (...)+ loop did not match anything at input 'junk'
+
+
+
+* Running tests/reject/bad_programs/junk_between_funcs.ul
+line 5:0 mismatched input 'junk' expecting EOF
+
+
+
 * Running tests/reject/bad_statements/bad_assignments/aggregate_types/assign_to_keyword.ul
 line 2:10 no viable alternative at input 'if'
 
@@ -389,4 +404,4 @@ line 5:0 mismatched input '}' expecting ';'
 
 
 
-Ran       77 tests:
+Ran       80 tests:

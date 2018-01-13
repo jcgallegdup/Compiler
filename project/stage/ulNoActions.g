@@ -24,7 +24,7 @@ grammar ulNoActions;
         }
 }
 
-program: function+;
+program: function+ EOF;
 
 function: functionDecl functionBody;
 
