@@ -20,14 +20,14 @@ void m(){
     if ("_01STRING") {
         print "WOOP";
     } else {
-        print "WOOP";
+        print "";
     }
 
     if ('c') {
         println false;
         identifier;
     } else {
-        if ("true") {
+        if ("") {
             ; return x;
         } else {
             while (1) {;;}

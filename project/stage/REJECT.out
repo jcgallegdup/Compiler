@@ -81,12 +81,6 @@ line 3:0 no viable alternative at input '}'
 
 
 
-* Running tests/reject/bad_literals/print/empty_string.ul
-line 2:11 required (...)+ loop did not match anything at character '"'
-line 2:12 no viable alternative at input ';'
-
-
-
 * Running tests/reject/bad_literals/print/string_w_excl.ul
 line 2:14 mismatched character '!' expecting '"'
 line 2:16 no viable alternative at input ';'

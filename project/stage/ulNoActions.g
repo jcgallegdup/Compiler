@@ -128,7 +128,7 @@ ID: ('a'..'z' | 'A'..'Z' | '_')('a'..'z' | 'A'..'Z' | '_' | DIGIT)*;
 
 CHARCONSTANT: '\''('a'..'z' | 'A'..'Z' | '_' | ' ' | DIGIT)'\'';
 
-STRINGCONSTANT: '\"'('a'..'z' | 'A'..'Z' | '_' | ' ' | DIGIT)+'\"';
+STRINGCONSTANT: '\"'('a'..'z' | 'A'..'Z' | '_' | ' ' | DIGIT)*'\"';
 
 INTCONSTANT: DIGIT+;
 

@@ -6,7 +6,7 @@ void main () {
     0.00109
     ;
     _09 = 09;
-    woop = "STRING";
+    woop = "";
     wOOP = "string";
     __nopeO_12= "____0912";
 
@@ -17,7 +17,7 @@ void main () {
     0.00109
     ;
     _09['c'] = 09;
-    woop[false]= "STRING";
+    woop[false]= "";
     wOOP[identifier] = "string";
     __nopeO_12[ID_]="____0912";
 }
