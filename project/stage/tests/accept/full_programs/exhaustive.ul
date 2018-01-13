@@ -1,0 +1,664 @@
+void main (    ) {
+    // * variable declarations
+    void iDentifi3R_;
+    boolean [000912] arr_w_spaces_in_decl;
+    float[100]arr_no_spaces_in_decl;
+    int temp; string _0; char XX;
+
+    // * PRINT STATMENTS
+    print 1; 
+
+    print '1';
+    print 'c';
+    print 'C';
+    print '_';
+
+    print "if";
+    print "void";
+    print "float";
+    print "ifvoid";
+    print "print";print
+    "false"
+    ;
+    print "float";
+    print "ifvoid";
+    print "print";print
+    "false"
+    ;
+
+    print "STRING";
+    print "string"; print "12345"; print "0";
+    print "____"; print "iDentifi3R";
+    print "___1234567890JUANISHERE";
+    print "this is a string _ 123 009";
+
+    print 
+    1000
+    ;
+    print 0.10000;
+    print 00000.19;
+    print 1000000.0;
+    print true;
+    ;
+    ; ; ;
+    print false;
+
+    "string"; "sS_00912"; "___"; "UPPER";
+    'c'; '0'; '_'; 'C';
+    1; 0001; 1.0001; 000.0;
+
+    identifier ;
+    ID;
+    _;
+    _09;
+    iI_10;
+}
+
+
+boolean fOOO_123 ( int iXiX_09, boolean KKK, void meRP_, float _1, int [00019]num, int[0]cR  ) {
+    void iDentifi3R_;int[0]cR
+    ;
+    boolean KKK;;
+    ;;;print "STRING"
+
+    ;
+    print 1;
+    print 
+    1000
+    ;
+    print '0'; print 'Z'; print 'z'; print '_';
+    print 0.10000;
+    print 00000.19;
+    print 1000000.0;
+    print true;
+    ;
+    ; ;print"meep"; ;
+    ; ;print"123___if"; ;
+    print false;
+
+    "string"; "sS_00912"; "___"; "UPPER";
+    'c'; '0'; '_'; 'C';
+    1; 0001; 1.0001; 000.0;
+
+    identifier ;
+    ID;
+    _;
+    _09;
+    iI_10;
+} void I_WISH_I_HAD_MY_OWN_NEWLINE (    ) {
+    void iDentifi3R_;
+    println 1;
+
+    println '1';
+    println 'c';
+    println 'C';
+    println '_';
+
+    identifer = 00001;
+    IDENTIFIER=id;
+    _ANOTHER_ID
+    =
+    0.00109
+    ;
+    _09 = 09;
+    woop = "STRING";
+    wOOP = "string";
+    __nopeO_12= "____0912";
+    println "if";
+    println "void";
+    println "float";
+    println "ifvoid";
+    println "print";print
+    "false"
+    ;
+
+    println "STRING";
+    println "string"; print "12345"; print "0";
+    println "____"; print "iDentifi3R";
+    println "___1234567890JUANISHERE";
+    println "this is a string _ 123 009";
+
+    println 
+    1000
+    ;
+    println 0.10000;
+    println 00000.19;
+    println 1000000.0;
+    println true;
+    ;
+    ; ; ;
+    println false;
+
+    "string"; "sS_00912"; "___"; "UPPER";
+    'c'; '0'; '_'; 'C';
+    1; 0001; 1.0001; 000.0;
+
+    identifier ;
+    ID;
+    _;
+    _09;
+    iI_10;
+}
+
+boolean fOOO_123 ( int iXiX_09, boolean KKK, void meRP_, float _1, int [00019]num, int[0]cR  ) {
+    void iDentifi3R_;int[0]cR
+    ;
+    boolean KKK;;
+    ;;;println "STRING"
+
+    ;
+    println 1;
+    println 
+    1000
+    ;
+    identifer = 00001;
+    IDENTIFIER=id;
+    _ANOTHER_ID
+    =
+    0.00109
+    ;
+    _09 = 09;
+    woop = "STRING";
+    wOOP = "string";
+    __nopeO_12= "____0912";
+    println '0'; print 'Z'; print 'z'; print '_';
+    println 0.10000;
+    println 00000.19;
+    println 1000000.0;
+    println true;
+    ;
+    ; ;println"meep"; ;
+    ; ;println"123___if"; ;
+    println false;
+    println ((id + 4) * 3 - id[true]) - 0 * funcCall(false, 000.0001, anotheCall(id[  0001.0001]));
+
+    "string"; "sS_00912"; "___"; "UPPER";
+    'c'; '0'; '_'; 'C';
+    1; 0001; 1.0001; 000.0;
+
+    identifier ;
+    ID;
+    _;
+    _09;
+    iI_10;
+}
+void main (    ) {
+    void iDentifi3R_;
+    return 1;
+
+    return '1';
+    return 'c';
+    return 'C';
+    return '_';
+
+    return "if";
+    return "void";
+    return "float";
+    return "ifvoid";
+    return "print";print
+    "false"
+    ;
+
+    return "STRING";
+    return "string"; print "12345"; print "0";
+    return "____"; print "iDentifi3R";
+    return "___1234567890JUANISHERE";
+    return "this is a string _ 123 009";
+
+    return 
+    1000
+    ;
+    return 0.10000;
+    return 00000.19;
+    return 1000000.0;
+    return true;
+    ;
+    ; ; ;
+    return false;
+
+    "string"; "sS_00912"; "___"; "UPPER";
+    'c'; '0'; '_'; 'C';
+    1; 0001; 1.0001; 000.0;
+    "     WOOP this is a string baby";
+
+    identifier ;
+    ID;
+    _;
+    _09;
+    iI_10;
+}
+
+boolean fOOO_123 ( int iXiX_09, boolean KKK, void meRP_, float _1, int [00019]num, int[0]cR  ) {
+    void iDentifi3R_;int[0]cR
+    ;
+    boolean KKK;;
+    ;;;return "STRING"
+
+    ;
+    return 1;
+    return 
+    1000
+    ;
+    return '0'; print 'Z'; print 'z'; print '_';
+    return 0.10000;
+    return 00000.19;
+    return 1000000.0;
+    return true;
+    ;
+    ; ;return"meep"; ;
+    ; ;return"123___if"; ;
+    return false;
+
+    "string"; "sS_00912"; "___"; "UPPER";
+    'c'; '0'; '_'; 'C';
+    1; 0001; 1.0001; 000.0;
+
+    identifier ;
+    ID;
+    _;
+    _09;
+    iI_10;
+}
+void main (    ) {
+    void iDentifi3R_;
+    return 1;
+
+    return '1';
+    return 'c';
+    return 'C';
+    return '_';
+
+    return "if";
+    return "void";
+    return "float";
+    return "ifvoid";
+    return "print";print
+    "false"
+    ;
+
+    identifer = 00001;
+    IDENTIFIER=id;
+    _ANOTHER_ID
+    =
+    0.00109
+    ;
+    _09 = 09;
+    woop = "STRING";
+    wOOP = "string";
+    __nopeO_12= "____0912";
+    return "STRING";
+    return "string"; print "12345"; print "0";
+    return "____"; print "iDentifi3R";
+    return "___1234567890JUANISHERE";
+
+    return 
+    1000
+    ;
+    return 0.10000;
+    return 00000.19;
+    return 1000000.0;
+    return true;
+    ;
+    ; ; ;
+    return false;
+
+
+    identifer[     1       ]=00001;
+    IDENTIFIER["STRING"]=id;
+    _ANOTHER_ID[   0000.91001 ]
+    =
+    0.00109
+    ;
+    _09['c'] = 09;
+    woop[false]= "STRING";
+    wOOP[identifier] = "string";
+    __nopeO_12[ID_]="____0912";
+    id[" this 123 _ THIS"];
+    "string"; "sS_00912"; "___"; "UPPER";
+    'c'; '0'; '_'; 'C';
+    1; 0001; 1.0001; 000.0;
+
+    identifier ;
+    ID;
+    _;
+    _09;
+    iI_10;
+    return ;
+}
+
+boolean fOOO_123 ( int iXiX_09, boolean KKK, void meRP_, float _1, int [00019]num, int[0]cR  ) {
+    void iDentifi3R_;int[0]cR
+    ;
+    boolean KKK;;
+    ;;;return "STRING"
+
+    ;
+    return ; ;
+    return 1;
+    identifer = 00001;
+    IDENTIFIER=id;
+    _ANOTHER_ID
+    =
+    0.00109
+    ;
+    _09 = 09;
+    woop = "STRING";
+    wOOP = "string";
+    __nopeO_12= "____0912";
+    return 
+    1000
+    ;
+    return '0'; print 'Z'; print 'z'; print '_';
+    return 0.10000;
+    return 00000.19;
+    return 1000000.0;
+    return true;
+
+    identifer[     1       ]=00001;
+    IDENTIFIER["STRING"]=id;
+    _ANOTHER_ID[   0000.91001 ]
+    =
+    0.00109
+    ;
+    _09['c'] = 09;
+    woop[false]= "STRING";
+    wOOP[identifier] = "string";
+    __nopeO_12[ID_]="____0912";
+    ;
+    ; ;return"meep"; ;
+    ; ;return"123___if"; ;
+    return false;
+
+    "string"; "sS_00912"; "___"; "UPPER";
+    'c'; '0'; '_'; 'C';
+    1; 0001; 1.0001; 000.0;
+
+    identifier ;
+    ID;
+    _;
+    _09;
+    iI_10;
+}
+void main () {
+    identifer = 00001;
+    IDENTIFIER=id;
+    _ANOTHER_ID
+    =
+    0.00109
+    ;
+    _09 = 09;
+    woop = "STRING";
+    wOOP = "string";
+    __nopeO_12= "____0912";
+}
+void main () {
+    identifer = 00001;
+    IDENTIFIER=id;
+    _ANOTHER_ID
+    =
+    0.00109
+    ;
+    _09 = 09;
+    woop = "STRING";
+    wOOP = "string";
+    __nopeO_12= "____0912";
+    if (1) {
+
+    }
+
+    if ("_01STRING") {
+        print "WOOP";
+    }
+
+    if ('c') {
+        println false;
+        identifier;
+    }
+
+    if (000.901) {
+        if (true) {
+            return ;
+            return 'c';
+        }
+    }
+    if ("this is a string") { 
+        while ("STRING OK") {
+                if (' ') {}
+            print " ";
+        }
+    }
+    if (true) { ;; id[001]=WOOP; }
+    if (ID) { identifier="GOOD";}
+
+    identifer[     1       ]=00001;
+    IDENTIFIER[((id + 4) * 3 - id[true]) - 0 * funcCall(false, 000.0001, anotheCall(id[  0001.0001]))]=id;
+    _ANOTHER_ID[   0000.91001 ]
+    =
+    0.00109
+    ;
+    _09['c'] = 09;
+    woop[false]= "STRING";
+    wOOP[identifier] = "string";
+    __nopeO_12[ID_]="____0912";
+}
+void m(){
+    if (1) {
+
+    }
+
+    if ("_01STRING") {
+        print "WOOP";
+    }
+
+    if ('c') {
+        println false;
+        identifier;
+    }
+
+    if (000.901) {
+        if (true) {
+            return ;
+            return 'c';
+        }
+    }
+    if (true) { ;; id[001]=WOOP; }
+    if (ID) { identifier="GOOD";}
+}	
+
+float test_expr_w_parentheses() {
+    print ('1');
+    print (('c'));
+    print ((('C')));
+    print ('_');
+
+    print ("if");
+    print ((("void")));
+    print 
+    (
+    1000
+    )
+    ;
+    print (((0.10000)));
+    print (00000.19);
+    print ((true));
+    ;
+    ; ; ;
+    print ((('c') * "string" - 1) * 000.000 + ID * false
+    );
+
+    ("string"); "sS_00912"; "___"; "UPPER";
+    ('c');
+    (1); (((0001))); ((1.0001)); 000.0;
+
+    (identifier) ;
+    ((ID));
+    (((iI_10)));
+    println ('1');
+    println (('c'));
+    println ((('C')));
+    println ('_');
+
+    println ("if");
+    println ((("void")));
+    println 
+    (
+    1000
+    )
+    ;
+    println (((0.10000)));
+    println (00000.19);
+    println ((true));
+    ;
+
+    return ("if");
+    return ((("void")));
+    return 
+    (
+    1000
+    )
+    ;
+    return ((((('c') * "string" - 1) * 000.000 + ID * false)));
+    return (00000.19);
+    return ((true));
+    ;
+
+    if (((1))) {
+        if ((000.901)) {
+            if ((true)) {
+                return ;
+                return ('c');
+
+                while (1) { if (true) {} else {}  }
+            }
+        }
+
+    }
+
+    if ((("_01STRING"))) {
+        print "WOOP";
+    }
+
+    if (('c')) {
+        println false;
+        identifier;
+    }
+
+    if ((000.901)) {
+        if ((true)) {
+            return ;
+            return ('c');
+        }
+    }
+    if (true) { ;; id[((001))]=(((WOOP))); }
+    if (ID) { identifier=(("GOOD"));}
+}
+boolean f() {
+    if (true) {
+        println "ok";
+    } else {
+
+    }
+}
+
+void m(){
+    if (1) {
+
+    } else {
+        if ("true") {
+            ; return x;
+        } else {
+            while (1) {;;}
+        }
+    }
+
+    if ("_01STRING") {
+        print "WOOP";
+    } else {
+        print "";
+    }
+
+    if ('c') {
+        println false;
+        identifier;
+    } else {
+        if ("") {
+            ; return x;
+        } else {
+            while (1) {;;}
+            if (id) { expr ; } else { FALSE; }
+        }
+    }
+
+    if (000.901) {
+        if (true) {
+            return ;
+            return 'c';
+        } else {}
+        
+        while (true) {
+            return ;
+            return 'c';
+            if (broken) { print "please tell me"; } else { println "do not say a thing"; }
+        }
+    } else { println "d"; print 1; if (1) { } else { if (true) {expr;} } }
+    if (true) { ;; id[001]=WOOP; } else { ;;;; }
+    if (ID) { identifier="GOOD";} else {}
+} else 	
+void m(){
+    if (1) {
+
+    }
+
+    if ("_01STRING") {
+        print "WOOP";
+    }
+
+    if ('c') {
+        println false;
+        identifier;
+    }
+
+    if ((('c') * "string" - 1) * 000.000 + ID * false) {
+        if (true) {
+            return ;
+            return 'c';
+        }
+        
+        while (true) {
+            return ;
+            return 'c';
+        }
+    }
+    if (true) { ;; id[001]=WOOP; }
+    if (ID) { identifier="GOOD";}
+}	
+void m(){
+    while (1) {
+
+    }
+
+    while ("_01STRING") {
+        print "WOOP";
+    }
+
+    while ('c') {
+        println false;
+        identifier;
+    }
+
+    while (000.901) {
+        while (true) {
+            return ;
+            return 'c';
+        }
+    }
+    while (((id + 4) * 3 - id[true]) - 0 * funcCall(false, 000.0001, anotheCall(id[  0001.0001]))) {
+        ;; id[001]=WOOP;
+    }
+    while (ID) { identifier="GOOD";}
+}	
+void main() {
+    id + 4 * 3 - id[1  ] - 0 * funcCall("string", "anotherArg");
+    ((id + 4) * 3 - id[true]) - 0 * funcCall(false, 000.0001, anotheCall(id[  0001.0001]));
+    (('c') * "string" - 1) * 000.000 + ID * false;
+}
