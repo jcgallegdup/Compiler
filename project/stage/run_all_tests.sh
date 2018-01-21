@@ -7,6 +7,7 @@ do
     # TODO ensure that Compiler.class exists in current dir
     echo "* Running $filename"
     output=$(java Compiler $filename)
+    echo $output
     echo "\n\n"
 done
 

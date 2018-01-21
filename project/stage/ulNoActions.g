@@ -1,5 +1,12 @@
 grammar ulNoActions;
-                
+@header
+{
+    import AST.*;
+    import Type.*;
+    import java.util.List;
+    import java.util.ArrayList;
+}
+
 @members
 {
     protected void mismatch (IntStream input, int ttype, BitSet follow)
@@ -24,22 +31,42 @@ grammar ulNoActions;
         }
 }
 
-program: function+ EOF;
+program returns [Program prog]
+@init { prog = new Program(); }
+    :
+    (f=function { prog.addElement(f);})+ EOF;
 
-function: functionDecl functionBody;
+function returns [Function f]
+        :
+        fd=functionDecl fb=functionBody
+        { f = new Function(fd,fb); }
+    ;
 
-functionDecl: compoundType ID '(' formalParams ')';
+functionDecl returns [FunctionDecl fd]
+        :
+        cType=compoundType id=identifier '(' params=formalParams ')'
+        { fd = new FunctionDecl(cType, id, params); }
+    ;
 
-functionBody: '{' varDecl* statement* '}';
+functionBody returns [FunctionBody fb]
+        :
+        '{' varDecl* statement* '}' { fb = new FunctionBody(); }
+    ;
 
-formalParams
-        : compoundType ID moreFormals*
+formalParams returns [FormalParameterList params]
+        @init { params = new FormalParameterList(); }
+        : cType=compoundType id=identifier
+        { params.addElement(new FormalParameter(cType, id)); }
+        ( param=moreFormals { params.addElement(param); } )*
         |
     ;
 
-moreFormals: ',' compoundType ID;
+moreFormals returns [FormalParameter param]
+        : ',' cType=compoundType id=identifier
+        { param = new FormalParameter(cType, id); }
+    ;
 
-varDecl: compoundType ID ';';
+varDecl: compoundType identifier ';';
 
 statement options {backtrack=true;}
         : ';'
@@ -49,9 +76,9 @@ statement options {backtrack=true;}
         | RETURN expr? ';'
         | ifStatement
         | WHILE '(' expr ')' block
-        | ID EQUALS expr ';'
-        | ID '[' expr ']' EQUALS expr ';'
-        ;
+        | identifier EQUALS expr ';'
+        | identifier '[' expr ']' EQUALS expr ';'
+    ;
 
 ifStatement options {backtrack=true;}
         : IF '(' expr ')' block ELSE block
@@ -69,9 +96,9 @@ addExpr: multExpr (('+'|'-') multExpr)*;
 multExpr: exprAtom ('*' exprAtom)*;
 
 exprAtom
-        : ID '(' exprList ')'
-        | ID '[' expr ']'
-        | ID
+        : identifier '(' exprList ')'
+        | identifier '[' expr ']'
+        | identifier
         | literal
         | '(' expr ')'
     ;
@@ -83,9 +110,10 @@ exprList
 
 exprMore: ',' expr;
 
-compoundType
-        : TYPE
+compoundType returns [TypeNode cType]
+        : TYPE { cType = new TypeNode($TYPE.text); }
         | TYPE '[' INTCONSTANT ']'
+        { cType = new TypeNode($TYPE.text, Integer.parseInt($INTCONSTANT.text)); }
     ;
 
 literal
@@ -95,6 +123,10 @@ literal
         | FLOATCONSTANT
         | CHARCONSTANT
         | STRINGCONSTANT
+    ;
+
+identifier returns [Identifier id]
+        : ID { id = new Identifier($ID.text); }
     ;
 
 /* Lexer */
