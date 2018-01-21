@@ -22,7 +22,7 @@ public class PrettyPrintVisitor implements Visitor {
     }
 
     public void visit (FunctionDecl fd) {
-        print (fd.toString());
+        println (fd.toString());
     }
 
     public void visit (FunctionBody fd) { }
@@ -38,7 +38,7 @@ public class PrettyPrintVisitor implements Visitor {
     public void visit (Identifier id) { }
 
     // change arg to ASTNode, making toString() implicit
-    private void print (String line) {
+    private void println (String line) {
         int numSpaces = this.INDENTSIZE * this.indentLevel;
         // https://stackoverflow.com/questions/1235179/simple-way-to-repeat-a-string-in-java/4903603#4903603
         String indentation = new String(new char[numSpaces]).replace("\0", " ");

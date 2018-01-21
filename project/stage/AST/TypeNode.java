@@ -23,7 +23,7 @@ public class TypeNode {
 
     public String toString () {
         if (size > 0) {
-            return this.name + " [" + this.size + "]";
+            return this.name + "[" + this.size + "]";
         } else {
             return this.name;
         }
