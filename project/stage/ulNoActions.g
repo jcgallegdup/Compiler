@@ -49,8 +49,13 @@ functionDecl returns [FunctionDecl fd]
     ;
 
 functionBody returns [FunctionBody fb]
-        :
-        '{' varDecl* statement* '}' { fb = new FunctionBody(); }
+        @init { fb = new FunctionBody(); }
+        : '{' (
+            vd=varDecl { fb.addVarDecl(vd); }
+        )*
+        (
+            s=statement
+        )* '}'
     ;
 
 formalParams returns [FormalParameterList params]
@@ -66,9 +71,12 @@ moreFormals returns [FormalParameter param]
         { param = new FormalParameter(cType, id); }
     ;
 
-varDecl: compoundType identifier ';';
+varDecl returns [VariableDeclaration varDecl]
+        : ctype=compoundType id=identifier ';'
+        { varDecl = new VariableDeclaration(ctype, id); }
+    ;
 
-statement options {backtrack=true;}
+statement returns [Statement s] options {backtrack=true;}
         : ';'
         | expr ';'
         | PRINT expr ';'

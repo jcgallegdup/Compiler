@@ -2,13 +2,21 @@ package AST;
 
 import java.util.Vector;
 public class FunctionBody {
-    //Vector<VariableDeclaration> varDecls;
+    Vector<VariableDeclaration> varDecls;
     //Vector<Statement> statements;
 
     public FunctionBody () {
-        //this.varDecls = Vector<VariableDeclaration>();
+        this.varDecls = new Vector<VariableDeclaration>();
         //this.statements = Vector<Statement>();
     }
+
+    public void addVarDecl(VariableDeclaration varDecl) {
+        this.varDecls.add(varDecl);
+    }
+
+    /*public void addStatement(Statement s) {
+        this.statements.add(s);
+    }*/
 
     public void accept (Visitor v) {
         v.visit(this);

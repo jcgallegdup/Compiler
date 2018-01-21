@@ -36,7 +36,7 @@ public interface Visitor {
     public void visit (Type t);
     public void visit (TypeNode t);
 //	public void visit (VariableAssignment s);
-//	public void visit (VariableDeclaration v);
+    public void visit (VariableDeclaration v);
 //	public void visit (WhileStatement s);
 }
 

@@ -25,7 +25,19 @@ public class PrettyPrintVisitor implements Visitor {
         println (fd.toString());
     }
 
-    public void visit (FunctionBody fd) { }
+    public void visit (FunctionBody fb) {
+        println ("{");
+        indentLevel++;
+        for (VariableDeclaration varDecl : fb.varDecls) {
+            varDecl.accept(this);
+        }
+        indentLevel--;
+        println ("}");
+    }
+
+    public void visit (VariableDeclaration varDecl) {
+        println (varDecl.toString());
+    }
 
     public void visit (FormalParameterList params) { }
 
