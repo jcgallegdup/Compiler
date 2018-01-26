@@ -9,6 +9,26 @@ grammar ulNoActions;
 
 @members
 {
+    public Type getTypeInstance(String typeName) {
+        Type type = null;
+        switch(typeName) {
+            case("int"):
+                type = new IntegerType(); break;
+            case("string"):
+                type = new StringType(); break;
+            case("float"):
+                type = new FloatType(); break;
+            case("void"):
+                type = new VoidType(); break;
+            case("char"):
+                type = new CharType(); break;
+            case("boolean"):
+                type = new BooleanType(); break;
+            default:
+                System.out.println("ERROR in compoundType rule: do not recognize "+typeName+" as a type"); break;
+        }
+        return type;
+    }
     protected void mismatch (IntStream input, int ttype, BitSet follow)
             throws RecognitionException
     {
@@ -119,9 +139,13 @@ exprList
 exprMore: ',' expr;
 
 compoundType returns [TypeNode cType]
-        : TYPE { cType = new TypeNode($TYPE.text); }
+        : TYPE { cType = new TypeNode(this.getTypeInstance($TYPE.text)); }
         | TYPE '[' INTCONSTANT ']'
-        { cType = new TypeNode($TYPE.text, Integer.parseInt($INTCONSTANT.text)); }
+        {
+            int size = Integer.parseInt($INTCONSTANT.text);
+            Type elementType = this.getTypeInstance($TYPE.text);
+            cType = new TypeNode(new ArrayType(elementType, size));
+        }
     ;
 
 literal

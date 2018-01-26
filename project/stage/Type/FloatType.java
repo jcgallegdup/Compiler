@@ -2,16 +2,16 @@ package Type;
 
 import AST.Visitor;
 
-public class IntegerType extends Type {
-    public IntegerType () { }
+public class FloatType extends Type {
+    public FloatType () { }
 
     public String toShortString () {
-        return "int";
+        return "float";
     }
 
     // Possibly misleading name? Should me "is()" instead?
     public boolean equals (Type type) {
-        return (type instanceof IntegerType);
+        return (type instanceof FloatType);
     }
 
     public void accept (Visitor v) {

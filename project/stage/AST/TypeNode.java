@@ -1,19 +1,12 @@
 package AST;
 
+import Type.*;
+
 public class TypeNode {
-    String name;
-    int size;
+    Type type;
 
-    public TypeNode (String name) {
-        //System.out.println("TypeNode(): name="+name);
-        this.name = name;
-        size = -1;
-    }
-
-    public TypeNode (String name, int size) {
-        //System.out.println("TypeNode(): name="+name);
-        this.name = name;
-        this.size = size;
+    public TypeNode (Type type) {
+        this.type = type;
     }
 
     public void accept (Visitor v) {
@@ -22,10 +15,6 @@ public class TypeNode {
     }
 
     public String toString () {
-        if (size > 0) {
-            return this.name + "[" + this.size + "]";
-        } else {
-            return this.name;
-        }
+        return this.type.toShortString();
     }
 }
