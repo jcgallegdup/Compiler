@@ -126,7 +126,10 @@ addExpr returns [Expression e]
     ;
 
 multExpr returns [Expression e]
-        : atom=exprAtom ('*' exprAtom)* { e = atom; }
+        : leftAtom=exprAtom { e = leftAtom; }
+        (
+            '*' rightAtom=exprAtom { e = new MultExpression(e, rightAtom); }
+        )*
     ;
 
 exprAtom returns [Expression e]

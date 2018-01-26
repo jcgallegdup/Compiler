@@ -11,6 +11,7 @@ println 1
 println
 2
 ;
+println 1 * 2; println 1 * 2 * 3 * 4; println 0009 * 1000 * 99900 * 00001;
 }
 
 char f12345098_234fXx_ (char lowercase , float UPPERCASE, boolean ______, void _1234567890) {
