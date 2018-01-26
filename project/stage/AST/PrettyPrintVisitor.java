@@ -58,8 +58,8 @@ public class PrettyPrintVisitor implements Visitor {
         println(i.toString());
     }
 
-    public void visit(MultExpression i) {
-        println(i.toString());
+    public void visit(BinaryExpression e) {
+        println(e.toString());
     }
 
     public void visit (FormalParameterList params) { }

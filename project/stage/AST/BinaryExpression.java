@@ -1,0 +1,20 @@
+package AST;
+
+public abstract class BinaryExpression extends Expression {
+    Expression left, right;
+
+    public abstract char getOperator();
+
+    public BinaryExpression(Expression left, Expression right) {
+        this.left = left;
+        this.right = right;
+    }
+
+    public void accept(Visitor v) {
+        v.visit(this);
+    }
+
+    public String toString() {
+        return this.left.toString() + " " + this.getOperator() + " " + this.right.toString();
+    }
+}

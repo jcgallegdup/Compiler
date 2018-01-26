@@ -1,18 +1,11 @@
 package AST;
 
-public class MultExpression extends Expression {
-    Expression left, right;
-
+public class MultExpression extends BinaryExpression {
     public MultExpression(Expression left, Expression right) {
-        this.left = left;
-        this.right = right;
+        super(left, right);
     }
 
-    public void accept(Visitor v) {
-        v.visit(this);
-    }
-
-    public String toString() {
-        return this.left.toString() + " * " + this.right.toString();
+    public char getOperator() {
+        return '*';
     }
 }
