@@ -31,12 +31,31 @@ public class PrettyPrintVisitor implements Visitor {
         for (VariableDeclaration varDecl : fb.varDecls) {
             varDecl.accept(this);
         }
+        for (Statement s : fb.statements) {
+            s.accept(this);
+        }
         indentLevel--;
         println ("}");
     }
 
     public void visit (VariableDeclaration varDecl) {
         println (varDecl.toString());
+    }
+
+    public void visit(PrintStatement s) {
+        println(s.toString());
+    }
+
+    public void visit(PrintlnStatement s) {
+        println(s.toString());
+    }
+
+    public void visit(ReturnStatement s) {
+        println(s.toString());
+    }
+
+    public void visit(IntegerLiteral i) {
+        println(i.toString());
     }
 
     public void visit (FormalParameterList params) { }

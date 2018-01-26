@@ -70,12 +70,10 @@ functionDecl returns [FunctionDecl fd]
 
 functionBody returns [FunctionBody fb]
         @init { fb = new FunctionBody(); }
-        : '{' (
-            vd=varDecl { fb.addVarDecl(vd); }
-        )*
-        (
-            s=statement
-        )* '}'
+        : '{'
+            (vd=varDecl { fb.addVarDecl(vd); })*
+            (s=statement { fb.addStatement(s); })*
+        '}'
     ;
 
 formalParams returns [FormalParameterList params]
@@ -99,9 +97,9 @@ varDecl returns [VariableDeclaration varDecl]
 statement returns [Statement s] options {backtrack=true;}
         : ';'
         | expr ';'
-        | PRINT expr ';'
-        | PRINTLN expr ';'
-        | RETURN expr? ';'
+        | PRINT e=expr ';' { s = new PrintStatement(e); }
+        | PRINTLN e=expr ';' { s = new PrintlnStatement(e); }
+        | RETURN e=expr? ';' { s = new ReturnStatement(e); }
         | ifStatement
         | WHILE '(' expr ')' block
         | identifier EQUALS expr ';'
@@ -115,19 +113,27 @@ ifStatement options {backtrack=true;}
 
 block: '{' statement* '}';
 
-expr: lessThanExpr ('==' lessThanExpr)*;
+expr returns [Expression e]
+        : l=lessThanExpr ('==' lessThanExpr)* { e = l; }
+    ;
 
-lessThanExpr: addExpr ('<' addExpr)*;
+lessThanExpr returns [Expression e]
+        : a=addExpr ('<' addExpr)* { e = a; }
+    ;
 
-addExpr: multExpr (('+'|'-') multExpr)*;
+addExpr returns [Expression e]
+        : m=multExpr (('+'|'-') multExpr)* { e = m; }
+    ;
 
-multExpr: exprAtom ('*' exprAtom)*;
+multExpr returns [Expression e]
+        : atom=exprAtom ('*' exprAtom)* { e = atom; }
+    ;
 
-exprAtom
+exprAtom returns [Expression e]
         : identifier '(' exprList ')'
         | identifier '[' expr ']'
         | identifier
-        | literal
+        | lit=literal { e=lit; }
         | '(' expr ')'
     ;
 
@@ -148,10 +154,10 @@ compoundType returns [TypeNode cType]
         }
     ;
 
-literal
+literal returns [Expression e]
         : 'true'
         | 'false'
-        | INTCONSTANT
+        | INTCONSTANT { e = new IntegerLiteral(Integer.parseInt($INTCONSTANT.text)); }
         | FLOATCONSTANT
         | CHARCONSTANT
         | STRINGCONSTANT

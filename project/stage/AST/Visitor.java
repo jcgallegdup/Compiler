@@ -23,14 +23,14 @@ public interface Visitor {
     public void visit (Identifier i);
 //	public void visit (IdentifierValue v);
 //	public void visit (IfStatement i);
-//	public void visit (IntegerLiteral i);
+    public void visit (IntegerLiteral i);
 //	public void visit (LessThanExpression e);
 //	public void visit (MultExpression e);
 //	public void visit (ParenExpression p);
-//	public void visit (PrintLnStatement s);
-//	public void visit (PrintStatement s);	
+    public void visit (PrintlnStatement s);
+    public void visit (PrintStatement s);
     public void visit (Program p);
-//	public void visit (ReturnStatement s);
+    public void visit (ReturnStatement s);
 //	public void visit (StringLiteral s);
 //	public void visit (SubtractExpression e);
     public void visit (Type t);
