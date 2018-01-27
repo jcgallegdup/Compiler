@@ -10,10 +10,6 @@ public abstract class BinaryExpression extends Expression {
         this.right = right;
     }
 
-    public void accept(Visitor v) {
-        v.visit(this);
-    }
-
     public String toString() {
         return this.left.toString() + " " + this.getOperator() + " " + this.right.toString();
     }

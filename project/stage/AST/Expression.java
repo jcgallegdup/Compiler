@@ -1,6 +1,10 @@
 package AST;
 
 public abstract class Expression {
-    public abstract void accept(Visitor v);
+
     public abstract String toString();
+
+    public void accept(Visitor v) {
+        v.visit(this);
+    }
 }

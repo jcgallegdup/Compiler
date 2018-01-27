@@ -58,7 +58,7 @@ public class PrettyPrintVisitor implements Visitor {
         println(i.toString());
     }
 
-    public void visit(BinaryExpression e) {
+    public void visit(Expression e) {
         println(e.toString());
     }
 

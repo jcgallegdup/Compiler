@@ -22,7 +22,7 @@ public interface Visitor {
 //	public void visit (IdentifierValue v);
 //	public void visit (IfStatement i);
     public void visit (IntegerLiteral i);
-    public void visit (BinaryExpression e);
+    public void visit (Expression e);
 //	public void visit (ParenExpression p);
     public void visit (PrintlnStatement s);
     public void visit (PrintStatement s);
