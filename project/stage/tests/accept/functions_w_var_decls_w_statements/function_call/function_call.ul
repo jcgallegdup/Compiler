@@ -10,6 +10,4 @@ void m() {
         IDENTIFIER1 [ funcCall(0, 'c') ], 
         RATTLED ( true, false, "MEEP")
     );
-
-    ;
 }
