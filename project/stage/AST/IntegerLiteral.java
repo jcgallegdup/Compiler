@@ -6,10 +6,6 @@ public class IntegerLiteral extends Expression {
         this.val = val;
     }
 
-    public void accept(Visitor v) {
-        v.visit(this);
-    }
-
     public String toString() {
         return Integer.toString(this.val);
     }

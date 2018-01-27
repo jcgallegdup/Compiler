@@ -54,10 +54,6 @@ public class PrettyPrintVisitor implements Visitor {
         println(s.toString());
     }
 
-    public void visit(IntegerLiteral i) {
-        println(i.toString());
-    }
-
     public void visit(Expression e) {
         println(e.toString());
     }

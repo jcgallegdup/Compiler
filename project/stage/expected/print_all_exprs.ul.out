@@ -32,6 +32,26 @@ void fO_123456789_Xa(int asdf_kdf23_, int[89] MEOW_meow_1094385, int[1010] _meow
     print IDENTIFIER((((__id3nt1f1er))));
     print _(9 - 1000 * 99900 == 1 < 0);
     print _109id(nestedArr(TWICEnested(1 + 2 - 3 == arr[4])));
+    print emptyStr("");
+    print id("0");
+    print IDENTIFIER(((("this IS A string"))));
+    print _("str" - 1000 * 99900 == 1 < 0);
+    print _109id(nestedArr(TWICEnested("STRING OK" == arr["    "])));
+    print oneSpaceChar(');
+    print id(');
+    print IDENTIFIER(((('))));
+    print _(' - ' * ' == 1 < 0);
+    print _109id(nestedArr(TWICEnested(' == arr['])));
+    print singleParam(false);
+    print id(false, true, 0 * 1 < 2);
+    print IDENTIFIER((((true))));
+    print _(true == false + ' * ' == 1 < true);
+    print _109id(nestedArr(TWICEnested(true == arr[false])));
+    print singleParam(0.0);
+    print id(1.001, 198.0, 0.1 * 1.1 < 2.9);
+    print IDENTIFIER((((1.1111))));
+    print _(0.0 == 1.0 + 1.234 * 0.0 == 1.0 < 100.0);
+    print _109id(nestedArr(TWICEnested(1.0 == arr[0.1])));
 }
 char f12345098_234fXx_(char lowercase, float UPPERCASE, boolean ______, void _1234567890)
 {

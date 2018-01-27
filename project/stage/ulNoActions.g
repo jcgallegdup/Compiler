@@ -201,13 +201,19 @@ compoundType returns [TypeNode cType]
 
 literal returns [Expression e]
         : BOOLCONSTANT
+        { e = new BooleanLiteral(Boolean.parseBoolean($BOOLCONSTANT.text)); }
 
         | INTCONSTANT
         { e = new IntegerLiteral(Integer.parseInt($INTCONSTANT.text)); }
 
         | FLOATCONSTANT
+        { e = new FloatLiteral(Float.parseFloat($FLOATCONSTANT.text)); }
+
         | CHARCONSTANT
+        { e = new CharacterLiteral($CHARCONSTANT.text.charAt(0)); }
+
         | STRINGCONSTANT
+        { e = new StringLiteral($STRINGCONSTANT.text); }
     ;
 
 identifier returns [Identifier id]
