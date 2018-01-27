@@ -15,6 +15,10 @@ return 1 * 2; return 1 * 2 * 3 * 4; return 0009 * 1000 * 99900 * 00001;
 return 1 + 2; return 1 + 2 - 3 + 4; return 0009 - 1000 + 99900 * 00001;
 return 1 < 2; return 1 + 2 - 3 < 4; return 0009 - 1000 * 99900 < 00001;
 return 1 == 2; return 1 + 2 - 3 == 4; return 0009 - 1000 * 99900 == 00001 < 0000;
+
+return id; return IDENTIFIER; return _; return _109id;
+return (id); return ((((IDENTIFIER)))); return ((_) + 1); return ((0009) - ((1000 * 99900)) < 00001);
+return id[0]; return IDENTIFIER[(((__id3nt1f1er)))]; return _[0009 - 1000 * 99900 == 00001 < 0000]; return _109id[nestedArr[TWICEnested[1 + 2 - 3 == 4]]];
 }
 
 char f12345098_234fXx_ (char lowercase , float UPPERCASE, boolean ______, void _1234567890) {

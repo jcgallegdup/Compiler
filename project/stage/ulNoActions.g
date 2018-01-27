@@ -149,10 +149,17 @@ multExpr returns [Expression e]
 
 exprAtom returns [Expression e]
         : identifier '(' exprList ')'
-        | identifier '[' expr ']'
-        | identifier
+
+        | id=identifier '[' idExpr=expr ']'
+        { e = new ArrayExpression(id, idExpr); }
+
+        | id=identifier
+        { e = new IdentifierExpression(id); }
+
         | lit=literal { e=lit; }
-        | '(' expr ')'
+
+        | '(' parenExpr=expr ')'
+        { e = new ParenExpression(parenExpr); }
     ;
 
 exprList

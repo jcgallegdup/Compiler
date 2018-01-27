@@ -15,6 +15,18 @@ void fO_123456789_Xa(int asdf_kdf23_, int[89] MEOW_meow_1094385, int[1010] _meow
     return 1 == 2;
     return 1 + 2 - 3 == 4;
     return 9 - 1000 * 99900 == 1 < 0;
+    return id;
+    return IDENTIFIER;
+    return _;
+    return _109id;
+    return (id);
+    return ((((IDENTIFIER))));
+    return ((_) + 1);
+    return ((9) - ((1000 * 99900)) < 1);
+    return id[0];
+    return IDENTIFIER[(((__id3nt1f1er)))];
+    return _[9 - 1000 * 99900 == 1 < 0];
+    return _109id[nestedArr[TWICEnested[1 + 2 - 3 == 4]]];
 }
 char f12345098_234fXx_(char lowercase, float UPPERCASE, boolean ______, void _1234567890)
 {
