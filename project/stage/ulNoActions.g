@@ -122,7 +122,16 @@ lessThanExpr returns [Expression e]
     ;
 
 addExpr returns [Expression e]
-        : m=multExpr (('+'|'-') multExpr)* { e = m; }
+        : leftExpr=multExpr { e = leftExpr; }
+        (
+            op=('+'|'-') rightExpr=multExpr
+            {
+                e = ($op.text.charAt(0) == '+'?
+                    new AddExpression(e, rightExpr) :
+                    new SubtractExpression(e, rightExpr)
+                );
+            }
+        )*
     ;
 
 multExpr returns [Expression e]

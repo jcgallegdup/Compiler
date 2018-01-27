@@ -3,7 +3,6 @@ package AST;
 import Type.*;
 
 public interface Visitor {
-//	public void visit (AddExpression e);
 //	public void visit (ArrayType a);
 //	public void visit (ArrayAssignment s);
 //	public void visit (ArrayReference a);
@@ -32,7 +31,6 @@ public interface Visitor {
     public void visit (Program p);
     public void visit (ReturnStatement s);
 //	public void visit (StringLiteral s);
-//	public void visit (SubtractExpression e);
     public void visit (Type t);
     public void visit (TypeNode t);
 //	public void visit (VariableAssignment s);
