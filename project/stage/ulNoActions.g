@@ -52,19 +52,19 @@ grammar ulNoActions;
 }
 
 program returns [Program prog]
-@init { prog = new Program(); }
-    :
-    (f=function { prog.addElement(f);})+ EOF;
+        @init { prog = new Program(); }
+        : (
+            f=function { prog.addElement(f);}
+        )+ EOF
+    ;
 
 function returns [Function f]
-        :
-        fd=functionDecl fb=functionBody
+        : fd=functionDecl fb=functionBody
         { f = new Function(fd,fb); }
     ;
 
 functionDecl returns [FunctionDecl fd]
-        :
-        cType=compoundType id=identifier '(' params=formalParams ')'
+        : cType=compoundType id=identifier '(' params=formalParams ')'
         { fd = new FunctionDecl(cType, id, params); }
     ;
 
@@ -78,9 +78,14 @@ functionBody returns [FunctionBody fb]
 
 formalParams returns [FormalParameterList params]
         @init { params = new FormalParameterList(); }
+
         : cType=compoundType id=identifier
         { params.addElement(new FormalParameter(cType, id)); }
-        ( param=moreFormals { params.addElement(param); } )*
+        (
+            param=moreFormals { params.addElement(param); }
+        )*
+
+        // empty params allowed as well
         |
     ;
 
@@ -97,9 +102,16 @@ varDecl returns [VariableDeclaration varDecl]
 statement returns [Statement s] options {backtrack=true;}
         : ';'
         | expr ';'
-        | PRINT e=expr ';' { s = new PrintStatement(e); }
-        | PRINTLN e=expr ';' { s = new PrintlnStatement(e); }
-        | RETURN e=expr? ';' { s = new ReturnStatement(e); }
+
+        | PRINT e=expr ';'
+        { s = new PrintStatement(e); }
+
+        | PRINTLN e=expr ';'
+        { s = new PrintlnStatement(e); }
+
+        | RETURN e=expr? ';'
+        { s = new ReturnStatement(e); }
+
         | ifStatement
         | WHILE '(' expr ')' block
         | identifier EQUALS expr ';'
@@ -169,6 +181,7 @@ exprList returns [ExpressionList args]
         : arg1=expr { args.addElement(arg1); }
         (argN=exprMore { args.addElement(argN); })*
 
+        // empty args allowed as well
         |
     ;
 
@@ -189,7 +202,10 @@ compoundType returns [TypeNode cType]
 literal returns [Expression e]
         : 'true'
         | 'false'
-        | INTCONSTANT { e = new IntegerLiteral(Integer.parseInt($INTCONSTANT.text)); }
+
+        | INTCONSTANT
+        { e = new IntegerLiteral(Integer.parseInt($INTCONSTANT.text)); }
+
         | FLOATCONSTANT
         | CHARCONSTANT
         | STRINGCONSTANT
