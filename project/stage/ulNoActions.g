@@ -200,8 +200,7 @@ compoundType returns [TypeNode cType]
     ;
 
 literal returns [Expression e]
-        : 'true'
-        | 'false'
+        : BOOLCONSTANT
 
         | INTCONSTANT
         { e = new IntegerLiteral(Integer.parseInt($INTCONSTANT.text)); }
@@ -239,6 +238,8 @@ TYPE
         | 'boolean'
         | 'void'
     ;
+
+BOOLCONSTANT: 'true' | 'false';
 
 ID: ('a'..'z' | 'A'..'Z' | '_')('a'..'z' | 'A'..'Z' | '_' | DIGIT)*;
 
