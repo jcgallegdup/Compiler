@@ -7,10 +7,6 @@ public class PrintlnStatement extends Statement {
         this.expr = expr;
     }
 
-    public void accept(Visitor v) {
-        v.visit(this);
-    }
-
     public String toString() {
         return "println " + expr.toString() + ";";
     }

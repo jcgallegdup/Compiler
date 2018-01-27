@@ -42,15 +42,7 @@ public class PrettyPrintVisitor implements Visitor {
         println (varDecl.toString());
     }
 
-    public void visit(PrintStatement s) {
-        println(s.toString());
-    }
-
-    public void visit(PrintlnStatement s) {
-        println(s.toString());
-    }
-
-    public void visit(ReturnStatement s) {
+    public void visit(Statement s) {
         println(s.toString());
     }
 

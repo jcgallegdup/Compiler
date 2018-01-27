@@ -10,7 +10,6 @@ public interface Visitor {
 //	public void visit (BooleanLiteral b);
 //	public void visit (CharacterLiteral c);
 //	public void visit (DoStatement s);
-//	public void visit (ExpressionStatement e);
 //	public void visit (FloatLiteral f);	
     public void visit (FormalParameter p);
     public void visit (FormalParameterList params);
@@ -22,10 +21,8 @@ public interface Visitor {
 //	public void visit (IfStatement i);
 //  public void visit (IntegerLiteral i);
     public void visit (Expression e);
-    public void visit (PrintlnStatement s);
-    public void visit (PrintStatement s);
     public void visit (Program p);
-    public void visit (ReturnStatement s);
+    public void visit (Statement s);
 //	public void visit (StringLiteral s);
     public void visit (Type t);
     public void visit (TypeNode t);
