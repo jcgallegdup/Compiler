@@ -148,7 +148,8 @@ multExpr returns [Expression e]
     ;
 
 exprAtom returns [Expression e]
-        : identifier '(' exprList ')'
+        : id=identifier '(' args=exprList ')'
+        { e = new FunctionCallExpression(id, args); }
 
         | id=identifier '[' idExpr=expr ']'
         { e = new ArrayExpression(id, idExpr); }
@@ -162,12 +163,18 @@ exprAtom returns [Expression e]
         { e = new ParenExpression(parenExpr); }
     ;
 
-exprList
-        : expr exprMore*
+exprList returns [ExpressionList args]
+        @init { args = new ExpressionList(); }
+
+        : arg1=expr { args.addElement(arg1); }
+        (argN=exprMore { args.addElement(argN); })*
+
         |
     ;
 
-exprMore: ',' expr;
+exprMore returns [Expression e]
+        : ',' temp=expr { e = temp; }
+    ;
 
 compoundType returns [TypeNode cType]
         : TYPE { cType = new TypeNode(this.getTypeInstance($TYPE.text)); }

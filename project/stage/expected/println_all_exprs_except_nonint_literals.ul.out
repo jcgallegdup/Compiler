@@ -27,6 +27,10 @@ void fO_123456789_Xa(int asdf_kdf23_, int[89] MEOW_meow_1094385, int[1010] _meow
     println IDENTIFIER[(((__id3nt1f1er)))];
     println _[9 - 1000 * 99900 == 1 < 0];
     println _109id[nestedArr[TWICEnested[1 + 2 - 3 == 4]]];
+    println id(0);
+    println IDENTIFIER((((__id3nt1f1er))));
+    println _(9 - 1000 * 99900 == 1 < 0);
+    println _109id(nestedArr(TWICEnested(1 + 2 - 3 == arr[4])));
 }
 char f12345098_234fXx_(char lowercase, float UPPERCASE, boolean ______, void _1234567890)
 {

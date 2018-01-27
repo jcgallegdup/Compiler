@@ -16,7 +16,6 @@ public interface Visitor {
     public void visit (FormalParameterList params);
     public void visit (Function f);
     public void visit (FunctionBody f);
-//	public void visit (FunctionCall f);
     public void visit (FunctionDecl f);
     public void visit (Identifier i);
 //	public void visit (IdentifierValue v);
