@@ -1,0 +1,19 @@
+void m() {
+    id [ expr ] = expr;
+    id [ id [ expr ] ] = expr;
+    id [ id [ id [ expr[0] ] ] ] = expr;
+
+    id = expr ;
+    id = id [ expr[0] ];
+    id = id [ id [ expr[0] ] ];
+    id = id [ id [ id [ expr(id) ] ] ];
+
+    return  id [ id [ (( expr [ 1 ] )) ] ];
+    print  id [ id [ (( expr [ 1 ] )) ] ];
+    println  id [ id [ (( expr [ 1 ] )) ] ];
+
+    id [ expr() ];
+    id [ expr[0] ];
+    id [ ((expr[0])) ];
+    id [ id [ (( expr [ 1 ] )) ] ];
+}

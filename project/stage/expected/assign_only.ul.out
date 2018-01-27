@@ -1,0 +1,17 @@
+void main()
+{
+    identifer = 1;
+    IDENTIFIER = id;
+    _ANOTHER_ID = 0.00109;
+    _09 = 9;
+    woop = "";
+    wOOP = "string";
+    __nopeO_12 = "____0912";
+    identifer[1] = 1;
+    IDENTIFIER["STRING"] = id;
+    _ANOTHER_ID[0.91001] = 0.00109;
+    _09['] = 9;
+    woop[false] = "";
+    wOOP[identifier] = "string";
+    __nopeO_12[ID_] = "____0912";
+}

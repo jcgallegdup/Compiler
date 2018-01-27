@@ -100,8 +100,10 @@ varDecl returns [VariableDeclaration varDecl]
     ;
 
 statement returns [Statement s] options {backtrack=true;}
-        : ';'
-        | expr ';'
+        : ';' { new EmptyStatement(); }
+
+        | e=expr ';'
+        { s = new ExpressionStatement(e); }
 
         | PRINT e=expr ';'
         { s = new PrintStatement(e); }
@@ -114,8 +116,12 @@ statement returns [Statement s] options {backtrack=true;}
 
         | ifStatement
         | WHILE '(' expr ')' block
-        | identifier EQUALS expr ';'
-        | identifier '[' expr ']' EQUALS expr ';'
+
+        | id=identifier EQUALS e=expr ';'
+        { s = new ScalarAssignmentStatement(id, e); }
+
+        | id=identifier '[' indexExpr=expr ']' EQUALS e=expr ';'
+        { s = new ArrayAssignmentStatement(id, indexExpr, e); }
     ;
 
 ifStatement options {backtrack=true;}
