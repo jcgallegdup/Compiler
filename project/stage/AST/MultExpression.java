@@ -5,7 +5,7 @@ public class MultExpression extends BinaryExpression {
         super(left, right);
     }
 
-    public char getOperator() {
-        return '*';
+    public String getOperator() {
+        return "*";
     }
 }

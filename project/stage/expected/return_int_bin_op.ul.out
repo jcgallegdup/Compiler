@@ -9,6 +9,12 @@ void fO_123456789_Xa(int asdf_kdf23_, int[89] MEOW_meow_1094385, int[1010] _meow
     return 1 + 2;
     return 1 + 2 - 3 + 4;
     return 9 - 1000 + 99900 * 1;
+    return 1 < 2;
+    return 1 + 2 - 3 < 4;
+    return 9 - 1000 * 99900 < 1;
+    return 1 == 2;
+    return 1 + 2 - 3 == 4;
+    return 9 - 1000 * 99900 == 1 < 0;
 }
 char f12345098_234fXx_(char lowercase, float UPPERCASE, boolean ______, void _1234567890)
 {

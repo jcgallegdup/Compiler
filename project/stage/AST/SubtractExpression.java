@@ -5,7 +5,7 @@ public class SubtractExpression extends BinaryExpression {
         super(left, right);
     }
 
-    public char getOperator() {
-        return '-';
+    public String getOperator() {
+        return "-";
     }
 }

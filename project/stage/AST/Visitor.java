@@ -10,7 +10,6 @@ public interface Visitor {
 //	public void visit (BooleanLiteral b);
 //	public void visit (CharacterLiteral c);
 //	public void visit (DoStatement s);
-//	public void visit (EqualityExpression e);
 //	public void visit (ExpressionStatement e);
 //	public void visit (FloatLiteral f);	
     public void visit (FormalParameter p);
@@ -23,7 +22,6 @@ public interface Visitor {
 //	public void visit (IdentifierValue v);
 //	public void visit (IfStatement i);
     public void visit (IntegerLiteral i);
-//	public void visit (LessThanExpression e);
     public void visit (BinaryExpression e);
 //	public void visit (ParenExpression p);
     public void visit (PrintlnStatement s);

@@ -3,7 +3,7 @@ package AST;
 public abstract class BinaryExpression extends Expression {
     Expression left, right;
 
-    public abstract char getOperator();
+    public abstract String getOperator();
 
     public BinaryExpression(Expression left, Expression right) {
         this.left = left;

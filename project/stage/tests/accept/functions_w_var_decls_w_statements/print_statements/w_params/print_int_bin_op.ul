@@ -13,6 +13,8 @@ print
 ;
 print 1 * 2; print 1 * 2 * 3 * 4; print 0009 * 1000 * 99900 * 00001;
 print 1 + 2; print 1 + 2 - 3 + 4; print 0009 - 1000 + 99900 * 00001;
+print 1 < 2; print 1 + 2 - 3 < 4; print 0009 - 1000 * 99900 < 00001;
+return 1 == 2; return 1 + 2 - 3 == 4; return 0009 - 1000 * 99900 == 00001 < 0000;
 }
 
 char f12345098_234fXx_ (char lowercase , float UPPERCASE, boolean ______, void _1234567890) {

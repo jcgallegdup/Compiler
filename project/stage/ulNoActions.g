@@ -114,11 +114,17 @@ ifStatement options {backtrack=true;}
 block: '{' statement* '}';
 
 expr returns [Expression e]
-        : l=lessThanExpr ('==' lessThanExpr)* { e = l; }
+        : leftExpr=lessThanExpr { e = leftExpr; }
+        (
+            '==' rightExpr=lessThanExpr { e = new EqualityExpression(e, rightExpr); }
+        )*
     ;
 
 lessThanExpr returns [Expression e]
-        : a=addExpr ('<' addExpr)* { e = a; }
+        : leftExpr=addExpr { e = leftExpr; }
+        (
+            '<' leftExpr=addExpr { e = new LessThanExpression(e, leftExpr); }
+        )*
     ;
 
 addExpr returns [Expression e]
@@ -126,7 +132,7 @@ addExpr returns [Expression e]
         (
             op=('+'|'-') rightExpr=multExpr
             {
-                e = ($op.text.charAt(0) == '+'?
+                e = ($op.text.equals("+")?
                     new AddExpression(e, rightExpr) :
                     new SubtractExpression(e, rightExpr)
                 );
