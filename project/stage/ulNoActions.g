@@ -100,7 +100,7 @@ varDecl returns [VariableDeclaration varDecl]
     ;
 
 statement returns [Statement s] options {backtrack=true;}
-        : ';' { new EmptyStatement(); }
+        : ';' { s = new EmptyStatement(); }
 
         | e=expr ';'
         { s = new ExpressionStatement(e); }
