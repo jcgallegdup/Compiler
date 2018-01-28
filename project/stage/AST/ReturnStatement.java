@@ -12,6 +12,6 @@ public class ReturnStatement extends Statement {
     }
 
     public String toString() {
-        return "return " + expr.toString() + ";";
+        return "return " + (this.expr == null? "" : expr.toString()) + ";";
     }
 }
