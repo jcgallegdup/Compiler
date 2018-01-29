@@ -17,11 +17,6 @@ void m(){
             return ;
             return 'c';
         }
-        
-        while (true) {
-            return ;
-            return 'c';
-        }
     }
     if (true) { ;; id[001]=WOOP; }
     if (ID) { identifier="GOOD";}

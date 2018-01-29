@@ -50,6 +50,25 @@ public class PrettyPrintVisitor implements Visitor {
         println(e.toString());
     }
 
+    public void visit(IfElseStatement s) {
+        println("if (" + s.cond.toString() + ")");
+        s.ifBlock.accept(this);
+        if (s.elseBlock != null) {
+            println("else");
+            s.elseBlock.accept(this);
+        }
+    }
+
+    public void visit(StatementBlock b) {
+        println ("{");
+        indentLevel++;
+        for (Statement s : b.statements) {
+            s.accept(this);
+        }
+        indentLevel--;
+        println ("}");
+    }
+
     public void visit (FormalParameterList params) { }
 
     public void visit (FormalParameter param) { }

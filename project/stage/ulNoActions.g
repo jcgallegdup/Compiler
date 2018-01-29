@@ -114,7 +114,9 @@ statement returns [Statement s] options {backtrack=true;}
         | RETURN e=expr? ';'
         { s = new ReturnStatement(e); }
 
-        | ifStatement
+        | condStatement=ifStatement
+        { s = condStatement; }
+
         | WHILE '(' expr ')' block
 
         | id=identifier EQUALS e=expr ';'
@@ -124,12 +126,20 @@ statement returns [Statement s] options {backtrack=true;}
         { s = new ArrayAssignmentStatement(id, indexExpr, e); }
     ;
 
-ifStatement options {backtrack=true;}
-        : IF '(' expr ')' block ELSE block
-        | IF '(' expr ')' block
+ifStatement returns [IfElseStatement condStatement] options {backtrack=true;}
+        : IF '(' cond=expr ')' ifBlock=block ELSE elseBlock=block
+        { condStatement = new IfElseStatement(cond, ifBlock, elseBlock); }
+
+        | IF '(' cond=expr ')' ifBlock=block
+        { condStatement = new IfElseStatement(cond, ifBlock); }
     ;
 
-block: '{' statement* '}';
+block returns [StatementBlock b]
+        @init { b = new StatementBlock(); }
+        : '{'
+            (s=statement { b.addStatement(s); })*
+        '}'
+    ;
 
 expr returns [Expression e]
         : leftExpr=lessThanExpr { e = leftExpr; }

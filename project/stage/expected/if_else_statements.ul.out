@@ -1,0 +1,120 @@
+boolean f()
+{
+    if (true)
+    {
+        println "ok";
+    }
+    else
+    {
+    }
+}
+void m()
+{
+    if (1)
+    {
+    }
+    else
+    {
+        if ("true")
+        {
+            ;
+            return x;
+        }
+        else
+        {
+            if (1)
+            {
+                ;
+                ;
+            }
+        }
+    }
+    if ("_01STRING")
+    {
+        print "WOOP";
+    }
+    else
+    {
+        print "WOOP";
+    }
+    if (c)
+    {
+        println false;
+        identifier;
+    }
+    else
+    {
+        if ("true")
+        {
+            ;
+            return x;
+        }
+        else
+        {
+            if (1)
+            {
+                ;
+                ;
+            }
+            if (id)
+            {
+                expr;
+            }
+            else
+            {
+                FALSE;
+            }
+        }
+    }
+    if (0.901)
+    {
+        if (true)
+        {
+            return ;
+            return c;
+        }
+        else
+        {
+        }
+        if (true)
+        {
+            return ;
+            return c;
+        }
+    }
+    else
+    {
+        println "d";
+        print 1;
+        if (1)
+        {
+        }
+        else
+        {
+            if (true)
+            {
+                expr;
+            }
+        }
+    }
+    if (true)
+    {
+        ;
+        ;
+        id[1] = WOOP;
+    }
+    else
+    {
+        ;
+        ;
+        ;
+        ;
+    }
+    if (ID)
+    {
+        identifier = "GOOD";
+    }
+    else
+    {
+    }
+}

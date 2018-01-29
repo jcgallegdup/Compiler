@@ -13,7 +13,7 @@ void m(){
         if ("true") {
             ; return x;
         } else {
-            while (1) {;;}
+            if (1) {;;}
         }
     }
 
@@ -30,7 +30,7 @@ void m(){
         if ("true") {
             ; return x;
         } else {
-            while (1) {;;}
+            if (1) {;;}
             if (id) { expr ; } else { FALSE; }
         }
     }
@@ -41,7 +41,7 @@ void m(){
             return 'c';
         } else {}
         
-        while (true) {
+        if (true) {
             return ;
             return 'c';
         }
