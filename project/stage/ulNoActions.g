@@ -216,7 +216,8 @@ literal returns [Expression e]
         { e = new FloatLiteral(Float.parseFloat($FLOATCONSTANT.text)); }
 
         | CHARCONSTANT
-        { e = new CharacterLiteral($CHARCONSTANT.text.charAt(0)); }
+        // the character exists at index=1 e.g. $CHARCONSTANT.text="'c'"
+        { e = new CharacterLiteral($CHARCONSTANT.text.charAt(1)); }
 
         | STRINGCONSTANT
         { e = new StringLiteral($STRINGCONSTANT.text); }
