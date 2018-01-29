@@ -403,5 +403,25 @@ line 5:0 mismatched input '}' expecting ';'
 
 
 
+* Running tests/reject/corless_reject_tests/invalid1.ul
+line 0:-1 mismatched input '<EOF>' expecting '}'
 
-Ran       80 tests:
+
+
+* Running tests/reject/corless_reject_tests/invalid2.ul
+line 1:0 required (...)+ loop did not match anything at input 'main'
+
+
+
+* Running tests/reject/corless_reject_tests/invalid3.ul
+line 5:2 mismatched input 'int' expecting '}'
+
+
+
+* Running tests/reject/corless_reject_tests/invalid4.ul
+line 1:0 no viable alternative at input 'int'
+
+
+
+
+Ran       84 tests:
