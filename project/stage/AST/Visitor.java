@@ -19,6 +19,7 @@ public interface Visitor {
     public void visit (Identifier i);
 //	public void visit (IdentifierValue v);
     public void visit (IfElseStatement s);
+    public void visit (WhileStatement s);
     public void visit (StatementBlock b);
 //  public void visit (IntegerLiteral i);
     public void visit (Expression e);

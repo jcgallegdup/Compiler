@@ -117,7 +117,8 @@ statement returns [Statement s] options {backtrack=true;}
         | condStatement=ifStatement
         { s = condStatement; }
 
-        | WHILE '(' expr ')' block
+        | WHILE '(' cond=expr ')' loopBody=block
+        { s = new WhileStatement(cond, loopBody); }
 
         | id=identifier EQUALS e=expr ';'
         { s = new ScalarAssignmentStatement(id, e); }

@@ -59,6 +59,11 @@ public class PrettyPrintVisitor implements Visitor {
         }
     }
 
+    public void visit(WhileStatement s) {
+        println("while (" + s.cond.toString() + ")");
+        s.loopBody.accept(this);
+    }
+
     public void visit(StatementBlock b) {
         println ("{");
         indentLevel++;
