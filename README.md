@@ -4,12 +4,16 @@
 
 ### Testing
 - move to `stage` directory: `cd project/stage`
+- create a results directory: `mkdir results`
+  - output of accept tests will be written to individual files in this directory
 - build project: `make`
 
 #### Run All Existing Tests
 - optionally specify whether to run accept or reject inputs:
-  - `sh run_all_tests.sh [accept|reject]`
-- tests have output if and only if they are rejected
+  - `bash run_all_tests.sh [accept|reject]`
+  - if you specify `accept`, each test's output will be written to an individual file in the `results` directory
+- when a test is rejected, an error message is printed to the terminal
+- when a test is accepted, the output is a pretty print version of the source code
 
 #### Create New Tests
 - add tests by creating a `<test_name>.ul` file anywhere within the `project/stage/tests` directory
