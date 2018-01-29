@@ -22,8 +22,9 @@ do
         echo "$output" > "results/$testFileName.out"
         diff "results/$testFileName.out" "expected/$testFileName.out"
     fi
-    echo "\n\n"
+    printf "\n\n"
 done
 
 numTests="$(echo $tests | wc -w)"
-echo "\nRan $numTests tests:"
+printf "\n"
+echo "Ran $numTests tests:"

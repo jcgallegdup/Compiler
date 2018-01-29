@@ -8,4 +8,5 @@ do
 done
 
 numTests="$(echo $tests | wc -w)"
-echo "\nArchived $numTests tests"
+printf "\n"
+echo "Archived $numTests tests"
