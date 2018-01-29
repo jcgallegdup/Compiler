@@ -7,6 +7,6 @@ public class CharacterLiteral extends Expression {
     }
 
     public String toString() {
-        return Character.toString(this.val);
+        return "'" + Character.toString(this.val) + "'";
     }
 }

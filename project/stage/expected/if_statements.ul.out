@@ -7,7 +7,7 @@ void m()
     {
         print "WOOP";
     }
-    if (c)
+    if ('c')
     {
         println false;
         identifier;
@@ -17,7 +17,7 @@ void m()
         if (true)
         {
             return ;
-            return c;
+            return 'c';
         }
     }
     if (true)
