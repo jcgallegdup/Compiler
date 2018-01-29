@@ -1,4 +1,4 @@
-void m()
+void m ()
 {
     if (1)
     {

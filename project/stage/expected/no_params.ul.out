@@ -1,4 +1,4 @@
-boolean _kK1_jJ2()
+boolean _kK1_jJ2 ()
 {
     boolean _kK1_jJ2;
     char fF1_jJ2_;
@@ -6,8 +6,10 @@ boolean _kK1_jJ2()
     int _____;
     string lowercase;
     void UPPERCASE;
+
 }
-char fF1_jJ2_()
+
+char fF1_jJ2_ ()
 {
     boolean _kK1_jJ2;
     char fF1_jJ2_;
@@ -15,8 +17,10 @@ char fF1_jJ2_()
     int _____;
     string lowercase;
     void UPPERCASE;
+
 }
-float _0fF_9zZ()
+
+float _0fF_9zZ ()
 {
     boolean _kK1_jJ2;
     char fF1_jJ2_;
@@ -24,8 +28,10 @@ float _0fF_9zZ()
     int _____;
     string lowercase;
     void UPPERCASE;
+
 }
-int[100] K1k_J2j_()
+
+int[100] K1k_J2j_ ()
 {
     boolean _kK1_jJ2;
     char fF1_jJ2_;
@@ -33,8 +39,10 @@ int[100] K1k_J2j_()
     int _____;
     string lowercase;
     void UPPERCASE;
+
 }
-int _____()
+
+int _____ ()
 {
     boolean _kK1_jJ2;
     char fF1_jJ2_;
@@ -42,8 +50,10 @@ int _____()
     int _____;
     string lowercase;
     void UPPERCASE;
+
 }
-string lowercase()
+
+string lowercase ()
 {
     boolean _kK1_jJ2;
     char fF1_jJ2_;
@@ -51,9 +61,12 @@ string lowercase()
     int _____;
     string lowercase;
     void UPPERCASE;
+
 }
-void UPPERCASE()
+
+void UPPERCASE ()
 {
     string lowercase;
     void UPPERCASE;
+
 }

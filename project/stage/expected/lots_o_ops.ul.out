@@ -1,6 +1,6 @@
-void main()
+void main ()
 {
-    id + 4 * 3 - id[1] - 0 * funcCall("string", "anotherArg");
-    ((id + 4) * 3 - id[true]) - 0 * funcCall(false, 1.0E-4, anotheCall(id[1.0001]));
-    (('c') * "string" - 1) * 0.0 + ID * false;
+    id+4*3-id[1]-0*funcCall("string", "anotherArg");
+    ((id+4)*3-id[true])-0*funcCall(false, 1.0E-4, anotheCall(id[1.0001]));
+    (('c')*"string"-1)*0.0+ID*false;
 }

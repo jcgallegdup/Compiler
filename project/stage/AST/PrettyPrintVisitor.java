@@ -11,8 +11,11 @@ public class PrettyPrintVisitor implements Visitor {
     }
 
     public void visit (Program prog) {
+        String delimiter = "";
         for (Function func : prog.functionList) {
+            System.out.print(delimiter);
             func.accept(this);
+            delimiter = "\n";
         }
     }
 
@@ -31,6 +34,7 @@ public class PrettyPrintVisitor implements Visitor {
         for (VariableDeclaration varDecl : fb.varDecls) {
             varDecl.accept(this);
         }
+        if (fb.varDecls.size() > 0) System.out.println("");
         for (Statement s : fb.statements) {
             s.accept(this);
         }

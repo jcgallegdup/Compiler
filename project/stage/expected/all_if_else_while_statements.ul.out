@@ -1,4 +1,4 @@
-boolean f()
+boolean f ()
 {
     if (true)
     {
@@ -8,7 +8,8 @@ boolean f()
     {
     }
 }
-void m()
+
+void m ()
 {
     if (1)
     {
@@ -118,7 +119,8 @@ void m()
     {
     }
 }
-void m()
+
+void m ()
 {
     if (1)
     {
@@ -156,7 +158,8 @@ void m()
         identifier = "GOOD";
     }
 }
-void m()
+
+void m ()
 {
     while (1)
     {

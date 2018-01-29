@@ -18,6 +18,6 @@ public class FunctionDecl {
     }
 
     public String toString () {
-        return returnType.toString() + " " + id.name + params.toString();
+        return returnType.toString() + " " + id.name + " " + params.toString();
     }
 }

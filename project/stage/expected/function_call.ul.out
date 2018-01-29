@@ -1,4 +1,4 @@
-void m()
+void m ()
 {
     id(expr);
     id(expr('c'));

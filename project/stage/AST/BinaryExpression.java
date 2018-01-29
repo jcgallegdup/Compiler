@@ -11,6 +11,6 @@ public abstract class BinaryExpression extends Expression {
     }
 
     public String toString() {
-        return this.left.toString() + " " + this.getOperator() + " " + this.right.toString();
+        return this.left.toString() + this.getOperator() + this.right.toString();
     }
 }
