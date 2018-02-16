@@ -2,20 +2,20 @@ package AST;
 
 public class Identifier {
     String name;
-    int lineNumber, lineOffset;
+    int lineNumber, linePos;
 
-    public Identifier (String name, int lineNumber, int lineOffset) {
+    public Identifier (String name, int lineNumber, int linePos) {
         this.name = name;
         this.lineNumber = lineNumber;
-        this.lineOffset = lineOffset;
+        this.linePos = linePos;
     }
 
     public int getLineNumber(){
         return this.lineNumber;
     }
 
-    public int getLineOffset(){
-        return this.lineOffset;
+    public int getLinePos(){
+        return this.linePos;
     }
 
     public void accept (Visitor v) {

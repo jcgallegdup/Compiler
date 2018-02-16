@@ -184,7 +184,7 @@ exprAtom returns [Expression e]
         { e = new ArrayExpression(id, idExpr); }
 
         | id=identifier
-        { e = new IdentifierExpression(id, id.getLineNumber(), id.getLineOffset()); }
+        { e = new IdentifierExpression(id, id.getLineNumber(), id.getLinePos()); }
 
         | lit=literal { e=lit; }
 

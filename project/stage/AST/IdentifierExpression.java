@@ -2,12 +2,12 @@ package AST;
 
 public class IdentifierExpression extends Expression {
     Identifier id;
-    int lineNumber, lineOffset;
+    int lineNumber, linePos;
 
-    public IdentifierExpression(Identifier id, int lineNumber, int lineOffset) {
+    public IdentifierExpression(Identifier id, int lineNumber, int linePos) {
         this.id = id;
         this.lineNumber = lineNumber;
-        this.lineOffset = lineOffset;
+        this.linePos = linePos;
     }
 
     public String toString() {
