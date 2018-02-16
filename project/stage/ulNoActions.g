@@ -184,7 +184,7 @@ exprAtom returns [Expression e]
         { e = new ArrayExpression(id, idExpr); }
 
         | id=identifier
-        { e = new IdentifierExpression(id); }
+        { e = new IdentifierExpression(id, id.getLineNumber(), id.getLineOffset()); }
 
         | lit=literal { e=lit; }
 
@@ -207,12 +207,12 @@ exprMore returns [Expression e]
     ;
 
 compoundType returns [TypeNode cType]
-        : TYPE { cType = new TypeNode(this.getTypeInstance($TYPE.text)); }
+        : TYPE { cType = new TypeNode(this.getTypeInstance($TYPE.text), $TYPE.line, $TYPE.pos); }
         | TYPE '[' INTCONSTANT ']'
         {
             int size = Integer.parseInt($INTCONSTANT.text);
             Type elementType = this.getTypeInstance($TYPE.text);
-            cType = new TypeNode(new ArrayType(elementType, size));
+            cType = new TypeNode(new ArrayType(elementType, size), $TYPE.line, $TYPE.pos);
         }
     ;
 
@@ -235,11 +235,11 @@ literal returns [Expression e]
     ;
 
 identifier returns [Identifier id]
-        : ID { id = new Identifier($ID.text); }
+        : ID { id = new Identifier($ID.text, $ID.line, $ID.pos); }
     ;
 
 /* Lexer */
-     
+
 IF: 'if';
 
 ELSE: 'else';
@@ -275,10 +275,10 @@ INTCONSTANT: DIGIT+;
 
 FLOATCONSTANT: DIGIT+ '.' DIGIT+;
 
-/* These two lines match whitespace and comments 
+/* These two lines match whitespace and comments
  * and ignore them.
- * You want to leave these as last in the file.  
- * Add new lexical rules above 
+ * You want to leave these as last in the file.
+ * Add new lexical rules above
  */
 WS: ( '\t' | ' ' | ('\r' | '\n') )+ { $channel = HIDDEN;};
 
