@@ -1,11 +1,11 @@
 void main() {
-
+    return;
 }
 
 int foo1(float bar1) {
-
+    return 0;
 }
 
 int foo2(float bar2) {
-
+    return 1;
 }

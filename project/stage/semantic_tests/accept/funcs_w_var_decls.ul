@@ -1,0 +1,13 @@
+void main() {
+    int c;
+}
+
+int sum(int a, int b) {
+    int sum;
+    return sum;
+}
+
+int mult(int a, int b) {
+    int result;
+    return result;
+}

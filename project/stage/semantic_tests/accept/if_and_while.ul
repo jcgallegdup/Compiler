@@ -1,9 +1,12 @@
 void main() {
+    boolean bool;
+    int a;
+    float b;
+
     // 3.1.1
     if (true) {
         print "true if statement";
     }
-    boolean bool;
 
     // 3.1.2
     bool = true;
@@ -17,14 +20,6 @@ void main() {
     println "new line";
 
     // 3.1.6
-    int a;
-    float b;
-    b = a;
-}
-
-// 3.1.5
-float foo() {
-    int a;
-    a = 5;
-    return a;
+    b = 0.0;
+    return;
 }

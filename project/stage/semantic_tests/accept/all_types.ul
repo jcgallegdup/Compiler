@@ -21,9 +21,12 @@ void main() {
     arr[1] = 1;
     print arr[1];
 
-    s1 = 1;
-    s2 = 2;
-    s3 = s1 + s2;
+    s1 = "String";
+    print s1;
+
+    a = 1;
+    b = 2;
+    c = a + b;
 
     c1 = 'a';
     c2 = 'b';
