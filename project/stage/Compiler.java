@@ -10,7 +10,7 @@ import java.io.*;
 
 import AST.Program;
 import AST.Visitor;
-import AST.PrettyPrintVisitor;
+import AST.TypeCheckVisitor;
 
 public class Compiler {
 	public static void main (String[] args) throws Exception {
@@ -32,7 +32,7 @@ public class Compiler {
 
 		try {
 			Program p = parser.program();
-			p.accept(new PrettyPrintVisitor());
+			p.accept(new TypeCheckVisitor());
 		}
 		catch (RecognitionException e )	{
 			// A lexical or parsing error occured.

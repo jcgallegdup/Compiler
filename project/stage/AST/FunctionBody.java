@@ -18,6 +18,10 @@ public class FunctionBody {
         this.statements.add(s);
     }
 
+    public void accept (TypeCheckVisitor v) throws SemanticException {
+        v.visit(this);
+    }
+
     public void accept (Visitor v) {
         v.visit(this);
         //System.out.println("Visiting: " + this);

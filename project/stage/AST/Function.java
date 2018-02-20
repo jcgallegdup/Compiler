@@ -9,6 +9,10 @@ public class Function {
         this.funcBody = funcBody;
     }
 
+    public void accept (TypeCheckVisitor v) throws SemanticException {
+        v.visit(this);
+    }
+
     public void accept (Visitor v) {
         v.visit(this);
         // System.out.println("Visiting: " + this);
