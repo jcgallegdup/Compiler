@@ -6,6 +6,6 @@ int foo() {
 
 }
 
-void foo() {
+void bar() {
     
 }
