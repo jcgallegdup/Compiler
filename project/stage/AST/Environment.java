@@ -28,6 +28,7 @@ public class Environment <K, V> {
         return this.getEnvOfCurScope().containsKey(key);
     }
 
+    // overwrites any existing entry for given key
     public void add(K key, V value) {
         if (this.curScope == -1) {
             System.out.println("WARN: Added to environment before beginning scope");

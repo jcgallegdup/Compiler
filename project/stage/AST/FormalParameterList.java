@@ -1,8 +1,9 @@
 package AST;
 
 import java.util.Vector;
+import java.util.Iterator;
 
-public class FormalParameterList {
+public class FormalParameterList implements Iterable<FormalParameter> {
     Vector<FormalParameter> params;
 
     public FormalParameterList () {
@@ -27,5 +28,14 @@ public class FormalParameterList {
         }
         paramsString += ")";
         return paramsString;
+    }
+
+    public int size() {
+        return params.size();
+    }
+
+    @Override
+    public Iterator<FormalParameter> iterator() {
+        return params.iterator();
     }
 }
