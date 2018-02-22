@@ -10,6 +10,14 @@ for pathToTest in $tests
 do
     echo "* Running $pathToTest"
 
+    # print test input for accept tests; reject tests should be obvious by their title
+    if [ -n "$testType" ] && [ "$testType" == "accept" ]
+    then
+        echo "Input:"
+        cat $pathToTest
+        printf "\n"
+    fi
+
     output=$(java Compiler $pathToTest)
     echo "$output"
     printf "\n\n"
