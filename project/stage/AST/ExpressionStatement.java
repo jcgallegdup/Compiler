@@ -7,6 +7,10 @@ public class ExpressionStatement extends Statement {
         this.expr = expr;
     }
 
+    public void accept(TypeCheckVisitor v) {
+        v.visit(this);
+    }
+
     public String toString() {
         return expr.toString() + ";";
     }

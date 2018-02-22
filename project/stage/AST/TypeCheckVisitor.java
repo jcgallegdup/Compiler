@@ -49,8 +49,13 @@ public class TypeCheckVisitor {
     }
 
     public void visit(Function f) throws SemanticException {
+        // add all param/var declarations to new env
         this.varEnv.beginScope();
         addVarsToEnv(f.funcDecl.params, f.funcBody.varDecls);
+
+        // TODO: check statements in function body
+        f.funcBody.accept(this);
+        this.varEnv.endScope();
     }
 
     // TODO: collapse duplicate loops by treating params & varDecls as similar objects
@@ -91,10 +96,25 @@ public class TypeCheckVisitor {
         }
     }
 
-    public void visit(FunctionDecl f) throws SemanticException {
+    public void visit(FunctionBody body) throws SemanticException {
+        for (Statement s : body.statements) {
+            s.accept(this);
+        }
     }
 
-    public void visit(FunctionBody f) throws SemanticException {
+    public void visit(Statement s) { }
+
+    public void visit(ExpressionStatement s) {
+        Type type = s.expr.accept(this);
+        System.out.println(s.expr.toString()+":"+type);
+    }
+
+    public Type visit(Expression e) {
+        return null;
+    }
+
+    public Type visit(LiteralExpression e) {
+        return e.type;
     }
 
     // encapsulate logic that adds to env while checking for duplicate declarations

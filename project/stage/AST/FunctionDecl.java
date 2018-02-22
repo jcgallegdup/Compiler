@@ -13,10 +13,6 @@ public class FunctionDecl {
         this.params = params;
     }
 
-    public void accept (TypeCheckVisitor v) throws SemanticException {
-        v.visit(this);
-    }
-
     public void accept (Visitor v) {
         v.visit(this);
     }

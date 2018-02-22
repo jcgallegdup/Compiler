@@ -218,20 +218,45 @@ compoundType returns [TypeNode cType]
 
 literal returns [Expression e]
         : BOOLCONSTANT
-        { e = new BooleanLiteral(Boolean.parseBoolean($BOOLCONSTANT.text)); }
+        {
+            e = new LiteralExpression(
+                new BooleanType(),
+                Boolean.parseBoolean($BOOLCONSTANT.text)
+            );
+        }
 
         | INTCONSTANT
-        { e = new IntegerLiteral(Integer.parseInt($INTCONSTANT.text)); }
+        {
+            e = new LiteralExpression(
+                new IntegerType(),
+                Integer.parseInt($INTCONSTANT.text)
+            );
+        }
 
         | FLOATCONSTANT
-        { e = new FloatLiteral(Float.parseFloat($FLOATCONSTANT.text)); }
+        {
+            e = new LiteralExpression(
+                new FloatType(),
+                Float.parseFloat($FLOATCONSTANT.text)
+            );
+        }
 
         | CHARCONSTANT
         // the character exists at index=1 e.g. $CHARCONSTANT.text="'c'"
-        { e = new CharacterLiteral($CHARCONSTANT.text.charAt(1)); }
+        {
+            e = new LiteralExpression(
+                new CharType(),
+                $CHARCONSTANT.text.charAt(1)
+            );
+        }
 
         | STRINGCONSTANT
-        { e = new StringLiteral($STRINGCONSTANT.text); }
+        {
+            e = new LiteralExpression(
+                new StringType(),
+                $STRINGCONSTANT.text
+            );
+        }
     ;
 
 identifier returns [Identifier id]
