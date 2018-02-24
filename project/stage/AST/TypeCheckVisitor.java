@@ -4,11 +4,11 @@ import Type.*;
 
 public class TypeCheckVisitor {
     Environment<String, Function> funcEnv;
-    Environment<String, Identifier> varEnv;
+    Environment<String, TypeNode> varEnv;
 
     public TypeCheckVisitor() {
         this.funcEnv = new Environment<String, Function>();
-        this.varEnv = new Environment<String, Identifier>();
+        this.varEnv = new Environment<String, TypeNode>();
     }
 
     public void visit(Program p) throws SemanticException {
@@ -68,8 +68,7 @@ public class TypeCheckVisitor {
                     param.id.getLinePos()
                 );
             }
-            // this.varEnv.add(this.getEnvironmentKey(param), null);
-            if (!addToVarEnv(getEnvironmentKey(param), param.id)) {
+            if (!addToVarEnv(getEnvironmentKey(param), param.type)) {
                 throw new SemanticException(
                     "Found duplicate param declaration",
                     param.id.getLineNumber(),
@@ -85,8 +84,7 @@ public class TypeCheckVisitor {
                     varDecl.id.getLinePos()
                 );
             }
-            // TODO store type of variable
-            if (!addToVarEnv(getEnvironmentKey(varDecl), varDecl.id)) {
+            if (!addToVarEnv(getEnvironmentKey(varDecl), varDecl.type)) {
                 throw new SemanticException(
                     "Found duplicate param declaration",
                     varDecl.id.getLineNumber(),
@@ -154,11 +152,11 @@ public class TypeCheckVisitor {
 
     // encapsulate logic that adds to env while checking for duplicate declarations
     // returns true if and only if the key is added to the env for the first time
-    private boolean addToVarEnv(String key, Identifier val) throws SemanticException {
+    private boolean addToVarEnv(String key, TypeNode type) throws SemanticException {
         if (varEnv.inCurrentScope(key)) {
             return false;
         } else {
-            varEnv.add(key, val);
+            varEnv.add(key, type);
             return true;
         }
     }
