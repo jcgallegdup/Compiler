@@ -7,7 +7,7 @@ public class ExpressionStatement extends Statement {
         this.expr = expr;
     }
 
-    public void accept(TypeCheckVisitor v) {
+    public void accept(TypeCheckVisitor v) throws SemanticException {
         v.visit(this);
     }
 

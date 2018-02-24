@@ -1,12 +1,13 @@
 package AST;
 
-import Type.*;
+import Type.Type;
 
 public abstract class Expression {
 
     public abstract String toString();
 
-    public Type accept(TypeCheckVisitor v) {
+    // TODO make this abstract
+    public Type accept(TypeCheckVisitor v) throws SemanticException {
         return v.visit(this);
     }
 

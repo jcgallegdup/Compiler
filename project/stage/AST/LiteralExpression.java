@@ -1,7 +1,7 @@
 package AST;
 
-import AST.TypeCheckVisitor;
-import Type.*;
+import Type.Type;
+
 public class LiteralExpression<T> extends Expression {
     Type type;
     T val;

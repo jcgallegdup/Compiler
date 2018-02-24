@@ -1,5 +1,7 @@
 package AST;
 
+import Type.Type;
+
 public abstract class BinaryExpression extends Expression {
     Expression left, right;
 
@@ -8,6 +10,10 @@ public abstract class BinaryExpression extends Expression {
     public BinaryExpression(Expression left, Expression right) {
         this.left = left;
         this.right = right;
+    }
+
+    public Type accept(TypeCheckVisitor v) throws SemanticException {
+        return v.visit(this);
     }
 
     public String toString() {

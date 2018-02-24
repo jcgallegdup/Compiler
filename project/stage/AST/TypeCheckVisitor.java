@@ -85,7 +85,7 @@ public class TypeCheckVisitor {
                     varDecl.id.getLinePos()
                 );
             }
-            // this.varEnv.add(this.getEnvironmentKey(varDecl), null);
+            // TODO store type of variable
             if (!addToVarEnv(getEnvironmentKey(varDecl), varDecl.id)) {
                 throw new SemanticException(
                     "Found duplicate param declaration",
@@ -104,13 +104,37 @@ public class TypeCheckVisitor {
 
     public void visit(Statement s) { }
 
-    public void visit(ExpressionStatement s) {
+    public void visit(ExpressionStatement s) throws SemanticException {
         Type type = s.expr.accept(this);
         System.out.println(s.expr.toString()+":"+type);
     }
 
+    // will be removed once method in class is made abstract
     public Type visit(Expression e) {
         return null;
+    }
+
+    public Type visit(ParenExpression e) throws SemanticException {
+        // must evaluate expression wrapped in parentheses
+        return e.e.accept(this);
+    }
+
+    public Type visit(BinaryExpression binExp) throws SemanticException{
+        Type left = binExp.left.accept(this);
+        Type right = binExp.right.accept(this);
+
+        String op = binExp.getOperator();
+        Type result = OperandTypeRules.getTypeOfResult(op, left, right);
+        if (result == null) {
+            throw new SemanticException(
+                "Binary operator '"+op+"' does not support types: '"+left+"' and '"+right+"'",
+                // TODO: add line num and pos to Type class
+                // rightType.getLineNumber(),
+                // rightType.getLinePos()
+                -1, -1
+            );
+        }
+        return result;
     }
 
     public Type visit(LiteralExpression e) {
