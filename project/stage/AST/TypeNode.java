@@ -18,6 +18,6 @@ public class TypeNode {
     }
 
     public String toString () {
-        return this.type.toShortString();
+        return this.type.toString();
     }
 }

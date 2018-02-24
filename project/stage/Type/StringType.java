@@ -5,7 +5,7 @@ import AST.Visitor;
 public class StringType extends Type {
     public StringType () { }
 
-    public String toShortString () {
+    public String toString() {
         return "string";
     }
 

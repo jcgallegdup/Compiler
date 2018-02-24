@@ -5,7 +5,7 @@ import AST.Visitor;
 public class BooleanType extends Type {
     public BooleanType () { }
 
-    public String toShortString () {
+    public String toString() {
         return "boolean";
     }
 

@@ -5,7 +5,7 @@ import AST.Visitor;
 public class CharType extends Type {
     public CharType () { }
 
-    public String toShortString () {
+    public String toString() {
         return "char";
     }
 

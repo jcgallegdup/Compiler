@@ -5,7 +5,7 @@ import AST.Visitor;
 public class IntegerType extends Type {
     public IntegerType () { }
 
-    public String toShortString () {
+    public String toString() {
         return "int";
     }
 

@@ -5,7 +5,7 @@ import AST.Visitor;
 public class FloatType extends Type {
     public FloatType () { }
 
-    public String toShortString () {
+    public String toString() {
         return "float";
     }
 

@@ -5,7 +5,7 @@ import AST.Visitor;
 public class VoidType extends Type {
     public VoidType () { }
 
-    public String toShortString () {
+    public String toString() {
         return "void";
     }
 
