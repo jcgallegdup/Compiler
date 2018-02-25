@@ -116,6 +116,29 @@ public class TypeCheckVisitor {
 
     public void visit(Statement s) { }
 
+    public void visit(WhileStatement s) throws SemanticException {
+        Type cond = s.cond.accept(this);
+        if (!cond.toString().equals("boolean")) {
+            throw new SemanticException(
+                "Found 'while' condition of type '"+cond+"', expected 'boolean'",
+                // TODO add line number
+                -1, -1
+            );
+        }
+    }
+
+    public void visit(IfElseStatement s) throws SemanticException {
+        Type cond = s.cond.accept(this);
+        if (!cond.toString().equals("boolean")) {
+            throw new SemanticException(
+                "Found 'if' condition of type '"+cond+"', expected 'boolean'",
+                // TODO add line number
+                -1, -1
+            );
+        }
+    }
+
+
     public void visit(ScalarAssignmentStatement s) throws SemanticException {
         // ensure id exists in scope
         TypeNode expectedTypeNode = this.varEnv.lookup(s.id.name);

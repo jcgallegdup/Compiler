@@ -1,0 +1,29 @@
+void main() {
+    boolean bool;
+    int a;
+    float b;
+
+    // 3.1.1
+    if (true) {
+        print "true if statement";
+    }
+    if (gimmeBool() == gimmeThisBool(gimmeThisBool(gimmeBool()))) {} else {}
+    if ( 1 < 2 == bool == gimmeBool()) {} 
+
+    // 3.1.2
+    bool = true;
+    while (bool) {
+        while (gimmeBool() == gimmeThisBool(true)) { }
+        print "looping while once";
+        bool = false;
+    }
+}
+
+boolean gimmeBool() {
+    boolean b;
+    return b;
+}
+
+boolean gimmeThisBool(boolean b) {
+    return b;
+}

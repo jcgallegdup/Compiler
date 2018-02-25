@@ -1,0 +1,7 @@
+void main() {
+    if (gimmeFloat() ) {}
+}
+
+float gimmeFloat() {
+    return 0.0;
+}

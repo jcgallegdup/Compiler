@@ -1,5 +1,7 @@
 package AST;
 
+import Type.Type;
+
 public class IfElseStatement extends Statement {
     Expression cond;
     StatementBlock ifBlock, elseBlock;
@@ -14,6 +16,10 @@ public class IfElseStatement extends Statement {
         this.cond = cond;
         this.ifBlock = ifBlock;
         this.elseBlock = null;
+    }
+
+    public void accept(TypeCheckVisitor v) throws SemanticException {
+        v.visit(this);
     }
 
     public void accept(Visitor v) {
