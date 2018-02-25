@@ -7,6 +7,10 @@ public class PrintStatement extends Statement {
         this.expr = expr;
     }
 
+    public void accept(TypeCheckVisitor v) throws SemanticException {
+        v.visit(this);
+    }
+
     public String toString() {
         return "print " + expr.toString() + ";";
     }

@@ -116,6 +116,29 @@ public class TypeCheckVisitor {
 
     public void visit(Statement s) { }
 
+    public void visit(PrintStatement s) throws SemanticException {
+        Type t = s.expr.accept(this);
+        if (t.toString().equals("void")) {
+            throw new SemanticException(
+                "Found expr in print statement of type 'void'",
+                // TODO add line number
+                -1, -1
+            );
+        }
+    }
+
+    public void visit(PrintlnStatement s) throws SemanticException {
+        Type t = s.expr.accept(this);
+        if (t.toString().equals("void")) {
+            throw new SemanticException(
+                "Found expr in println statement of type 'void'",
+                // TODO add line number
+                -1, -1
+            );
+        }
+    }
+
+
     public void visit(WhileStatement s) throws SemanticException {
         Type cond = s.cond.accept(this);
         if (!cond.toString().equals("boolean")) {
