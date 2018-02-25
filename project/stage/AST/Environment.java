@@ -34,6 +34,6 @@ public class Environment <K, V, T> {
     }
 
     public void dumpEnv() {
-        System.out.println(this.enclosingScope+"\nMap:"+this.symbolTable);
+        System.out.println("Dumping env for: "+ this.enclosingScope+"\nMap:"+this.symbolTable);
     }
 }

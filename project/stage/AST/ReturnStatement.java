@@ -1,5 +1,7 @@
 package AST;
 
+import Type.Type;
+
 public class ReturnStatement extends Statement {
     Expression expr;
 
@@ -9,6 +11,10 @@ public class ReturnStatement extends Statement {
 
     public ReturnStatement() {
         this.expr = null;
+    }
+
+    public void accept(TypeCheckVisitor v) throws SemanticException {
+        v.visit(this);
     }
 
     public String toString() {

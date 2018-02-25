@@ -18,8 +18,7 @@ public class Function {
         // System.out.println("Visiting: " + this);
     }
 
-    /*
     public String toString () {
-        return this.funcDecl.returnType.toString() + " " + this.funcDecl.name + " ( params here ) { }";
-    }*/
+        return this.funcDecl.toString();
+    }
 }

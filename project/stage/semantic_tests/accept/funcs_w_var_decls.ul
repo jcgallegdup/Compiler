@@ -4,10 +4,10 @@ void main() {
 
 int sum(int a, int b) {
     int sum;
-    return sum;
+    return 0001;
 }
 
 int mult(int a, int b) {
     int result;
-    return result;
+    return 1;
 }

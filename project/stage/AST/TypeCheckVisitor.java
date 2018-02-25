@@ -32,6 +32,7 @@ public class TypeCheckVisitor {
             }
             this.funcEnv.add(funcEnvKey, f);
         }
+        this.funcEnv.dumpEnv();
 
         if (!containsMainFunction) {
             throw new SemanticException(
@@ -44,7 +45,6 @@ public class TypeCheckVisitor {
         for (Function f : p.functionList) {
             f.accept(this);
         }
-        this.funcEnv.dumpEnv();
     }
 
     public void visit(Function f) throws SemanticException {
@@ -53,9 +53,9 @@ public class TypeCheckVisitor {
 
         // add all param/var declarations to new env
         addVarsToEnv(f.funcDecl.params, f.funcBody.varDecls);
+        this.varEnv.dumpEnv();
 
         f.funcBody.accept(this);
-        this.varEnv.dumpEnv();
     }
 
     // TODO: collapse duplicate loops by treating params & varDecls as similar objects
@@ -101,6 +101,18 @@ public class TypeCheckVisitor {
     }
 
     public void visit(Statement s) { }
+
+    public void visit(ReturnStatement s) throws SemanticException {
+        Type expectedType = this.getType(this.varEnv.enclosingScope);
+        Type actualType = (s.expr == null? new VoidType() : s.expr.accept(this));
+        if (!expectedType.equals(actualType)) {
+            // TODO return line number and pos from type
+            throw new SemanticException(
+                "Type of expression in return statement '"+actualType+"' does not match declared function type '"+expectedType+"'",
+                -1, -1
+            );
+        }
+    }
 
     public void visit(ExpressionStatement s) throws SemanticException {
         Type type = s.expr.accept(this);
@@ -163,6 +175,10 @@ public class TypeCheckVisitor {
             return true;
         }
         return false;
+    }
+
+    private Type getType(Function f) {
+        return f.funcDecl.returnType.type;
     }
 
     // TODO try generics to collapse into single function

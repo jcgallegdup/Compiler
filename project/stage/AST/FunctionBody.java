@@ -26,4 +26,16 @@ public class FunctionBody {
         v.visit(this);
         //System.out.println("Visiting: " + this);
     }
+
+    public String toString() {
+        String body = "";
+        for (VariableDeclaration varDecl : this.varDecls) {
+            body += varDecl.toString() + "\n";
+        }
+        if (this.varDecls.size() > 0) System.out.println("");
+        for (Statement s : statements) {
+            body += s.toString() + "\n";
+        }
+        return body;
+    }
 }
