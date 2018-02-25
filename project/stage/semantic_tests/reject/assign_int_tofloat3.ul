@@ -1,0 +1,8 @@
+void main() {
+    float f;
+    f = gimme();
+}
+
+int gimme() {
+    return 0;
+}

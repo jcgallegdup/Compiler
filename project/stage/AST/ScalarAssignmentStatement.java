@@ -9,6 +9,10 @@ public class ScalarAssignmentStatement extends Statement {
         this.expr = expr;
     }
 
+    public void accept(TypeCheckVisitor v) throws SemanticException {
+        v.visit(this);
+    }
+
     public String toString() {
         return id.toString() + " = " + expr.toString() + ";";
     }

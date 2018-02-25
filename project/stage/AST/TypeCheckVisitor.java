@@ -116,6 +116,30 @@ public class TypeCheckVisitor {
 
     public void visit(Statement s) { }
 
+    public void visit(ScalarAssignmentStatement s) throws SemanticException {
+        // ensure id exists in scope
+        TypeNode expectedTypeNode = this.varEnv.lookup(s.id.name);
+        if (expectedTypeNode == null) {
+            throw new SemanticException(
+                "Could not recognize identifier '"+s.id+"'",
+                s.id.getLineNumber(),
+                s.id.getLinePos()
+            );
+        }
+
+        // ensure type of expression matches type of id
+        Type expected = expectedTypeNode.type;
+        Type actual = s.expr.accept(this);
+        // TODO use an external class to determine what types can be assigned to what types
+        if (!expected.equals(actual)) {
+            throw new SemanticException(
+                "Cannot assign expression of type '"+actual+"' to identifier of type '"+expected+"'",
+                s.id.getLineNumber(),
+                s.id.getLinePos()
+            );
+        }
+    }
+
     public void visit(ReturnStatement s) throws SemanticException {
         Type expectedType = this.getType(this.varEnv.enclosingScope);
         Type actualType = (s.expr == null? new VoidType() : s.expr.accept(this));
@@ -182,11 +206,10 @@ public class TypeCheckVisitor {
     public Type visit(IdentifierExpression e) throws SemanticException {
         TypeNode t = this.varEnv.lookup(e.id.name);
         if (t == null) {
-            // TODO get line number and pos from Type inside TypeNode
             throw new SemanticException(
                 "Could not recognize identifier '"+e.id+"'",
-                t.getLineNumber(),
-                t.getLinePos()
+                // TODO get line number and pos
+                -1, -1
             );
         }
         return t.type;
