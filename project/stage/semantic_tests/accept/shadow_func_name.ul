@@ -1,0 +1,16 @@
+void main () {
+    int main;
+}
+
+boolean foo() {
+    boolean foo;
+}
+
+string bar(string bar) {
+    return "";
+}
+
+
+char goink(string bar) {
+    return 'c';
+}
