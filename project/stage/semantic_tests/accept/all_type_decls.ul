@@ -16,9 +16,9 @@ void main() {
     char c3;
     boolean bool;
 
-    string [4] arr;
-    int [4] arr;
-    float [4] arr;
-    char [4] arr;
-    boolean [4] arr;
+    string [4] strArr;
+    int [4] intArr;
+    float [4] floArr;
+    char [4] charArr;
+    boolean [4] boolArr;
 }
