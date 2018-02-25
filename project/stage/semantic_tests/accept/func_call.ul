@@ -1,0 +1,23 @@
+void main() {
+    int a;
+    float b;
+
+    boolean c;
+    string d;
+
+    char e;
+    int f;
+
+    foo(a, b);
+    bar(c, d);
+    gob(e,f);
+    heesh();
+}
+
+void foo(int a, float b) { }
+
+void bar(boolean c, string d) { }
+
+void gob(char e, int f) { }
+
+void heesh() { }

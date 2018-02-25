@@ -1,5 +1,7 @@
 package AST;
 
+import Type.Type;
+
 import java.util.Vector;
 
 public class ExpressionList {
@@ -11,6 +13,14 @@ public class ExpressionList {
 
     public void addElement(Expression expr) {
         expressions.add(expr);
+    }
+
+    public int size() {
+        return expressions.size();
+    }
+
+    public Expression get(int i) {
+        return expressions.get(i);
     }
 
     public String toString () {

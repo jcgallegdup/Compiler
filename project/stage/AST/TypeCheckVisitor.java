@@ -138,6 +138,47 @@ public class TypeCheckVisitor {
         return null;
     }
 
+    public Type visit(FunctionCallExpression e) throws SemanticException {
+        // ensure it's a function
+        Function func = this.funcEnv.lookup(e.id.name);
+        if (func == null) {
+            throw new SemanticException(
+                "Could not recognize function identifier '"+e.id+"'",
+                // TODO add line num and pos
+                -1, -1
+            );
+        }
+
+        // ensure params length equal
+        FormalParameterList expectedParams = func.funcDecl.params;
+        ExpressionList actualParams = e.args;
+        int expectedSize = expectedParams.size();
+        int actualSize = actualParams.size();
+        if (expectedSize != actualSize) {
+            throw new SemanticException(
+                "Number of given arguments "+actualSize+" != "+expectedSize,
+                // TODO add line num and pos
+                -1, -1
+            );
+        }
+
+        // ensure types of ordered params
+        Type expectedType, actualType;
+        for (int i = 0; i < expectedSize; i++) {
+            expectedType = expectedParams.get(i).type.type;
+            actualType = actualParams.get(i).accept(this);
+            if (!expectedType.equals(actualType)) {
+                throw new SemanticException(
+                    "Type of argument at index "+i+" should be "+expectedType+" but is "+actualType,
+                    // TODO get line num and pos from type rather than typenode
+                    expectedParams.get(i).type.getLineNumber(),
+                    expectedParams.get(i).type.getLinePos()
+                );
+            }
+        }
+        return func.funcDecl.returnType.type;
+    }
+
     public Type visit(IdentifierExpression e) throws SemanticException {
         TypeNode t = this.varEnv.lookup(e.id.name);
         if (t == null) {

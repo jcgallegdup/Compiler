@@ -1,5 +1,7 @@
 package AST;
 
+import Type.Type;
+
 import java.util.Vector;
 import java.util.Iterator;
 
@@ -28,6 +30,10 @@ public class FormalParameterList implements Iterable<FormalParameter> {
         }
         paramsString += ")";
         return paramsString;
+    }
+
+    public FormalParameter get(int i) {
+        return params.get(i);
     }
 
     public int size() {
