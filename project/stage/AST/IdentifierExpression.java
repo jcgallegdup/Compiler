@@ -1,5 +1,7 @@
 package AST;
 
+import Type.Type;
+
 public class IdentifierExpression extends Expression {
     Identifier id;
     int lineNumber, linePos;
@@ -8,6 +10,10 @@ public class IdentifierExpression extends Expression {
         this.id = id;
         this.lineNumber = lineNumber;
         this.linePos = linePos;
+    }
+
+    public Type accept(TypeCheckVisitor v) throws SemanticException{
+        return v.visit(this);
     }
 
     public String toString() {

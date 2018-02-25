@@ -4,12 +4,20 @@ import Type.*;
 
 public class TypeNode {
     Type type;
-    int lineNumber, linePos;
+    private int lineNumber, linePos;
 
     public TypeNode (Type type, int lineNumber, int linePos) {
         this.type = type;
         this.lineNumber = lineNumber;
         this.linePos = linePos;
+    }
+
+    public int getLineNumber() {
+        return lineNumber;
+    }
+
+    public int getLinePos() {
+        return linePos;
     }
 
     public void accept (Visitor v) {

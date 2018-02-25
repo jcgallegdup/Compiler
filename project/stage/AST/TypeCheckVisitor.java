@@ -23,14 +23,20 @@ public class TypeCheckVisitor {
 
             String funcEnvKey = getEnvironmentKey(f.funcDecl);
             // add to environment, throwing error if function id already in use
-            if (!this.funcEnv.add(funcEnvKey, f)) {
+            boolean noCollision = true;
+            try {
+                noCollision = this.funcEnv.add(funcEnvKey, f);
+            } catch (Exception e) {
+                System.out.println("Problem adding parameter and variable declarations to env:\n"+e);
+                System.exit(-1);
+            }
+            if (!noCollision) {
                 throw new SemanticException(
                     "Found duplicate function declaration",
                     f.funcDecl.id.getLineNumber(),
                     f.funcDecl.id.getLinePos()
                 );
             }
-            this.funcEnv.add(funcEnvKey, f);
         }
         this.funcEnv.dumpEnv();
 
@@ -52,14 +58,20 @@ public class TypeCheckVisitor {
         this.varEnv = new Environment<String, TypeNode, Function>(f);
 
         // add all param/var declarations to new env
-        addVarsToEnv(f.funcDecl.params, f.funcBody.varDecls);
+        try {
+            addVarsToEnv(f.funcDecl.params, f.funcBody.varDecls);
+        } catch (Exception e) {
+            System.out.println("Problem adding parameter and variable declarations to env:\n"+e);
+            System.exit(-1);
+        }
         this.varEnv.dumpEnv();
 
         f.funcBody.accept(this);
     }
 
     // TODO: collapse duplicate loops by treating params & varDecls as similar objects
-    private void addVarsToEnv(FormalParameterList params, Iterable<VariableDeclaration> varDecls) throws SemanticException {
+    private void addVarsToEnv(FormalParameterList params, Iterable<VariableDeclaration> varDecls) throws SemanticException, Exception {
+        boolean noCollision;
         for (FormalParameter param : params) {
             if (param.type.toString().equals("void")) {
                 throw new SemanticException(
@@ -68,7 +80,8 @@ public class TypeCheckVisitor {
                     param.id.getLinePos()
                 );
             }
-            if (!this.varEnv.add(getEnvironmentKey(param), param.type)) {
+            noCollision = this.varEnv.add(getEnvironmentKey(param), param.type);
+            if (!noCollision) {
                 throw new SemanticException(
                     "Found duplicate param declaration",
                     param.id.getLineNumber(),
@@ -84,7 +97,8 @@ public class TypeCheckVisitor {
                     varDecl.id.getLinePos()
                 );
             }
-            if (!this.varEnv.add(getEnvironmentKey(varDecl), varDecl.type)) {
+            noCollision = this.varEnv.add(getEnvironmentKey(varDecl), varDecl.type);
+            if (!noCollision) {
                 throw new SemanticException(
                     "Found duplicate param declaration",
                     varDecl.id.getLineNumber(),
@@ -122,6 +136,19 @@ public class TypeCheckVisitor {
     // will be removed once method in class is made abstract
     public Type visit(Expression e) {
         return null;
+    }
+
+    public Type visit(IdentifierExpression e) throws SemanticException {
+        TypeNode t = this.varEnv.lookup(e.id.name);
+        if (t == null) {
+            // TODO get line number and pos from Type inside TypeNode
+            throw new SemanticException(
+                "Could not recognize identifier '"+e.id+"'",
+                t.getLineNumber(),
+                t.getLinePos()
+            );
+        }
+        return t.type;
     }
 
     public Type visit(ParenExpression e) throws SemanticException {

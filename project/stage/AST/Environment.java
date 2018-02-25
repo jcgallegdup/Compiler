@@ -20,7 +20,11 @@ public class Environment <K, V, T> {
 
     // entry is added only if it doesn't overwrite an existing entry
     // returns true only if key has been added
-    public boolean add(K key, V value) {
+    // no null values allowed
+    public boolean add(K key, V value) throws Exception {
+        if (value == null) {
+            throw new Exception("Environment value may not be 'null'");
+        }
         if (this.inScope(key)) {
             return false;
         } else {
@@ -29,6 +33,7 @@ public class Environment <K, V, T> {
         }
     }
 
+    // since we forbid 'null' values in our env, null signifies a miss
     public V lookup(K key) {
         return this.symbolTable.get(key);
     }

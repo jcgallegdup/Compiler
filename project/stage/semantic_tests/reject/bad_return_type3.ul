@@ -1,0 +1,6 @@
+void main() {
+}
+
+void bar(int b) {
+    return b;
+}

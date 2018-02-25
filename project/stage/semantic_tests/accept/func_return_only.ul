@@ -3,9 +3,20 @@ void main() {
 }
 
 int foo1(float bar1) {
-    return 0;
+    int i;
+    return i;
 }
 
-int foo2(float bar2) {
-    return 1;
+boolean func(float bar1) {
+    boolean b;
+    return b;
+}
+
+string funky(float bar1) {
+    string b;
+    return b;
+}
+
+float foo2(float bar2) {
+    return bar2;
 }
