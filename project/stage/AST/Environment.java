@@ -4,51 +4,36 @@ import java.util.List;
 import java.util.LinkedList;
 import java.util.HashMap;
 
-public class Environment <K, V> {
-    List<HashMap<K, V>> env;
-    int curScope;
+public class Environment <K, V, T> {
+    T enclosingScope;
+    HashMap<K, V> symbolTable;
 
-    public Environment() {
+    public Environment(T enclosingScope) {
         // TODO consider ArrayList as alternative
-        env = new LinkedList<HashMap<K,V>>();
-        this.curScope = -1;
+        symbolTable = new HashMap<K,V>();
+        this.enclosingScope = enclosingScope;
     }
 
-    public void beginScope() {
-        env.add(new HashMap<K,V>());
-        this.curScope++;
+    public boolean inScope(K key) {
+        return this.symbolTable.containsKey(key);
     }
 
-    public void endScope() {
-        // TODO: remove HashMap @idx=this.curScope from env list
-        // TODO: verify this is the correct behavior
-    }
-
-    public boolean inCurrentScope(K key) {
-        return this.getEnvOfCurScope().containsKey(key);
-    }
-
-    // overwrites any existing entry for given key
-    public void add(K key, V value) {
-        if (this.curScope == -1) {
-            System.out.println("WARN: Added to environment before beginning scope");
-            this.beginScope();
+    // entry is added only if it doesn't overwrite an existing entry
+    // returns true only if key has been added
+    public boolean add(K key, V value) {
+        if (this.inScope(key)) {
+            return false;
+        } else {
+            this.symbolTable.put(key, value);
+            return true;
         }
-        this.getEnvOfCurScope().put(key, value);
     }
 
     public V lookup(K key) {
-        return this.getEnvOfCurScope().get(key);
+        return this.symbolTable.get(key);
     }
 
-    private HashMap<K, V> getEnvOfCurScope() {
-        return this.env.get(this.curScope);
-    }
-
-    public void dumpEnv(String header) {
-        System.out.println(header);
-        for (HashMap<K, V> scopeEnv : this.env) {
-            System.out.println("Map:"+scopeEnv);
-        }
+    public void dumpEnv() {
+        System.out.println(this.enclosingScope+"\nMap:"+this.symbolTable);
     }
 }

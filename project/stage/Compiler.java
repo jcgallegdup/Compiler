@@ -32,7 +32,7 @@ public class Compiler {
 
 		try {
 			Program p = parser.program();
-			p.accept(new TypeCheckVisitor());
+			p.accept(new TypeCheckVisitor(p));
 		}
 		catch (RecognitionException e )	{
 			// A lexical or parsing error occured.

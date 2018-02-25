@@ -3,18 +3,18 @@ package AST;
 import Type.*;
 
 public class TypeCheckVisitor {
-    Environment<String, Function> funcEnv;
-    Environment<String, TypeNode> varEnv;
+    Environment<String, Function, Program> funcEnv;
+    Environment<String, TypeNode, Function> varEnv;
 
-    public TypeCheckVisitor() {
-        this.funcEnv = new Environment<String, Function>();
-        this.varEnv = new Environment<String, TypeNode>();
+    public TypeCheckVisitor(Program p) {
+        this.funcEnv = new Environment<String, Function, Program>(p);
+        // init when a function is visited
+        this.varEnv = null;
     }
 
     public void visit(Program p) throws SemanticException {
         boolean containsMainFunction = false;
         // construct function environment before evaluating function bodies
-        funcEnv.beginScope();
         for (Function f : p.functionList) {
             // check if 'main' function exists and that it is of type 'void'
             if (isVoidMain(f.funcDecl)) {
@@ -23,14 +23,14 @@ public class TypeCheckVisitor {
 
             String funcEnvKey = getEnvironmentKey(f.funcDecl);
             // add to environment, throwing error if function id already in use
-            if (!addToFuncEnv(funcEnvKey, f)) {
+            if (!this.funcEnv.add(funcEnvKey, f)) {
                 throw new SemanticException(
                     "Found duplicate function declaration",
                     f.funcDecl.id.getLineNumber(),
                     f.funcDecl.id.getLinePos()
                 );
             }
-            funcEnv.add(funcEnvKey, f);
+            this.funcEnv.add(funcEnvKey, f);
         }
 
         if (!containsMainFunction) {
@@ -44,18 +44,18 @@ public class TypeCheckVisitor {
         for (Function f : p.functionList) {
             f.accept(this);
         }
-        funcEnv.dumpEnv("Function Env:");
-        varEnv.dumpEnv("Variable Env:");
+        this.funcEnv.dumpEnv();
     }
 
     public void visit(Function f) throws SemanticException {
+        // init with a pointer to its enclosing function
+        this.varEnv = new Environment<String, TypeNode, Function>(f);
+
         // add all param/var declarations to new env
-        this.varEnv.beginScope();
         addVarsToEnv(f.funcDecl.params, f.funcBody.varDecls);
 
-        // TODO: check statements in function body
         f.funcBody.accept(this);
-        this.varEnv.endScope();
+        this.varEnv.dumpEnv();
     }
 
     // TODO: collapse duplicate loops by treating params & varDecls as similar objects
@@ -68,7 +68,7 @@ public class TypeCheckVisitor {
                     param.id.getLinePos()
                 );
             }
-            if (!addToVarEnv(getEnvironmentKey(param), param.type)) {
+            if (!this.varEnv.add(getEnvironmentKey(param), param.type)) {
                 throw new SemanticException(
                     "Found duplicate param declaration",
                     param.id.getLineNumber(),
@@ -84,7 +84,7 @@ public class TypeCheckVisitor {
                     varDecl.id.getLinePos()
                 );
             }
-            if (!addToVarEnv(getEnvironmentKey(varDecl), varDecl.type)) {
+            if (!this.varEnv.add(getEnvironmentKey(varDecl), varDecl.type)) {
                 throw new SemanticException(
                     "Found duplicate param declaration",
                     varDecl.id.getLineNumber(),
@@ -137,28 +137,6 @@ public class TypeCheckVisitor {
 
     public Type visit(LiteralExpression e) {
         return e.type;
-    }
-
-    // encapsulate logic that adds to env while checking for duplicate declarations
-    // returns true if and only if the key is added to the env for the first time
-    private boolean addToFuncEnv(String key, Function val) throws SemanticException {
-        if (funcEnv.inCurrentScope(key)) {
-            return false;
-        } else {
-            funcEnv.add(key, val);
-            return true;
-        }
-    }
-
-    // encapsulate logic that adds to env while checking for duplicate declarations
-    // returns true if and only if the key is added to the env for the first time
-    private boolean addToVarEnv(String key, TypeNode type) throws SemanticException {
-        if (varEnv.inCurrentScope(key)) {
-            return false;
-        } else {
-            varEnv.add(key, type);
-            return true;
-        }
     }
 
     // returns true if 'void main' function, false if not called 'main'
