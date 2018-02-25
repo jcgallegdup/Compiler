@@ -3,6 +3,12 @@ package AST;
 import Type.Type;
 
 public abstract class Expression {
+    int lineNum, pos;
+
+    public Expression(int lineNum, int pos) {
+        this.lineNum = lineNum;
+        this.pos = pos;
+    }
 
     public abstract String toString();
 

@@ -121,8 +121,8 @@ public class TypeCheckVisitor {
         if (t.toString().equals("void")) {
             throw new SemanticException(
                 "Found expr in print statement of type 'void'",
-                // TODO add line number
-                -1, -1
+                s.expr.lineNum,
+                s.expr.pos
             );
         }
     }
@@ -132,8 +132,8 @@ public class TypeCheckVisitor {
         if (t.toString().equals("void")) {
             throw new SemanticException(
                 "Found expr in println statement of type 'void'",
-                // TODO add line number
-                -1, -1
+                s.expr.lineNum,
+                s.expr.pos
             );
         }
     }
@@ -144,8 +144,8 @@ public class TypeCheckVisitor {
         if (!cond.toString().equals("boolean")) {
             throw new SemanticException(
                 "Found 'while' condition of type '"+cond+"', expected 'boolean'",
-                // TODO add line number
-                -1, -1
+                s.cond.lineNum,
+                s.cond.pos
             );
         }
     }
@@ -155,8 +155,8 @@ public class TypeCheckVisitor {
         if (!cond.toString().equals("boolean")) {
             throw new SemanticException(
                 "Found 'if' condition of type '"+cond+"', expected 'boolean'",
-                // TODO add line number
-                -1, -1
+                s.cond.lineNum,
+                s.cond.pos
             );
         }
     }
@@ -190,10 +190,10 @@ public class TypeCheckVisitor {
         Type expectedType = this.getType(this.varEnv.enclosingScope);
         Type actualType = (s.expr == null? new VoidType() : s.expr.accept(this));
         if (!expectedType.equals(actualType)) {
-            // TODO return line number and pos from type
             throw new SemanticException(
                 "Type of expression in return statement '"+actualType+"' does not match declared function type '"+expectedType+"'",
-                -1, -1
+                s.expr.lineNum,
+                s.expr.pos
             );
         }
     }
@@ -214,8 +214,8 @@ public class TypeCheckVisitor {
         if (func == null) {
             throw new SemanticException(
                 "Could not recognize function identifier '"+e.id+"'",
-                // TODO add line num and pos
-                -1, -1
+                e.lineNum,
+                e.pos
             );
         }
 
@@ -227,8 +227,8 @@ public class TypeCheckVisitor {
         if (expectedSize != actualSize) {
             throw new SemanticException(
                 "Number of given arguments "+actualSize+" != "+expectedSize,
-                // TODO add line num and pos
-                -1, -1
+                e.lineNum,
+                e.pos
             );
         }
 
@@ -240,9 +240,8 @@ public class TypeCheckVisitor {
             if (!expectedType.equals(actualType)) {
                 throw new SemanticException(
                     "Type of argument at index "+i+" should be "+expectedType+" but is "+actualType,
-                    // TODO get line num and pos from type rather than typenode
-                    expectedParams.get(i).type.getLineNumber(),
-                    expectedParams.get(i).type.getLinePos()
+                    actualParams.get(i).lineNum,
+                    actualParams.get(i).pos
                 );
             }
         }
@@ -254,8 +253,8 @@ public class TypeCheckVisitor {
         if (t == null) {
             throw new SemanticException(
                 "Could not recognize identifier '"+e.id+"'",
-                // TODO get line number and pos
-                -1, -1
+                e.lineNum,
+                e.pos
             );
         }
         return t.type;
@@ -275,10 +274,8 @@ public class TypeCheckVisitor {
         if (result == null) {
             throw new SemanticException(
                 "Binary operator '"+op+"' does not support types: '"+left+"' and '"+right+"'",
-                // TODO: add line num and pos to Type class
-                // rightType.getLineNumber(),
-                // rightType.getLinePos()
-                -1, -1
+                binExp.lineNum,
+                binExp.pos
             );
         }
         return result;

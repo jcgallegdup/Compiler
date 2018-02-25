@@ -5,6 +5,7 @@ public class ArrayExpression extends Expression {
     Expression index;
 
     public ArrayExpression(Identifier id, Expression index) {
+        super(id.getLineNumber(), id.getLinePos());
         this.id = id;
         this.index = index;
     }

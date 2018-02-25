@@ -6,6 +6,7 @@ public class ParenExpression extends Expression {
     Expression e;
 
     public ParenExpression(Expression e) {
+        super(e.lineNum, e.pos);
         this.e = e;
     }
 

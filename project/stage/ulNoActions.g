@@ -221,7 +221,9 @@ literal returns [Expression e]
         {
             e = new LiteralExpression(
                 new BooleanType(),
-                Boolean.parseBoolean($BOOLCONSTANT.text)
+                Boolean.parseBoolean($BOOLCONSTANT.text),
+                $BOOLCONSTANT.line,
+                $BOOLCONSTANT.pos
             );
         }
 
@@ -229,7 +231,9 @@ literal returns [Expression e]
         {
             e = new LiteralExpression(
                 new IntegerType(),
-                Integer.parseInt($INTCONSTANT.text)
+                Integer.parseInt($INTCONSTANT.text),
+                $INTCONSTANT.line,
+                $INTCONSTANT.pos
             );
         }
 
@@ -237,7 +241,9 @@ literal returns [Expression e]
         {
             e = new LiteralExpression(
                 new FloatType(),
-                Float.parseFloat($FLOATCONSTANT.text)
+                Float.parseFloat($FLOATCONSTANT.text),
+                $FLOATCONSTANT.line,
+                $FLOATCONSTANT.pos
             );
         }
 
@@ -246,7 +252,9 @@ literal returns [Expression e]
         {
             e = new LiteralExpression(
                 new CharType(),
-                $CHARCONSTANT.text.charAt(1)
+                $CHARCONSTANT.text.charAt(1),
+                $CHARCONSTANT.line,
+                $CHARCONSTANT.pos
             );
         }
 
@@ -254,7 +262,9 @@ literal returns [Expression e]
         {
             e = new LiteralExpression(
                 new StringType(),
-                $STRINGCONSTANT.text
+                $STRINGCONSTANT.text,
+                $STRINGCONSTANT.line,
+                $STRINGCONSTANT.pos
             );
         }
     ;

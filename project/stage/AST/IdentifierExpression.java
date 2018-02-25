@@ -7,6 +7,7 @@ public class IdentifierExpression extends Expression {
     int lineNumber, linePos;
 
     public IdentifierExpression(Identifier id, int lineNumber, int linePos) {
+        super(id.getLineNumber(), id.getLinePos());
         this.id = id;
         this.lineNumber = lineNumber;
         this.linePos = linePos;

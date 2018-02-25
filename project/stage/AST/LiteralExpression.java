@@ -6,13 +6,10 @@ public class LiteralExpression<T> extends Expression {
     Type type;
     T val;
 
-    public LiteralExpression(Type type, T val) {
+    public LiteralExpression(Type type, T val, int lineNum, int linePos) {
+        super(lineNum, linePos);
         this.type = type;
         this.val = val;
-    }
-
-    public LiteralExpression(Type type) {
-        this.type = type;
     }
 
     public Type accept(TypeCheckVisitor v) {

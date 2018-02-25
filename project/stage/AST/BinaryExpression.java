@@ -8,6 +8,7 @@ public abstract class BinaryExpression extends Expression {
     public abstract String getOperator();
 
     public BinaryExpression(Expression left, Expression right) {
+        super(left.lineNum, left.pos);
         this.left = left;
         this.right = right;
     }
