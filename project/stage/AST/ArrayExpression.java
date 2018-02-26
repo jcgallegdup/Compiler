@@ -1,5 +1,7 @@
 package AST;
 
+import Type.Type;
+
 public class ArrayExpression extends Expression {
     Identifier id;
     Expression index;
@@ -8,6 +10,10 @@ public class ArrayExpression extends Expression {
         super(id.getLineNumber(), id.getLinePos());
         this.id = id;
         this.index = index;
+    }
+
+    public Type accept(TypeCheckVisitor v) throws SemanticException{
+        return v.visit(this);
     }
 
     public String toString() {

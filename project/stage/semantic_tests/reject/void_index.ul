@@ -1,0 +1,5 @@
+void main() {
+    int [10] arr;
+    arr[foo()];
+}
+void foo(){}

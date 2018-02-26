@@ -1,0 +1,8 @@
+void main() {
+    int [10] arr;
+    arr[arr[0] < 2 == gimmeBool()];
+}
+
+boolean gimmeBool() {
+    return true;
+}

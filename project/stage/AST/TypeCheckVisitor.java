@@ -260,6 +260,38 @@ public class TypeCheckVisitor {
         return t.type;
     }
 
+    public Type visit(ArrayExpression e) throws SemanticException {
+        // make sure id exists
+        TypeNode t = this.varEnv.lookup(e.id.name);
+        if (t == null) {
+            throw new SemanticException(
+                "Could not recognize identifier '"+e.id+"'",
+                e.lineNum,
+                e.pos
+            );
+
+        // make sure referenced id is an aggregate type
+        } else if (!(t.type instanceof ArrayType)) {
+            throw new SemanticException(
+                "Cannot index into identifier of non-aggregate type '"+t.type+"'",
+                e.lineNum,
+                e.pos
+            );
+        }
+
+        Type indexType = e.index.accept(this);
+        // make sure the index expression is type 'int'
+        if (!indexType.toString().equals("int")) {
+            throw new SemanticException(
+                "Cannot index into identifier with index of type '"+indexType+"'",
+                e.lineNum,
+                e.pos
+            );
+        }
+        // return the type of the array elements
+        return t.type.getElementType();
+    }
+
     public Type visit(ParenExpression e) throws SemanticException {
         // must evaluate expression wrapped in parentheses
         return e.e.accept(this);
