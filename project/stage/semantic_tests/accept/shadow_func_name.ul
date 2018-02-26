@@ -4,6 +4,7 @@ void main () {
 
 boolean foo() {
     boolean foo;
+    return false;
 }
 
 string bar(string bar) {
