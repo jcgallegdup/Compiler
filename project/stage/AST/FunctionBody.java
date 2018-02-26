@@ -24,7 +24,6 @@ public class FunctionBody {
 
     public void accept (Visitor v) {
         v.visit(this);
-        //System.out.println("Visiting: " + this);
     }
 
     public String toString() {
@@ -32,7 +31,7 @@ public class FunctionBody {
         for (VariableDeclaration varDecl : this.varDecls) {
             body += varDecl.toString() + "\n";
         }
-        if (this.varDecls.size() > 0) System.out.println("");
+        if (this.varDecls.size() > 0) body += "\n";
         for (Statement s : statements) {
             body += s.toString() + "\n";
         }

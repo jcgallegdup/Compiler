@@ -38,7 +38,6 @@ public class TypeCheckVisitor {
                 );
             }
         }
-        this.funcEnv.dumpEnv();
 
         if (!containsMainFunction) {
             throw new SemanticException(
@@ -64,7 +63,6 @@ public class TypeCheckVisitor {
             System.out.println("Problem adding parameter and variable declarations to env:\n"+e);
             System.exit(-1);
         }
-        this.varEnv.dumpEnv();
 
         f.funcBody.accept(this);
     }
@@ -214,7 +212,6 @@ public class TypeCheckVisitor {
 
     public void visit(ExpressionStatement s) throws SemanticException {
         Type type = s.expr.accept(this);
-        System.out.println(s.expr.toString()+":"+type);
     }
 
     // will be removed once method in class is made abstract

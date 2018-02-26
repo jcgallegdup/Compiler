@@ -15,7 +15,6 @@ public class Function {
 
     public void accept (Visitor v) {
         v.visit(this);
-        // System.out.println("Visiting: " + this);
     }
 
     public String toString () {

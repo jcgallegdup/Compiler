@@ -26,6 +26,5 @@ public class Program {
 
     public void accept (Visitor v) {
         v.visit(this);
-        //System.out.println("Visiting :" + this);
     }
 }
