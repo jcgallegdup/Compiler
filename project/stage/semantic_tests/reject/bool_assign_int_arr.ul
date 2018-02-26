@@ -1,0 +1,4 @@
+void main() {
+    int [1] arr;
+    arr[0] = true;
+}

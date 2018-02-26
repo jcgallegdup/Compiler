@@ -1,0 +1,8 @@
+void main() {
+    string [1] arr;
+    arr[0] = getChar();
+}
+
+char getChar() {
+    return 'c';
+}

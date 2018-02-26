@@ -1,0 +1,7 @@
+void main() {
+    int  notarr;
+    notarr[foo()] = 1;
+}
+int foo(){
+    return 0;
+}

@@ -116,6 +116,20 @@ public class TypeCheckVisitor {
 
     public void visit(Statement s) { }
 
+    public void visit(ArrayAssignmentStatement s) throws SemanticException {
+        // type check left side of assignment first
+        Type elemType = this.typeCheckArrayExpression(s.id, s.index, s.id.getLineNumber(), s.id.getLinePos());
+        // check that the type of the RHS matchces the element type of the target array
+        Type assignedType = s.expr.accept(this);
+        if (!elemType.equals(assignedType)) {
+            throw new SemanticException(
+                "Cannot assign expression of type '"+assignedType+"' to array of element type '"+elemType+"'",
+                s.expr.lineNum,
+                s.expr.pos
+            );
+        }
+    }
+
     public void visit(PrintStatement s) throws SemanticException {
         Type t = s.expr.accept(this);
         if (t.toString().equals("void")) {
@@ -261,35 +275,9 @@ public class TypeCheckVisitor {
     }
 
     public Type visit(ArrayExpression e) throws SemanticException {
-        // make sure id exists
-        TypeNode t = this.varEnv.lookup(e.id.name);
-        if (t == null) {
-            throw new SemanticException(
-                "Could not recognize identifier '"+e.id+"'",
-                e.lineNum,
-                e.pos
-            );
-
-        // make sure referenced id is an aggregate type
-        } else if (!(t.type instanceof ArrayType)) {
-            throw new SemanticException(
-                "Cannot index into identifier of non-aggregate type '"+t.type+"'",
-                e.lineNum,
-                e.pos
-            );
-        }
-
-        Type indexType = e.index.accept(this);
-        // make sure the index expression is type 'int'
-        if (!indexType.toString().equals("int")) {
-            throw new SemanticException(
-                "Cannot index into identifier with index of type '"+indexType+"'",
-                e.lineNum,
-                e.pos
-            );
-        }
+        Type elemType = this.typeCheckArrayExpression(e.id, e.index, e.lineNum, e.pos);
         // return the type of the array elements
-        return t.type.getElementType();
+        return elemType;
     }
 
     public Type visit(ParenExpression e) throws SemanticException {
@@ -341,6 +329,38 @@ public class TypeCheckVisitor {
             return true;
         }
         return false;
+    }
+
+    // returns element type
+    private Type typeCheckArrayExpression(Identifier id, Expression index, int lineNum, int pos) throws SemanticException {
+        // make sure id exists
+        TypeNode t = this.varEnv.lookup(id.name);
+        if (t == null) {
+            throw new SemanticException(
+                "Could not recognize identifier '"+id+"'",
+                lineNum,
+                pos
+            );
+
+        // make sure referenced id is an aggregate type
+        } else if (!(t.type instanceof ArrayType)) {
+            throw new SemanticException(
+                "Cannot index into identifier of non-aggregate type '"+t.type+"'",
+                lineNum,
+                pos
+            );
+        }
+
+        Type indexType = index.accept(this);
+        // make sure the index expression is type 'int'
+        if (!indexType.toString().equals("int")) {
+            throw new SemanticException(
+                "Cannot index into identifier with index of type '"+indexType+"'",
+                index.lineNum,
+                index.pos
+            );
+        }
+        return t.type.getElementType();
     }
 
     private Type getType(Function f) {

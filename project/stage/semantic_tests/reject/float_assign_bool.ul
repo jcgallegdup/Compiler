@@ -1,0 +1,8 @@
+void main() {
+    float [1] arr;
+    arr[0] = 0.0 < 0.2 == true == getBool();
+}
+
+boolean getBool() {
+    return true;
+}

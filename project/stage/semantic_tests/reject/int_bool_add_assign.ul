@@ -1,0 +1,7 @@
+void main() {
+    int [1] arr;
+    boolean [1] barr;
+    int i;
+
+    i = 1 + barr[ arr[ arr[ arr[0] ] ] ];
+}
