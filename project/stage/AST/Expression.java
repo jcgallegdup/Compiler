@@ -12,7 +12,6 @@ public abstract class Expression {
 
     public abstract String toString();
 
-    // TODO make this abstract
     public Type accept(TypeCheckVisitor v) throws SemanticException {
         return v.visit(this);
     }
