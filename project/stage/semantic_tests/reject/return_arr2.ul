@@ -1,0 +1,12 @@
+void main() {
+
+}
+
+int [1] foo() {
+    return gimmeArr();
+}
+
+int [2] gimmeArr() {
+    int [2] arr;
+    return arr;
+}

@@ -23,7 +23,7 @@ public class ArrayType extends Type {
     public boolean equals (Type type) {
         if (type instanceof ArrayType) {
             ArrayType arr = (ArrayType) type;
-            return arr.getElementType().equals(this.elementType);
+            return this.size == arr.size && arr.getElementType().equals(this.elementType);
         } else {
             return false;
         }
