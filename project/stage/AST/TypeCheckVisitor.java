@@ -200,6 +200,7 @@ public class TypeCheckVisitor {
 
     public void visit(ReturnStatement s) throws SemanticException {
         Type expectedType = this.getType(this.varEnv.enclosingScope);
+        // functions of type 'void' must have 'return ;' (or no return statement)
         Type actualType = (s.expr == null? new VoidType() : s.expr.accept(this));
         if (!expectedType.equals(actualType)) {
             throw new SemanticException(
