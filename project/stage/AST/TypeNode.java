@@ -3,7 +3,7 @@ package AST;
 import Type.*;
 
 public class TypeNode {
-    Type type;
+    public Type type;
     private int lineNumber, linePos;
 
     public TypeNode (Type type, int lineNumber, int linePos) {

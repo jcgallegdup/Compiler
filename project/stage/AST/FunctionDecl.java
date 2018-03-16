@@ -3,9 +3,9 @@ package AST;
 import Type.*;
 import java.util.Vector;
 public class FunctionDecl {
-    TypeNode returnType;
-    Identifier id;
-    FormalParameterList params;
+    public TypeNode returnType;
+    public Identifier id;
+    public FormalParameterList params;
 
     public FunctionDecl (TypeNode returnType, Identifier id, FormalParameterList params) {
         this.returnType = returnType;
@@ -16,6 +16,7 @@ public class FunctionDecl {
     public void accept (Visitor v) {
         v.visit(this);
     }
+
 
     public String toString () {
         return returnType.toString() + " " + id.name + " " + params.toString();

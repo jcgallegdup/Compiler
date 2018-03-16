@@ -8,32 +8,36 @@ import java.util.List;
 import java.util.LinkedList;
 
 public class IRGenerator {
-    IRProgram IRProg;
-    IRFunction currIRFunc;
+    IRProgram prog;
+    IRFunction curFunc;
 
     public IRGenerator() {
-        this.IRProg = new IRProgram();
-        this.currIRFunc = null;
+        this.prog = new IRProgram();
+        this.curFunc = null;
     }
 
     public void visit(Program p) {
         // TODO add name to IRProgram
-        IRProg.addName("TODO");
+        prog.addName("TODO");
         for (Function f : p.functionList) {
             f.accept(this);
         }
     }
 
     public void visit(Function f) {
-        // create new IRFunction
-            // set it to current function
-            // add it to IRProgram
+        this.curFunc = new IRFunction(
+            f.funcDecl.id.name,
+            f.funcDecl.returnType.type,
+            f.funcDecl.params.getTypes()
+        );
+
+        this.prog.addFunction(this.curFunc);
     }
 
     public void printIRProgram() {
-        System.out.println("program " + this.IRProg.name);
+        System.out.println("program " + this.prog.name);
         String indentation = "    "; // 4 spaces
-        for (IRFunction f : this.IRProg.functions) {
+        for (IRFunction f : this.prog.functions) {
             System.out.println("\n" + f.getDeclaration() + " {");
             for (IRInstruction instr : f.instrs) {
                 System.out.println(indentation + instr);

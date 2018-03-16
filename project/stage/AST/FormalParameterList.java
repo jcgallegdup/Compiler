@@ -43,4 +43,12 @@ public class FormalParameterList implements Iterable<FormalParameter> {
     public Iterator<FormalParameter> iterator() {
         return params.iterator();
     }
+
+    public Vector<Type> getTypes() {
+        Vector<Type> types = new Vector<Type>();
+        for (FormalParameter param : this.params) {
+            types.add(param.type.type);
+        }
+        return types;
+    }
 }

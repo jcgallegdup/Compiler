@@ -3,7 +3,7 @@ package AST;
 import IR.IRGenerator;
 
 public class Function {
-    FunctionDecl funcDecl;
+    public FunctionDecl funcDecl;
     FunctionBody funcBody;
 
     public Function (FunctionDecl funcDecl, FunctionBody funcBody) {

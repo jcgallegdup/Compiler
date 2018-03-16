@@ -1,7 +1,7 @@
 package AST;
 
 public class Identifier {
-    String name;
+    public String name;
     int lineNumber, linePos;
 
     public Identifier (String name, int lineNumber, int linePos) {
