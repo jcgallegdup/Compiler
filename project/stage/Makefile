@@ -8,10 +8,10 @@ grammar: $(GSRCS)
 	java org.antlr.Tool -fo . $(GSRC) 
 
 compiler:
-	javac AST/*.java Type/*.java *.java
+	javac IR/*.java AST/*.java Type/*.java *.java
 
 clean:
-	rm AST/*.class Type/*.class *.class $(GNAME)*.java $(GNAME)__.g $(GNAME).tokens
+	rm IR/*.class AST/*.class Type/*.class *.class $(GNAME)*.java $(GNAME)__.g $(GNAME).tokens
 
 
  

@@ -1,5 +1,7 @@
 package AST;
 
+import IR.IRGenerator;
+
 public class Function {
     FunctionDecl funcDecl;
     FunctionBody funcBody;
@@ -7,6 +9,10 @@ public class Function {
     public Function (FunctionDecl funcDecl, FunctionBody funcBody) {
         this.funcDecl = funcDecl;
         this.funcBody = funcBody;
+    }
+
+    public void accept (IRGenerator v) {
+        v.visit(this);
     }
 
     public void accept (TypeCheckVisitor v) throws SemanticException {

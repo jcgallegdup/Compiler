@@ -11,6 +11,7 @@ import java.io.*;
 import AST.Program;
 import AST.Visitor;
 import AST.TypeCheckVisitor;
+import IR.IRGenerator;
 
 public class Compiler {
 	public static void main (String[] args) throws Exception {
@@ -30,9 +31,10 @@ public class Compiler {
 		CommonTokenStream tokens = new CommonTokenStream(lexer);
 		ulNoActionsParser parser = new ulNoActionsParser(tokens);
 
+		IRGenerator irGen = new IRGenerator();
 		try {
 			Program p = parser.program();
-			p.accept(new TypeCheckVisitor(p));
+			p.accept(irGen);
 		}
 		catch (RecognitionException e )	{
 			// A lexical or parsing error occured.
@@ -43,5 +45,6 @@ public class Compiler {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
+		irGen.printIRProgram();
 	}
 }

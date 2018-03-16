@@ -1,6 +1,8 @@
 package AST;
 
 import java.util.Vector;
+import IR.IRGenerator;
+
 public class Program {
     public Vector<Function> functionList;
 
@@ -18,6 +20,10 @@ public class Program {
 
     public int size () {
         return functionList.size();
+    }
+
+    public void accept (IRGenerator v) {
+        v.visit(this);
     }
 
     public void accept (TypeCheckVisitor v) throws SemanticException {
