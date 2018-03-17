@@ -1,0 +1,30 @@
+void main() {
+    println foo(0, 0.1);
+    println bar(false, "woo");
+    println gob('c', 1);
+    heesh();
+    println imp(true);
+    println joink(0.0);
+}
+
+boolean foo(int a, float b) {
+    return false;
+}
+
+char bar(boolean c, string d) {
+    return 'c';
+}
+
+string gob(char e, int f) {
+    return "gobbin";
+}
+
+void heesh() { }
+
+int imp(boolean bool) {
+    return 0;
+}
+
+float joink(float bar) {
+    return 0.111;
+}

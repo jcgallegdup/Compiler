@@ -3,8 +3,9 @@ package AST;
 import Type.Type;
 
 import java.util.Vector;
+import java.util.Iterator;
 
-public class ExpressionList {
+public class ExpressionList implements Iterable<Expression> {
     Vector<Expression> expressions;
 
     public ExpressionList () {
@@ -21,6 +22,11 @@ public class ExpressionList {
 
     public Expression get(int i) {
         return expressions.get(i);
+    }
+
+    @Override
+    public Iterator<Expression> iterator() {
+        return this.expressions.iterator();
     }
 
     public String toString () {

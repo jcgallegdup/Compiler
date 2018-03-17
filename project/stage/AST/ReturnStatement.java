@@ -1,9 +1,10 @@
 package AST;
 
+import IR.IRGenerator;
 import Type.Type;
 
 public class ReturnStatement extends Statement {
-    Expression expr;
+    public Expression expr;
 
     public ReturnStatement(Expression expr) {
         this.expr = expr;
@@ -11,6 +12,10 @@ public class ReturnStatement extends Statement {
 
     public ReturnStatement() {
         this.expr = null;
+    }
+
+    public void accept(IRGenerator v) {
+        v.visit(this);
     }
 
     public void accept(TypeCheckVisitor v) throws SemanticException {
