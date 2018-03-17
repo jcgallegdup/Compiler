@@ -6,7 +6,7 @@ import IR.IRGenerator;
 
 public class FunctionBody {
     public Vector<VariableDeclaration> varDecls;
-    Vector<Statement> statements;
+    public Vector<Statement> statements;
 
     public FunctionBody () {
         this.varDecls = new Vector<VariableDeclaration>();

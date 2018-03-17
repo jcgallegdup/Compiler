@@ -47,8 +47,7 @@ public class IRGenerator {
     public void visit(FormalParameterList params) {
         for (FormalParameter param : params) {
             Temp var = this.tempManager.newTemp(param.type.type);
-            IRInstruction instr = new IRVarDecl(var);
-            this.curFunc.addInstr(instr);
+            this.curFunc.addVarDecl(new IRVarDecl(var));
         }
     }
 
@@ -56,12 +55,46 @@ public class IRGenerator {
         for (VariableDeclaration varDecl : body.varDecls) {
             varDecl.accept(this);
         }
+        for (Statement s : body.statements) {
+            s.accept(this);
+        }
     }
 
     public void visit(VariableDeclaration varDecl) {
         Temp var = this.tempManager.newTemp(varDecl.type.type);
-        IRInstruction instr = new IRVarDecl(var);
-        this.curFunc.addInstr(instr);
+        this.curFunc.addVarDecl(new IRVarDecl(var));
+    }
+
+    public void visit(Statement s) { }
+
+    public void visit(PrintlnStatement s) {
+        Temp var = s.expr.accept(this);
+        this.curFunc.addInstr(
+            new IRPrintln(var)
+        );
+    }
+
+    public void visit(PrintStatement s) {
+        Temp var = s.expr.accept(this);
+        this.curFunc.addInstr(
+            new IRPrint(var)
+        );
+    }
+
+    public Temp visit(Expression e) {
+        return null;
+    }
+
+    public Temp visit(LiteralExpression e) {
+        // we need a new temp var to hold the literal, which involves declaring it
+        Temp var = this.tempManager.newTemp(e.type);
+        this.curFunc.addVarDecl(
+            new IRVarDecl(var)
+        );
+        this.curFunc.addInstr(
+            new IRLiteralAssign(var, e.val)
+        );
+        return var;
     }
 
     public void printIRProgram() {
@@ -69,7 +102,7 @@ public class IRGenerator {
         String indentation = "    "; // 4 spaces
         for (IRFunction f : this.prog.functions) {
             System.out.println("\n" + f.getDeclaration() + " {");
-            for (IRInstruction instr : f.instrs) {
+            for (IRInstruction instr : f.getAllInstrs()) {
                 System.out.println(indentation + instr);
             }
             System.out.println("}");

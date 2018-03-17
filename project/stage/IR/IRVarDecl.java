@@ -12,6 +12,6 @@ public class IRVarDecl extends IRInstruction {
     }
 
     public String toString() {
-        return "TEMP " + this.var.id + ":" + IRTypeHelper.getIRTypeStr(type) + ";";
+        return "TEMP " + this.var.id + ":" + AST2IRHelper.getIRTypeStr(type) + ";";
     }
 }

@@ -1,5 +1,7 @@
 package AST;
 
+import IR.IRGenerator;
+import IR.Temp;
 import Type.Type;
 
 public abstract class Expression {
@@ -11,6 +13,10 @@ public abstract class Expression {
     }
 
     public abstract String toString();
+
+    public Temp accept(IRGenerator v) {
+        return v.visit(this);
+    }
 
     public Type accept(TypeCheckVisitor v) throws SemanticException {
         return v.visit(this);

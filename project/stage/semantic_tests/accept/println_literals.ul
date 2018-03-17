@@ -1,0 +1,22 @@
+void main () {
+	float x;
+	boolean a;
+	int z;
+	string q;
+	char c;
+
+	println 37.2;
+	println 0.003;
+
+	println false;
+	println true;
+
+	println 34;
+	println 0;
+
+	println "abcdef";
+	println "this is the end";
+
+	println 'a';
+	println 'b';
+}
