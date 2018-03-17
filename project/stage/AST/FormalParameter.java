@@ -1,7 +1,7 @@
 package AST;
 
 public class FormalParameter {
-    TypeNode type;
+    public TypeNode type;
     Identifier id;
 
     public FormalParameter (TypeNode type, Identifier id) {

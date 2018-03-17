@@ -1,5 +1,7 @@
 package AST;
 
+import IR.IRGenerator;
+
 public abstract class Statement {
     public abstract String toString();
 

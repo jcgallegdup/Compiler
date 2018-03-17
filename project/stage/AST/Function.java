@@ -4,7 +4,7 @@ import IR.IRGenerator;
 
 public class Function {
     public FunctionDecl funcDecl;
-    FunctionBody funcBody;
+    public FunctionBody funcBody;
 
     public Function (FunctionDecl funcDecl, FunctionBody funcBody) {
         this.funcDecl = funcDecl;

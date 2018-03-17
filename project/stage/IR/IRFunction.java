@@ -3,6 +3,7 @@ package IR;
 import java.util.LinkedList;
 import java.util.List;
 
+import IR.IRInstruction;
 import Type.*;
 
 public class IRFunction {
@@ -12,7 +13,6 @@ public class IRFunction {
     Type returnType;
     List<Type> paramTypes;
     List<IRInstruction> instrs;
-    IRTypeHelper typeHelper;
 
     public IRFunction(String name, Type returnType, List<Type> paramTypes) {
         this.name = name;
@@ -25,14 +25,16 @@ public class IRFunction {
         String typeStr = "(";
         String separator = "";
         for (Type t : this.paramTypes) {
-            typeStr += separator + this.typeHelper.getIRTypeStr(t);
+            typeStr += separator + IRTypeHelper.getIRTypeStr(t);
             separator = " ";
         }
         typeStr += ")";
-        return "FUNC " + this.name + " " + typeStr + " " + this.typeHelper.getIRTypeStr(returnType);
+        return "FUNC " + this.name + " " + typeStr + " " + IRTypeHelper.getIRTypeStr(returnType);
     }
 
     // TODO add methods to interact with this.temps
 
-    // TODO add methods to interact with this.instrs
+    public void addInstr(IRInstruction instr) {
+        this.instrs.add(instr);
+    }
 }

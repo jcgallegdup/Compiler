@@ -3,6 +3,9 @@ package AST;
 import Type.Type;
 
 import java.util.Vector;
+
+import IR.IRGenerator;
+
 import java.util.Iterator;
 
 public class FormalParameterList implements Iterable<FormalParameter> {
@@ -37,6 +40,10 @@ public class FormalParameterList implements Iterable<FormalParameter> {
 
     public int size() {
         return params.size();
+    }
+
+    public void accept(IRGenerator v) {
+        v.visit(this);
     }
 
     @Override

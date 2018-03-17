@@ -1,8 +1,11 @@
 package AST;
 
 import java.util.Vector;
+
+import IR.IRGenerator;
+
 public class FunctionBody {
-    Vector<VariableDeclaration> varDecls;
+    public Vector<VariableDeclaration> varDecls;
     Vector<Statement> statements;
 
     public FunctionBody () {
@@ -16,6 +19,10 @@ public class FunctionBody {
 
     public void addStatement(Statement s) {
         this.statements.add(s);
+    }
+
+    public void accept (IRGenerator v) {
+        v.visit(this);
     }
 
     public void accept (TypeCheckVisitor v) throws SemanticException {
