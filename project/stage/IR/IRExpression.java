@@ -1,5 +1,5 @@
 package IR;
 
-public abstract class IRInstruction {
+public abstract class IRExpression {
     public abstract String toString();
 }

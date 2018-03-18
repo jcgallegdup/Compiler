@@ -3,8 +3,7 @@ package IR;
 import java.util.List;
 import Type.*;
 
-// TODO: consider extending a new IRExpr class instead
-public class IRFuncCall extends IRInstruction {
+public class IRFuncCall extends IRExpression {
     // TODO: ensure we only need the called function's name
     String funcName;
     List<Temp> args;
@@ -14,7 +13,7 @@ public class IRFuncCall extends IRInstruction {
         this.args = args;
     }
 
-    // e.g. 'CALL foo (I F);' if calling 'foo(int arg1, float arg2)'
+    // e.g. 'CALL foo (I F)' if calling 'foo(int arg1, float arg2)'
     public String toString() {
         String argsStr = "(";
         String separator = "";
@@ -23,6 +22,6 @@ public class IRFuncCall extends IRInstruction {
             separator = " ";
         }
         argsStr += ")";
-        return "CALL " + this.funcName + " " + argsStr + ";";
+        return "CALL " + this.funcName + " " + argsStr;
     }
 }

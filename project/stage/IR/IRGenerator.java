@@ -103,6 +103,25 @@ public class IRGenerator {
         this.curFunc.addInstr(returnInstr);
     }
 
+    public void visit(ExpressionStatement s) {
+        s.expr.accept(this);
+    }
+
+    // public void visit(IFElseStatement s) {
+    //     // 1. get boolean condition and flip it with IRUnaryOp.NEGATE
+    //     Temp cond = s.cond.accept(this);
+
+    //     // 2. create+add conditional jump instr to new label for if instructions
+
+    //     // 3. visit else StatementBlock (which will involve adding a bunch of instructions)
+    //     // 4. create+add UNconditional jump instr to new label, skipping past upcoming if block
+
+    //     // 5. add instruction with the if label from step #2
+    //     // 6. visit if StatementBlock (like #3)
+
+    //     // 7. add label instr from step #4
+    // }
+
     public Temp visit(Expression e) {
         return null;
     }
@@ -115,9 +134,10 @@ public class IRGenerator {
         }
 
         // if return type is void, add function call instr w/o assigning to temp var
-        IRInstruction funcCall = new IRFuncCall(e.id.name, args);
+        IRExpression funcCall = new IRFuncCall(e.id.name, args);
         if (this.funcReturnTypes.get(e.id.name).toString().equals("void")) {
-            this.curFunc.addInstr(funcCall);
+            IRInstruction instr = new IRExpressionInstruction(funcCall);
+            this.curFunc.addInstr(instr);
             return null;
         }
 

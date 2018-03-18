@@ -19,7 +19,9 @@ string gob(char e, int f) {
     return "gobbin";
 }
 
-void heesh() { }
+void heesh() {
+    println "Called void function";
+}
 
 int imp(boolean bool) {
     return 0;
