@@ -12,6 +12,6 @@ public class IRPrint extends IRInstruction {
     }
 
     public String toString() {
-        return "PRINT" + IRTypeHelper.getIRTypeStr(type) + " " + this.var.toString() + ";";
+        return "PRINT" + AST2IRHelper.getIRTypeStr(type) + " " + this.var.toString() + ";";
     }
 }
