@@ -3,6 +3,7 @@ package IR;
 import AST.*;
 import IR.IRFuncCall;
 import IR.IRInstruction;
+import IR.IRLabel;
 import IR.TempManager;
 import Type.*;
 
@@ -16,6 +17,7 @@ public class IRGenerator {
     IRFunction curFunc;
     TempManager tempManager;
     Map<String, Type> funcReturnTypes;
+    int labelCount;
 
     public IRGenerator() {
         this.prog = new IRProgram();
@@ -23,6 +25,7 @@ public class IRGenerator {
         this.curFunc = null;
         this.tempManager = null;
         this.funcReturnTypes = new HashMap<String, Type>();
+        this.labelCount = -1;
     }
 
     public void visit(Program p) {
@@ -47,6 +50,7 @@ public class IRGenerator {
             f.funcDecl.params.getTypes()
         );
         this.tempManager = new TempManager();
+        this.labelCount = 0;
 
         // create instrs for param var declarations
         f.funcDecl.params.accept(this);
@@ -107,20 +111,37 @@ public class IRGenerator {
         s.expr.accept(this);
     }
 
-    // public void visit(IFElseStatement s) {
-    //     // 1. get boolean condition and flip it with IRUnaryOp.NEGATE
-    //     Temp cond = s.cond.accept(this);
+    public void visit(IfElseStatement s) {
+        // 1. create+add conditional jump instr to new label for if instructions
+        Temp cond = s.cond.accept(this);
+        IRLabel ifLabel = new IRLabel(this.labelCount++);
+        IRInstruction jumpToIfBlock = new IRConditionalJump(ifLabel, cond);
+        this.curFunc.addInstr(jumpToIfBlock);
 
-    //     // 2. create+add conditional jump instr to new label for if instructions
+        // 2. visit else StatementBlock (which will involve adding a bunch of instructions)
+        if (s.elseBlock != null) {
+            s.elseBlock.accept(this);
+        }
 
-    //     // 3. visit else StatementBlock (which will involve adding a bunch of instructions)
-    //     // 4. create+add UNconditional jump instr to new label, skipping past upcoming if block
+        // 3. create+add UNconditional jump instr to new label, skipping past upcoming if block
+        IRLabel endLabel = new IRLabel(this.labelCount++);
+        IRInstruction jumpPastIfBlock = new IRJump(endLabel);
+        this.curFunc.addInstr(jumpPastIfBlock);
 
-    //     // 5. add instruction with the if label from step #2
-    //     // 6. visit if StatementBlock (like #3)
+        // 4. add instruction with the if label from step #2
+        this.curFunc.addInstr(ifLabel);
+        // 5. visit if StatementBlock (like #3)
+        s.ifBlock.accept(this);
 
-    //     // 7. add label instr from step #4
-    // }
+        // 6. add label instr from step #4
+        this.curFunc.addInstr(endLabel);
+    }
+
+    public void visit(StatementBlock block) {
+        for (Statement s : block.statements) {
+            s.accept(this);
+        }
+    }
 
     public Temp visit(Expression e) {
         return null;

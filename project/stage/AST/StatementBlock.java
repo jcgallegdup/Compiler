@@ -2,8 +2,10 @@ package AST;
 
 import java.util.Vector;
 
+import IR.IRGenerator;
+
 public class StatementBlock {
-    Vector<Statement> statements;
+    public Vector<Statement> statements;
     private final int indentSize = 4;
 
     public StatementBlock() {
@@ -12,6 +14,10 @@ public class StatementBlock {
 
     public void addStatement(Statement s) {
         statements.add(s);
+    }
+
+    public void accept(IRGenerator v) {
+        v.visit(this);
     }
 
     public void accept(Visitor v) {

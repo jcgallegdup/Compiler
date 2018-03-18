@@ -1,10 +1,11 @@
 package AST;
 
+import IR.IRGenerator;
 import Type.Type;
 
 public class IfElseStatement extends Statement {
-    Expression cond;
-    StatementBlock ifBlock, elseBlock;
+    public Expression cond;
+    public StatementBlock ifBlock, elseBlock;
 
     public IfElseStatement(Expression cond, StatementBlock ifBlock, StatementBlock elseBlock) {
         this.cond = cond;
@@ -16,6 +17,10 @@ public class IfElseStatement extends Statement {
         this.cond = cond;
         this.ifBlock = ifBlock;
         this.elseBlock = null;
+    }
+
+    public void accept(IRGenerator v) {
+        v.visit(this);
     }
 
     public void accept(TypeCheckVisitor v) throws SemanticException {
