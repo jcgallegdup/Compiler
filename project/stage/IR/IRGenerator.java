@@ -80,6 +80,13 @@ public class IRGenerator {
 
     public void visit(VariableDeclaration varDecl) {
         Temp var = this.tempManager.newTemp(varDecl.type.type, varDecl.id.name);
+
+        // if array, initialize it
+        if (var.type.getElementType() != null) {
+            IRExpression initArray = new IRNewArray(var.type, var.type.getSize());
+            IRInstruction assign = new IRAssign(var, initArray);
+            this.curFunc.addInstr(assign);
+        }
         this.curFunc.addVarDecl(new IRVarDecl(var));
     }
 
@@ -228,6 +235,28 @@ public class IRGenerator {
     public Temp visit(IdentifierExpression e) {
         // TODO: check for null (even though we've already semantic-checked for IDs)
         return this.tempManager.lookup(e.id.name);
+    }
+
+    public Temp visit(ArrayExpression e) {
+        // get value of index
+        Temp index = e.index.accept(this);
+
+        // look up temp var for referenced variable
+        // TODO: check for null (even though we've already semantic-checked identifiers)
+        Temp arr = this.tempManager.lookup(e.id.name);
+        Type elementType = arr.type.getElementType();
+
+        // create IRExpression for array indexing
+        IRExpression arrayAccess = new IRArrayAccess(arr, index);
+
+        // create new temp for element at accessed index
+        Temp result = this.tempManager.newTemp(elementType);
+        this.curFunc.addVarDecl(new IRVarDecl(result));
+
+        // assign element to new temp
+        IRInstruction assign = new IRAssign(result, arrayAccess);
+        this.curFunc.addInstr(assign);
+        return result;
     }
 
     public Temp visit(BinaryExpression e) {

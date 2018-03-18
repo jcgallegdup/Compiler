@@ -19,6 +19,10 @@ public class ArrayType extends Type {
         return this.elementType;
     }
 
+    public int getSize() {
+        return this.size;
+    }
+
     // Possibly misleading name? Should me "is()" instead?
     public boolean equals (Type type) {
         if (type instanceof ArrayType) {

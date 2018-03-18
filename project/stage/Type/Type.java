@@ -9,4 +9,8 @@ public abstract class Type {
         public Type getElementType() {
                 return null;
         }
+
+        public int getSize() {
+                return -1;
+        }
 }

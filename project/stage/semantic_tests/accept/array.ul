@@ -1,0 +1,18 @@
+void main () {
+    int [10] arr;
+    println arr[0];
+    println arr[1];
+    println arr[9];
+
+    boolArrays();
+    return;
+}
+
+void boolArrays() {
+    boolean [2] arr;
+    if (arr[0]) {
+        println "Unreachable if block";
+    } else {
+        println "Condition was false";
+    }
+}
