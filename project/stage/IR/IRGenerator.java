@@ -1,6 +1,7 @@
 package IR;
 
 import AST.*;
+import IR.IRArrayElementAssign;
 import IR.IRAssign;
 import IR.IRExpression;
 import IR.IRFuncCall;
@@ -182,6 +183,20 @@ public class IRGenerator {
         Temp var = this.tempManager.lookup(s.id.name);
         IRInstruction assignment = new IRAssign(var, expr);
         this.curFunc.addInstr(assignment);
+    }
+
+    public void visit(ArrayAssignmentStatement s) {
+        // get index and value to be assigned
+        Temp val = s.expr.accept(this);
+        Temp index = s.index.accept(this);
+
+        // TODO: check for null (even though it should be safe; we've semantic-checked ID's already)
+        Temp array = this.tempManager.lookup(s.id.name);
+
+        // create+add assignment statement
+        IRExpression valExpr = new IROperand(val);
+        IRInstruction assign = new IRArrayElementAssign(array, index, valExpr);
+        this.curFunc.addInstr(assign);
     }
 
     public void visit(StatementBlock block) {

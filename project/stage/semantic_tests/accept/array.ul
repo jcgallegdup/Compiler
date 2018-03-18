@@ -1,10 +1,17 @@
 void main () {
     int [10] arr;
-    println arr[0];
-    println arr[1];
-    println arr[9];
+    int counter;
 
-    boolArrays();
+    println "Will now fill array with values 0 through 9";
+    counter = 0;
+    while (counter < 10) {
+        arr[counter] = counter;
+        print arr[counter];
+        print " should be ";
+        print counter;
+        println "";
+        counter = counter + 1;
+    }
     return;
 }
 
