@@ -1,6 +1,8 @@
 package IR;
 
 import AST.*;
+import IR.IRAssign;
+import IR.IRExpression;
 import IR.IRFuncCall;
 import IR.IRInstruction;
 import IR.IRLabel;
@@ -62,7 +64,7 @@ public class IRGenerator {
 
     public void visit(FormalParameterList params) {
         for (FormalParameter param : params) {
-            Temp var = this.tempManager.newTemp(param.type.type);
+            Temp var = this.tempManager.newTemp(param.type.type, param.id.name);
             this.curFunc.addVarDecl(new IRVarDecl(var));
         }
     }
@@ -77,7 +79,7 @@ public class IRGenerator {
     }
 
     public void visit(VariableDeclaration varDecl) {
-        Temp var = this.tempManager.newTemp(varDecl.type.type);
+        Temp var = this.tempManager.newTemp(varDecl.type.type, varDecl.id.name);
         this.curFunc.addVarDecl(new IRVarDecl(var));
     }
 
@@ -168,6 +170,13 @@ public class IRGenerator {
         this.curFunc.addInstr(exitLabel);
     }
 
+    public void visit(ScalarAssignmentStatement s) {
+        IRExpression expr = new IROperand(s.expr.accept(this));
+        Temp var = this.tempManager.lookup(s.id.name);
+        IRInstruction assignment = new IRAssign(var, expr);
+        this.curFunc.addInstr(assignment);
+    }
+
     public void visit(StatementBlock block) {
         for (Statement s : block.statements) {
             s.accept(this);
@@ -214,6 +223,11 @@ public class IRGenerator {
             new IRLiteralAssign(var, e.val)
         );
         return var;
+    }
+
+    public Temp visit(IdentifierExpression e) {
+        // TODO: check for null (even though we've already semantic-checked for IDs)
+        return this.tempManager.lookup(e.id.name);
     }
 
     public void printIRProgram() {

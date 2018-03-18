@@ -1,12 +1,11 @@
 void main () {
-    if (true) {
-        while(gimmeFalse()) {
-            println "unreachable loop";
-        }
-        println "Finished loop";
-    } else {
-        println "unreachable else block";
+    boolean cond;
+    cond = true;
+    while(cond) {
+        println "loop body runs once";
+        cond = gimmeFalse();
     }
+    println "Finished loop";
 }
 
 boolean gimmeFalse() {

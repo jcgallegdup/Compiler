@@ -1,9 +1,11 @@
 package AST;
 
+import IR.IRGenerator;
 import Type.Type;
+import IR.Temp;
 
 public class IdentifierExpression extends Expression {
-    Identifier id;
+    public Identifier id;
     int lineNumber, linePos;
 
     public IdentifierExpression(Identifier id, int lineNumber, int linePos) {
@@ -11,6 +13,10 @@ public class IdentifierExpression extends Expression {
         this.id = id;
         this.lineNumber = lineNumber;
         this.linePos = linePos;
+    }
+
+    public Temp accept(IRGenerator v) {
+        return v.visit(this);
     }
 
     public Type accept(TypeCheckVisitor v) throws SemanticException{

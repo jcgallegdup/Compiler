@@ -1,0 +1,61 @@
+void main() {
+    string s1;
+    string s2;
+    string s3;
+
+    int a;
+    int b;
+    int c;
+
+    float f1;
+    float f2;
+    float f3;
+
+    char c1;
+    char c2;
+    char c3;
+    boolean bool;
+
+    string [4] strArr;
+    int [4] intArr;
+    float [4] floArr;
+    char [4] charArr;
+    boolean [4] boolArr;
+
+    s3 = "string";
+    println s3;
+    s2 = gimmeString();
+    println s2;
+    
+    bool = true;
+    println bool;
+
+    bool = false;
+    println bool;
+
+    bool = gimmeBool();
+    println bool;
+}
+
+int gimmeInt() {
+    return 0;
+}
+
+string gimmeString() {
+    return " ";
+}
+
+float gimmeFloat() {
+    return 0.0;
+}
+
+char gimmeChar() {
+    return 'c';
+}
+
+boolean gimmeBool() {
+    boolean b;
+    b = false;
+    println b;
+    return b;
+}

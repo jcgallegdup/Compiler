@@ -5,7 +5,7 @@ import Type.*;
 
 public class VariableDeclaration {
     public TypeNode type;
-    Identifier id;
+    public Identifier id;
 
     public VariableDeclaration (TypeNode type, Identifier id) {
         this.type = type;
