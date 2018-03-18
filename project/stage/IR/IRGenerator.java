@@ -137,6 +137,37 @@ public class IRGenerator {
         this.curFunc.addInstr(endLabel);
     }
 
+    public void visit(WhileStatement s) {
+        // 1. create+add label for start of loop and add it as instr
+        IRLabel startLoop = new IRLabel(this.labelCount++);
+        this.curFunc.addInstr(startLoop);
+
+        // 2. negate condition to use for jumping out of loop
+        Temp cond = s.cond.accept(this);
+        Temp negatedCond = this.tempManager.newTemp(cond.type);
+        this.curFunc.addVarDecl(new IRVarDecl(negatedCond));
+
+        IRExpression negationOp = new IRUnaryOp(cond, IRUnaryOp.Ops.NEGATE);
+        IRInstruction assign = new IRAssign(negatedCond, negationOp);
+        this.curFunc.addInstr(assign);
+
+        // 3. create+add conditional goto to exit loop using negated condition
+        // --> create exit label instruction but don't add yet (until #6)
+        IRLabel exitLabel = new IRLabel(this.labelCount++);
+        IRInstruction exitLoop = new IRConditionalJump(exitLabel, negatedCond);
+        this.curFunc.addInstr(exitLoop);
+
+        // 4. visit loop body
+        s.loopBody.accept(this);
+
+        // 5. create+add UNconditional goto to top of loop
+        IRInstruction newIteration = new IRJump(startLoop);
+        this.curFunc.addInstr(newIteration);
+
+        // 6. add label instruction from #3
+        this.curFunc.addInstr(exitLabel);
+    }
+
     public void visit(StatementBlock block) {
         for (Statement s : block.statements) {
             s.accept(this);

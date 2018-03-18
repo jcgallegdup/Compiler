@@ -1,0 +1,14 @@
+void main () {
+    if (true) {
+        while(gimmeFalse()) {
+            println "unreachable loop";
+        }
+        println "Finished loop";
+    } else {
+        println "unreachable else block";
+    }
+}
+
+boolean gimmeFalse() {
+    return false;
+}
