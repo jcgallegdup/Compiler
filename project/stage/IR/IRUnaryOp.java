@@ -1,7 +1,6 @@
 package IR;
 
 import IR.AST2IRHelper;
-import IR.IRInstruction;
 import Type.*;
 
 public class IRUnaryOp extends IRExpression {

@@ -1,9 +1,11 @@
 package AST;
 
+import IR.IRGenerator;
+import IR.Temp;
 import Type.Type;
 
 public abstract class BinaryExpression extends Expression {
-    Expression left, right;
+    public Expression left, right;
 
     public abstract String getOperator();
 
@@ -11,6 +13,10 @@ public abstract class BinaryExpression extends Expression {
         super(left.lineNum, left.pos);
         this.left = left;
         this.right = right;
+    }
+
+    public Temp accept(IRGenerator v) {
+        return v.visit(this);
     }
 
     public Type accept(TypeCheckVisitor v) throws SemanticException {

@@ -230,6 +230,24 @@ public class IRGenerator {
         return this.tempManager.lookup(e.id.name);
     }
 
+    public Temp visit(BinaryExpression e) {
+        // get temp vars for result and both operands
+        Temp left = e.left.accept(this);
+        Temp right = e.right.accept(this);
+        String opStr = e.getOperator();
+        Type resultType = OperandTypeRules.getTypeOfResult(opStr, left.type, right.type);
+        Temp result = this.tempManager.newTemp(resultType);
+        this.curFunc.addVarDecl(new IRVarDecl(result));
+
+        // perform bin op and store result in temp var
+        // NOTE: both operands are assumed to be of the same type
+        // --> subtyping would require explicit casting (unary op) in a separate instruction
+        IRExpression op = new IRBinaryOp(left, right, left.type, e.getOperator());
+        IRInstruction assign = new IRAssign(result, op);
+        this.curFunc.addInstr(assign);
+        return result;
+    }
+
     public void printIRProgram() {
         System.out.println("PROG " + this.prog.name);
         String indentation = "    "; // 4 spaces

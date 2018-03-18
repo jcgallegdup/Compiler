@@ -1,0 +1,38 @@
+void main() {
+    println 1 == 1;
+    println 0.0 == 0.1;
+    println false == true;
+    println true == true;
+    println "string" == "strang";
+    println 'c' == 'c';
+
+    println 1 < 1;
+    println 0.0 < 0.1;
+    println "string" < "strang";
+    println 'c' < 'c';
+
+    println 1 + 1;
+    println 0.0 + 0.1;
+    println "string" + "strang";
+    println 'c' + 'c';
+
+    println 1 - 1;
+    println 0.0 - 0.1;
+    println 'c' - 'c';
+
+    println 1 * 1;
+    println 0.0 * 0.1;
+
+
+    println 1 + 1 + 1 + 1;
+    println 0.0 + 0.1 + 0.1 + 0.1 + 0.1;
+    println "string" + "strang" + "strang";
+    println 'c' + 'c' + 'c' + 'c';
+
+    println 1 - 1 - 1 - 1;
+    println 0.0 - 0.1 - 0.1 - 0.1;
+    println 'c' - 'c' - 'c' - 'c';
+
+    println 1 * 1 * 1 * 1 * 1;
+    println 0.0 * 0.1 * 0.1 * 0.1;
+}
