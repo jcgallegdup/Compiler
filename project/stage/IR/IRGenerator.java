@@ -292,6 +292,10 @@ public class IRGenerator {
         return result;
     }
 
+    public Temp visit(ParenExpression e) {
+        return e.e.accept(this);
+    }
+
     public void printIRProgram() {
         System.out.println("PROG " + this.prog.name);
         String indentation = "    "; // 4 spaces

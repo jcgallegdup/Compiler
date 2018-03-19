@@ -8,8 +8,6 @@ void main() {
 
     1 < 1;
     0.0 < 0.1;
-    false < true;
-    true < true;
     "string" < "strang";
     'c' < 'c';
 
@@ -27,7 +25,6 @@ void main() {
 
 
     (1 < 1) == (0.0 < 0.1);
-    false < true == true < true;
 
     (1 == 1) == (0.0 == 0.1);
     false == (true == true) == true;
