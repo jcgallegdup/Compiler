@@ -7,6 +7,7 @@ import IR.IRExpression;
 import IR.IRFuncCall;
 import IR.IRInstruction;
 import IR.IRLabel;
+import IR.IRReturn;
 import IR.TempManager;
 import Type.*;
 
@@ -59,6 +60,11 @@ public class IRGenerator {
         f.funcDecl.params.accept(this);
         // create instrs for function var declarations and statements
         f.funcBody.accept(this);
+
+        if (f.funcDecl.returnType.toString().equals("void")) {
+            IRInstruction exitVoidFunc = new IRReturn();
+            this.curFunc.addInstr(exitVoidFunc);
+        }
 
         this.prog.addFunction(this.curFunc);
     }
