@@ -1,8 +1,0 @@
-Insert key=Implement me! val=AST.Function@76ed5528
-Found void main function!
-Insert key=Implement me! val=AST.Function@2c7b84de
-Implement visit logic for FunctionDecl in TypeCheckVisitor
-Implement visit logic for FunctionBody in TypeCheckVisitor
-Implement visit logic for FunctionDecl in TypeCheckVisitor
-Implement visit logic for FunctionBody in TypeCheckVisitor
-Finished type checking the program. Environments:

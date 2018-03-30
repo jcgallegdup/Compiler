@@ -1,8 +1,0 @@
-Insert key=Implement me! val=AST.Function@76ed5528
-Insert key=Implement me! val=AST.Function@2c7b84de
-Insert key=Implement me! val=AST.Function@3fee733d
-Insert key=Implement me! val=AST.Function@5acf9800
-Insert key=Implement me! val=AST.Function@4617c264
-Insert key=Implement me! val=AST.Function@36baf30c
-Insert key=Implement me! val=AST.Function@7a81197d
-Error:0(line):0(position): Could not find function with name 'main' and type 'void'.
