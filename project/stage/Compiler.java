@@ -34,6 +34,7 @@ public class Compiler {
 		IRGenerator irGen = new IRGenerator();
 		try {
 			Program p = parser.program();
+			p.accept(new TypeCheckVisitor(p));
 			p.accept(irGen);
 		}
 		catch (RecognitionException e )	{
