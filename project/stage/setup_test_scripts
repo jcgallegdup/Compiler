@@ -1,0 +1,10 @@
+# Run this script so that you can run:
+#   `test_ir_output.sh some_ir_file.ir`
+# ..instead of running it like:
+#   `bash testing/scripts/test_ir_output.sh some_ir_file.ir`
+
+curDir=$(pwd)
+pathToTestScripts="$curDir/testing/scripts/"
+PATH="$PATH:$pathToTestScripts"
+export PATH
+echo "$pathToTestScripts added to PATH environment variable: $newPATH"
