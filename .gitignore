@@ -13,3 +13,7 @@ ir_files/
 
 # tests -- to be incorporated
 a3testcases/
+
+# ignore program files
+*.ir
+*.j

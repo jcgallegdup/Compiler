@@ -12,6 +12,7 @@ import AST.Program;
 import AST.Visitor;
 import AST.TypeCheckVisitor;
 import IR.IRGenerator;
+import IR.IR2Jasmin;
 
 public class Compiler {
 	public static void main (String[] args) throws Exception {
@@ -32,10 +33,12 @@ public class Compiler {
 		ulNoActionsParser parser = new ulNoActionsParser(tokens);
 
 		IRGenerator irGen = new IRGenerator();
+		IR2Jasmin jasminGen = new IR2Jasmin();
 		try {
 			Program p = parser.program();
 			p.accept(new TypeCheckVisitor(p));
 			p.accept(irGen);
+			irGen.getIRProgram().accept(jasminGen);
 		}
 		catch (RecognitionException e )	{
 			// A lexical or parsing error occured.
@@ -46,6 +49,5 @@ public class Compiler {
 		catch (Exception e) {
 			e.printStackTrace();
 		}
-		irGen.printIRProgram();
 	}
 }

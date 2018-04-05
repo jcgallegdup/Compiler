@@ -1,6 +1,9 @@
 package IR;
 
 import java.util.List;
+
+import IR.IR2Jasmin;
+
 import java.util.LinkedList;
 
 public class IRProgram {
@@ -17,6 +20,10 @@ public class IRProgram {
 
     public void addFunction(IRFunction f) {
         this.functions.add(f);
+    }
+
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
     }
 
     // TODO implement toString()

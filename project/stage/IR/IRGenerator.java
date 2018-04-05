@@ -302,6 +302,10 @@ public class IRGenerator {
         return e.e.accept(this);
     }
 
+    public IRProgram getIRProgram() {
+        return this.prog;
+    }
+
     public void printIRProgram() {
         System.out.println("PROG " + this.prog.name);
         String indentation = "    "; // 4 spaces
