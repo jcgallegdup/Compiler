@@ -38,6 +38,7 @@ echo '* Generating jasmin file "out.j"'
 
 echo '* Generating class file'
 java jasmin.Main out.j
+cat out.j
 
 echo '* Running program!'
 # TODO: parametrize classname instead of hardcoding
