@@ -8,6 +8,10 @@ public class IRArrayAccess extends IRExpression {
         this.index = index;
     }
 
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
+    }
+
     public String toString() {
         return this.array.toString() + "[" + this.index.toString() + "]";
     }

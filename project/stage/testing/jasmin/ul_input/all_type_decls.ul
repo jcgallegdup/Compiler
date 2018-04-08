@@ -11,9 +11,29 @@ void main() {
     string [4] sArr;
     char [5] cArr;
 
-    iArr[0] = 1;
-    fArr[1] = 1.0;
-    bArr[2] = true;
-    sArr[3] = "str";
-    cArr[4] = 'x';
+    i = 1;
+    f = 1.0;
+    b = true;
+    s = "str";
+    c = 'x';
+
+    println i;
+    println f;
+    println b;
+    println s;
+    println c;
+
+    println "";
+
+    iArr[0] = i;
+    fArr[1] = f;
+    bArr[2] = b;
+    sArr[3] = s;
+    cArr[4] = c;
+
+    println iArr[0];
+    println fArr[1];
+    println bArr[2];
+    println sArr[3];
+    println cArr[4];
 }

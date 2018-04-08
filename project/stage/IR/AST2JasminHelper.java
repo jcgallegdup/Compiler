@@ -51,7 +51,8 @@ public class AST2JasminHelper {
         return typePrefix;
     }
 
-    public static String getArrayStorePrefixTypeStr(Type t) {
+    // provide instruction prefix for load/store element values of array
+    public static String getArrayPrefixTypeStr(Type t) {
         String typePrefix;
         switch (t.toString()) {
             case "boolean": typePrefix = "b"; break;

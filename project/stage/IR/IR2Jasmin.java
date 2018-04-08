@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 import IR.AST2JasminHelper;
+import IR.IRArrayAccess;
 import IR.IRExpression;
 import IR.IRExpressionInstruction;
 import IR.IRFuncCall;
@@ -116,7 +117,7 @@ public class IR2Jasmin {
 
         Type elemType = instr.target.type.getElementType();
         // TODO: don't hardcode "a" prefix type string -- move to AST2Jasmin helper
-        String storeArray = AST2JasminHelper.getArrayStorePrefixTypeStr(elemType) + "astore";
+        String storeArray = AST2JasminHelper.getArrayPrefixTypeStr(elemType) + "astore";
         println(storeArray);
     }
 
@@ -156,6 +157,15 @@ public class IR2Jasmin {
     // should never actually used -- all subclasses of IRInstruction should override
     public void visit(IRExpression e) {
         return ;
+    }
+
+    public void visit(IRArrayAccess e) {
+        String loadArray = "aload " + e.array.id;
+        String loadIdx = AST2JasminHelper.getPrefixTypeStr(e.index.type) + "load " + e.index.id;
+        String loadElementAtIdx = AST2JasminHelper.getArrayPrefixTypeStr(e.array.type.getElementType()) + "aload";
+        println(loadArray);
+        println(loadIdx);
+        println(loadElementAtIdx);
     }
 
     public void visit(IROperand e) {
