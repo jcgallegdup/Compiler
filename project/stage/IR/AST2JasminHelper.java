@@ -51,7 +51,20 @@ public class AST2JasminHelper {
         return typePrefix;
     }
 
-    public static String getArrayElementTypeStr(Type elemType) {
+    public static String getArrayStorePrefixTypeStr(Type t) {
+        String typePrefix;
+        switch (t.toString()) {
+            case "boolean": typePrefix = "b"; break;
+            case "int":     typePrefix = "i"; break;
+            case "char":    typePrefix = "c"; break;
+            case "float":   typePrefix = "f"; break;
+            case "string":  typePrefix = "a"; break;
+            default:        typePrefix = null; break;
+        }
+        return typePrefix;
+    }
+
+    public static String getNewArrayElementTypeStr(Type elemType) {
         String elemTypeStr;
         switch(elemType.toString()) {
             case "boolean": elemTypeStr = "boolean"; break;

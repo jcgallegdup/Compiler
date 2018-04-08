@@ -10,4 +10,10 @@ void main() {
     boolean [3] bArr;
     string [4] sArr;
     char [5] cArr;
+
+     iArr[0] = 1;
+     fArr[1] = 1.0;
+     bArr[2] = true;
+     sArr[3] = "str";
+     cArr[4] = 'x';
 }

@@ -103,10 +103,27 @@ public class IR2Jasmin {
         println(assign);
     }
 
+    public void visit(IRArrayElementAssign instr) {
+        // TODO: don't hardcode "a" prefix type string -- move to AST2Jasmin helper
+        String loadArray = "aload " + instr.target.id;
+        String loadIdx = AST2JasminHelper.getPrefixTypeStr(instr.index.type) + "load " + instr.index.id;
+
+        println(loadArray);
+        println(loadIdx);
+
+        // load expression onto stack
+        instr.value.accept(this);
+
+        Type elemType = instr.target.type.getElementType();
+        // TODO: don't hardcode "a" prefix type string -- move to AST2Jasmin helper
+        String storeArray = AST2JasminHelper.getArrayStorePrefixTypeStr(elemType) + "astore";
+        println(storeArray);
+    }
+
     public void visit(IRNewArray instr) {
         Type elemType = instr.type.getElementType();
         String loadSize = "ldc " + instr.size;
-        String createArray = AST2JasminHelper.getNewArrayPrefixStr(elemType) + "newarray " + AST2JasminHelper.getArrayElementTypeStr(elemType);
+        String createArray = AST2JasminHelper.getNewArrayPrefixStr(elemType) + "newarray " + AST2JasminHelper.getNewArrayElementTypeStr(elemType);
         println(loadSize);
         println(createArray);
     }
