@@ -42,7 +42,6 @@ public class Compiler {
 			Program p = parser.program();
 			p.accept(new TypeCheckVisitor(p));
 			p.accept(irGen);
-			irGen.printIRProgram();
 			if (!printIR) {
 				irGen.getIRProgram().accept(jasminGen);
 			}
