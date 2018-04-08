@@ -18,6 +18,7 @@ import IR.IRLiteralAssign;
 import IR.IRNewArray;
 import IR.IROperand;
 import IR.IRProgram;
+import IR.IRUnaryOp;
 import IR.IRVarDecl;
 
 public class IR2Jasmin {
@@ -173,6 +174,15 @@ public class IR2Jasmin {
     // should never actually used -- all subclasses of IRInstruction should override
     public void visit(IRExpression e) {
         return ;
+    }
+
+    public void visit(IRUnaryOp e) {
+        String loadVar = AST2JasminHelper.getPrefixTypeStr(e.operand.type) + "load " + e.operand.id;
+        String loadTrue = "ldc 1";
+        String flipBit = "ixor";
+        println(loadVar);
+        println(loadTrue);
+        println(flipBit);
     }
 
     public void visit(IRArrayAccess e) {

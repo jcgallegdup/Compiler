@@ -1,0 +1,8 @@
+void main () {
+    boolean bool;
+    bool = true;
+    while (bool) {
+        bool = false;
+        println "Exit after one iteration";
+    }
+}

@@ -9,14 +9,17 @@ public class IRUnaryOp extends IRExpression {
     Type type;
 
     public enum Ops {
-        NEGATE,
-        INVERT
+        NEGATE
     }
 
     public IRUnaryOp(Temp operand, Ops op) {
         this.operand = operand;
         this.op = op;
         this.type = operand.type;
+    }
+
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
     }
 
     public String toString() {
@@ -27,7 +30,6 @@ public class IRUnaryOp extends IRExpression {
         String opStr;
         switch(op) {
             case NEGATE: opStr = "!"; break;
-            case INVERT: opStr = "-"; break;
             default:     opStr = null; break;
         }
         return opStr;
