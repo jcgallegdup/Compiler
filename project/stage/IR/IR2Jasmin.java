@@ -79,6 +79,7 @@ public class IR2Jasmin {
         // load expression onto stack
         instr.value.accept(this);
         String assign = AST2JasminHelper.getPrefixTypeStr(instr.target.type) + "store " + instr.target.id;
+        println(assign);
     }
 
     public void visit(IRReturn instr) {
