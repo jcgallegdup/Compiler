@@ -21,9 +21,13 @@ public class Compiler {
 		if (args.length == 0 ) {
 			System.out.println("Usage: Test filename.ul");
 			return;
-		}
-		else {
+		} else {
 			input = new ANTLRInputStream(new FileInputStream(args[0]));
+		}
+
+		boolean printIR = false;
+		if (args.length == 2) {
+			printIR = args[1].equals("-ir");
 		}
 
 		// The name of the grammar here is "ulNoActions",
@@ -38,7 +42,10 @@ public class Compiler {
 			Program p = parser.program();
 			p.accept(new TypeCheckVisitor(p));
 			p.accept(irGen);
-			irGen.getIRProgram().accept(jasminGen);
+			irGen.printIRProgram();
+			if (!printIR) {
+				irGen.getIRProgram().accept(jasminGen);
+			}
 		}
 		catch (RecognitionException e )	{
 			// A lexical or parsing error occured.
@@ -48,6 +55,9 @@ public class Compiler {
 		}
 		catch (Exception e) {
 			e.printStackTrace();
+		}
+		if (printIR) {
+			irGen.printIRProgram();
 		}
 	}
 }
