@@ -109,10 +109,6 @@ public class IR2Jasmin {
         println(callPrintln);
     }
 
-    public void visit(IRExpressionInstruction instr) {
-        instr.e.accept(this);
-    }
-
     public void visit(IRAssign instr) {
         // load expression onto stack
         instr.value.accept(this);
@@ -168,6 +164,10 @@ public class IR2Jasmin {
     public void visit(IRVarDecl varDecl) {
         String declStr = ".var " + varDecl.var.id + " is " + varDecl.var + " " + AST2JasminHelper.getTypeStr(varDecl.type);
         println(declStr);
+    }
+
+    public void visit(IRExpressionInstruction instr) {
+        instr.e.accept(this);
     }
 
     // should never actually used -- all subclasses of IRInstruction should override
