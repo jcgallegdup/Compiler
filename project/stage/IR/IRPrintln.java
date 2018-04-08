@@ -11,6 +11,10 @@ public class IRPrintln extends IRInstruction {
         this.type = var.type;
     }
 
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
+    }
+
     public String toString() {
         return "PRINTLN" + AST2IRHelper.getIRTypeStr(type) + " " + this.var.toString() + ";";
     }

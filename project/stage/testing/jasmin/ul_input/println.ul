@@ -1,3 +1,22 @@
 void main() {
+    int i;
+    float f;
+    boolean b;
+    string s;
+    char c;
+
+    i = 0;
+    f = 0.0;
+    b = false;
+    s = "string";
+    c = 'x';
+
+    print i; print f; print b; print s; print c;
+
     println "Hello world";
+    print "I said hello";
+    print 0;
+    print 1.0;
+    print false;
+    print 'c';
 }

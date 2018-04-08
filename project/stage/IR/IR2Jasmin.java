@@ -73,6 +73,24 @@ public class IR2Jasmin {
         return ;
     }
 
+    public void visit(IRPrint instr) {
+        String loadPrintStream = "getstatic java/lang/System/out Ljava/io/PrintStream;";
+        String loadVar = AST2JasminHelper.getPrefixTypeStr(instr.var.type) + "load " + instr.var.id;
+        String callPrint = "invokevirtual java/io/PrintStream/print(" + AST2JasminHelper.getTypeStr(instr.var.type) + ")V";
+        println(loadPrintStream);
+        println(loadVar);
+        println(callPrint);
+    }
+
+    public void visit(IRPrintln instr) {
+        String loadPrintStream = "getstatic java/lang/System/out Ljava/io/PrintStream;";
+        String loadVar = AST2JasminHelper.getPrefixTypeStr(instr.var.type) + "load " + instr.var.id;
+        String callPrintln = "invokevirtual java/io/PrintStream/println(" + AST2JasminHelper.getTypeStr(instr.var.type) + ")V";
+        println(loadPrintStream);
+        println(loadVar);
+        println(callPrintln);
+    }
+
     public void visit(IRExpressionInstruction instr) {
         instr.e.accept(this);
     }
