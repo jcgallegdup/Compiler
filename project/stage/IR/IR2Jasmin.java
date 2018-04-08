@@ -27,8 +27,8 @@ public class IR2Jasmin {
         System.out.println(decl);
 
         // 2. declare variables and set stack limit
-        String varDecls = ".limit locals " + func.varDecls.size();
-        System.out.println(indentation + varDecls);
+        String varDeclTotalSize = ".limit locals " + func.varDecls.size();
+        System.out.println(indentation + varDeclTotalSize);
         for (IRVarDecl varDecl : func.varDecls) {
             varDecl.accept(this);
         }
