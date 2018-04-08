@@ -13,6 +13,7 @@ import IR.IRExpressionInstruction;
 import IR.IRFuncCall;
 import IR.IRInstruction;
 import IR.IRLiteralAssign;
+import IR.IROperand;
 import IR.IRProgram;
 import IR.IRVarDecl;
 
@@ -48,11 +49,12 @@ public class IR2Jasmin {
         this.indentLevel++;
 
         // 2. declare variables and set stack limit
-        String varDeclTotalSize = ".limit locals " + func.varDecls.size();
-        println(varDeclTotalSize);
+        println(".limit locals " + func.varDecls.size());
         for (IRVarDecl varDecl : func.varDecls) {
             varDecl.accept(this);
         }
+        // TODO: change this dynamically
+        println(".limit stack 20");
 
         // 3. generate jasmin instructions
         for (IRInstruction instr : func.instrs) {
@@ -110,6 +112,11 @@ public class IR2Jasmin {
     // should never actually used -- all subclasses of IRInstruction should override
     public void visit(IRExpression e) {
         return ;
+    }
+
+    public void visit(IROperand e) {
+        String typePrefix = AST2JasminHelper.getPrefixTypeStr(e.operand.type);
+        println(typePrefix + "load " + e.operand.id);
     }
 
     public void visit(IRFuncCall e) {

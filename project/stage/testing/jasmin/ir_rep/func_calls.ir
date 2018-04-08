@@ -1,0 +1,27 @@
+PROG classname
+
+FUNC main () V {
+    TEMP 0:I;
+    TEMP 1:Z;
+    TEMP 2:I;
+    TEMP 3:Z;
+    T2 := CALL gimmeInt ();
+    T0 := T2;
+    T3 := CALL gimmeBool ();
+    T1 := T3;
+    RETURN ;
+}
+
+FUNC gimmeInt () I {
+    TEMP 0:I;
+    TEMP 1:I;
+    T1 := 1;
+    T0 := T1;
+    RETURN T0;
+}
+
+FUNC gimmeBool () Z {
+    TEMP 0:Z;
+    T0 := FALSE;
+    RETURN T0;
+}
