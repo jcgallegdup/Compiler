@@ -31,6 +31,10 @@ public class IRBinaryOp extends IRExpression {
         this.op = getOpEnum(opStr);
     }
 
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
+    }
+
     public String toString() {
         return this.left + " " + AST2IRHelper.getIRTypeStr(this.type) + this.getOpStr(this.op) + " " + this.right;
     }

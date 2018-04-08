@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 import IR.AST2JasminHelper;
 import IR.IRArrayAccess;
+import IR.IRBinaryOp;
 import IR.IRConditionalJump;
 import IR.IRExpression;
 import IR.IRExpressionInstruction;
@@ -22,12 +23,14 @@ import IR.IRUnaryOp;
 import IR.IRVarDecl;
 
 public class IR2Jasmin {
+    int labelCount;
     String progName;
     Map<String, Type> funcReturnTypes;
     int indentLevel;
     final int indentSize = 4;
 
     public IR2Jasmin() {
+        this.labelCount = -1;
         this.funcReturnTypes = new HashMap<String, Type>();
         this.progName = null;
         this.indentLevel = 0;
@@ -51,6 +54,9 @@ public class IR2Jasmin {
         println(decl);
 
         this.indentLevel++;
+        // since we introduce new labels to implement some binary ops, we need
+        // to know the running count to avoid overwriting existing labels
+        this.labelCount = func.labelCount;
 
         // 2. declare variables and set stack limit
         println(".limit locals " + func.varDecls.size());
@@ -67,6 +73,8 @@ public class IR2Jasmin {
             println("");
         }
 
+        // reset labelCount
+        this.labelCount = -1;
         this.indentLevel--;
         println(".end method");
     }
@@ -176,8 +184,71 @@ public class IR2Jasmin {
         return ;
     }
 
+    public void visit(IRBinaryOp e) {
+        String loadLeft = AST2JasminHelper.getPrefixTypeStr(e.left.type) + "load " + e.left.id;
+        String loadRight = AST2JasminHelper.getPrefixTypeStr(e.right.type) + "load " + e.right.id;
+        println(loadLeft);
+        println(loadRight);
+
+        if (e.type.toString().equals("string")) {
+            // TODO: stringBinOp();
+
+        } else if (e.type.toString().equals("float")) {
+            // TODO floatBinOp();
+
+        } else {
+            // char treated as int
+            intBinOp(e.type, e.op);
+        }
+    }
+
+    private void intBinOp(Type t, IRBinaryOp.Ops op) {
+        if (op == IRBinaryOp.Ops.GREATER_THAN || op == IRBinaryOp.Ops.EQUALS) {
+            intCompare(t, op);
+            return;
+        }
+        switch (op) {
+            case ADD:    break;
+            case SUB:    break;
+            case MULT:   break;
+
+            default: break;
+        }
+    }
+
+    private void intCompare(Type t, IRBinaryOp.Ops op) {
+        switch(op) {
+            case EQUALS:
+                // set up labels
+                String trueLabel = "L" + this.labelCount++;
+                String endLabel = "L" + this.labelCount++;
+
+                // compare values (alredy on stack)
+                String subtract = "isub";
+
+                // load boolean value based on result of comparison
+                // NOTE: subtraction == 0 <=> values are equal
+                String jumpIfEqual = "ifeq " + trueLabel;
+                String setFalse = "ldc 0";
+                String skipToEnd = "goto " + endLabel;
+                String setTrue = "ldc 1";
+
+                println(subtract);
+                println(jumpIfEqual);
+                println(setFalse);
+                println(skipToEnd);
+                println(trueLabel + ":");
+                println(setTrue);
+                println(endLabel + ":");
+                break;
+
+            default:
+                break;
+        }
+    }
+
     public void visit(IRUnaryOp e) {
-        String loadVar = AST2JasminHelper.getPrefixTypeStr(e.operand.type) + "load " + e.operand.id;
+        String loadVar = "iload " + e.operand.id;
         String loadTrue = "ldc 1";
         String flipBit = "ixor";
         println(loadVar);

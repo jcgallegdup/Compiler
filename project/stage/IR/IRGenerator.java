@@ -67,6 +67,7 @@ public class IRGenerator {
             this.curFunc.addInstr(exitVoidFunc);
         }
 
+        this.curFunc.setLabelCount(this.labelCount);
         this.prog.addFunction(this.curFunc);
     }
 

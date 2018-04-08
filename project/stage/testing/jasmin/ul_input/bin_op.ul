@@ -1,0 +1,13 @@
+void main() {
+    if (1 == 1) {
+        println "int equals int working WOO";
+    } else {
+        println "should not print this ever";
+    }
+
+    if ('c' == 'd') {
+        println "should not print this ever either";
+    } else {
+        println "char not equals char working WOOO";
+    }
+}

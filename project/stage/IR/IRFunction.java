@@ -19,6 +19,7 @@ public class IRFunction {
     List<Type> paramTypes;
     List<IRVarDecl> varDecls;
     List<IRInstruction> instrs;
+    int labelCount;
 
     public IRFunction(IRProgram prog, String name, Type returnType, List<Type> paramTypes) {
         this.prog = prog;
@@ -27,6 +28,11 @@ public class IRFunction {
         this.paramTypes = paramTypes;
         this.varDecls = new LinkedList<IRVarDecl>();
         this.instrs = new LinkedList<IRInstruction>();
+        this.labelCount = -1;
+    }
+
+    public void setLabelCount(int labelCount) {
+        this.labelCount = labelCount;
     }
 
     public String getDeclaration() {
