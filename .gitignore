@@ -15,4 +15,5 @@ ir_files/
 a3testcases/
 
 # ignore program files
-*.ir
+project/stage/*.ir
+project/stage/*.j
