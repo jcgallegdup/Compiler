@@ -9,6 +9,10 @@ public class IRLiteralAssign<T> extends IRInstruction {
         this.value = literal;
     }
 
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
+    }
+
     public String toString() {
         String valStr = AST2IRHelper.getIRLiteralStr(this.target.type, this.value);
         return target.toString() + " := " + valStr + ";";

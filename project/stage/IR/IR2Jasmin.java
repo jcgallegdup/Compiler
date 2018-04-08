@@ -5,6 +5,8 @@ import Type.*;
 import java.util.List;
 
 import IR.AST2JasminHelper;
+import IR.IRInstruction;
+import IR.IRLiteralAssign;
 import IR.IRVarDecl;
 
 public class IR2Jasmin {
@@ -33,7 +35,24 @@ public class IR2Jasmin {
             varDecl.accept(this);
         }
 
+        // 3. generate jasmin instructions
+        for (IRInstruction instr : func.instrs) {
+            instr.accept(this);
+        }
+
         System.out.println(".end method");
+    }
+
+    // should never actually used -- all subclasses of IRInstruction should override
+    public void visit(IRInstruction instr) {
+        return ;
+    }
+
+    public void visit(IRLiteralAssign instr) {
+        String load = "ldc " + AST2JasminHelper.getLiteral(instr.target.type, instr.value);
+        String store = AST2JasminHelper.getStorePrefixTypeStr(instr.target.type) + "store " + instr.target.id;
+        System.out.println(load);
+        System.out.println(store);
     }
 
     public void visit(IRVarDecl varDecl) {
