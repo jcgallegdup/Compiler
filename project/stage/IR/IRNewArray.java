@@ -11,6 +11,10 @@ public class IRNewArray extends IRExpression {
         this.size = size;
     }
 
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
+    }
+
     public String toString() {
         String typeIRString = AST2IRHelper.getIRTypeStr(this.type.getElementType());
         return "NEWARRAY " + typeIRString + " " + this.size;

@@ -13,6 +13,7 @@ import IR.IRExpressionInstruction;
 import IR.IRFuncCall;
 import IR.IRInstruction;
 import IR.IRLiteralAssign;
+import IR.IRNewArray;
 import IR.IROperand;
 import IR.IRProgram;
 import IR.IRVarDecl;
@@ -100,6 +101,14 @@ public class IR2Jasmin {
         instr.value.accept(this);
         String assign = AST2JasminHelper.getPrefixTypeStr(instr.target.type) + "store " + instr.target.id;
         println(assign);
+    }
+
+    public void visit(IRNewArray instr) {
+        Type elemType = instr.type.getElementType();
+        String loadSize = "ldc " + instr.size;
+        String createArray = AST2JasminHelper.getNewArrayPrefixStr(elemType) + "newarray " + AST2JasminHelper.getArrayElementTypeStr(elemType);
+        println(loadSize);
+        println(createArray);
     }
 
     public void visit(IRReturn instr) {

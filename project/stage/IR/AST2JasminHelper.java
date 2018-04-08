@@ -34,6 +34,10 @@ public class AST2JasminHelper {
     }
 
     public static String getPrefixTypeStr(Type t) {
+        // arrays are a special case
+        if (t.getElementType() != null) {
+            return "a";
+        }
         String typePrefix;
         switch (t.toString()) {
             case "boolean": typePrefix = "i"; break;
@@ -45,6 +49,23 @@ public class AST2JasminHelper {
             default:        typePrefix = null; break;
         }
         return typePrefix;
+    }
+
+    public static String getArrayElementTypeStr(Type elemType) {
+        String elemTypeStr;
+        switch(elemType.toString()) {
+            case "boolean": elemTypeStr = "boolean"; break;
+            case "int":     elemTypeStr = "int";     break;
+            case "char":    elemTypeStr = "char";    break;
+            case "float":   elemTypeStr = "float";   break;
+            case "string":  elemTypeStr = "java/lang/String"; break;
+            default:        elemTypeStr = null;      break;
+        }
+        return elemTypeStr;
+    }
+
+    public static String getNewArrayPrefixStr(Type elemType) {
+        return (elemType.toString().equals("string")? "a" : "");
     }
 
     public static String getTypeStr(Type t) {
