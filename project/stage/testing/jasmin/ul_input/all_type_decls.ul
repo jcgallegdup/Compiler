@@ -1,0 +1,8 @@
+void main() {
+    int i;
+    float f;
+    boolean b;
+    string s;
+    char c;
+    int [10] iArr;
+}

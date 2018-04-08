@@ -1,5 +1,6 @@
 package IR;
 
+import IR.IR2Jasmin;
 import Type.*;
 
 public class IRVarDecl extends IRInstruction {
@@ -9,6 +10,10 @@ public class IRVarDecl extends IRInstruction {
     public IRVarDecl(Temp var) {
         this.var = var;
         this.type = var.type;
+    }
+
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
     }
 
     public String toString() {

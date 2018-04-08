@@ -5,6 +5,7 @@ import Type.*;
 import java.util.List;
 
 import IR.AST2JasminHelper;
+import IR.IRVarDecl;
 
 public class IR2Jasmin {
     final int indentSize = 4;
@@ -26,21 +27,18 @@ public class IR2Jasmin {
         System.out.println(decl);
 
         // 2. declare variables and set stack limit
-        String varDecls = indentation + ".limit locals " + func.varDecls.size();
+        String varDecls = ".limit locals " + func.varDecls.size();
         System.out.println(indentation + varDecls);
+        for (IRVarDecl varDecl : func.varDecls) {
+            varDecl.accept(this);
+        }
 
         System.out.println(".end method");
     }
 
-    private String getJasminParamTypes(List<Type> paramTypes) {
-        String typeStr = "(";
-        String separator = "";
-        for (Type t : paramTypes) {
-            typeStr += separator + AST2JasminHelper.getJasminTypeStr(t);
-            separator = " ";
-        }
-        typeStr += ")";
-        return typeStr;
+    public void visit(IRVarDecl varDecl) {
+        String declStr = ".var " + varDecl.var.id + " is " + varDecl.var + " " + AST2JasminHelper.getJasminTypeStr(varDecl.type);
+        System.out.println(indentation + declStr);
     }
 
     public void visit(IRProgram prog) {
@@ -58,6 +56,7 @@ public class IR2Jasmin {
         }
 
         // TODO: validate this Jasmin code (I just copied it from example prog)
+        // TODO: use global indentation String instead of hard-coded spaces
         String progInit = ""
             +".method public static main([Ljava/lang/String;)V\n"
             +"    ; set limits used by this method\n"
@@ -75,5 +74,16 @@ public class IR2Jasmin {
             + ".end method\n"
         ;
         System.out.println(progInit);
+    }
+
+    private String getJasminParamTypes(List<Type> paramTypes) {
+        String typeStr = "(";
+        String separator = "";
+        for (Type t : paramTypes) {
+            typeStr += separator + AST2JasminHelper.getJasminTypeStr(t);
+            separator = " ";
+        }
+        typeStr += ")";
+        return typeStr;
     }
 }

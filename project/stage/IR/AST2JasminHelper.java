@@ -7,7 +7,7 @@ public class AST2JasminHelper {
         String typeStr;
         // TODO check if type is array in a non-hacky way :^(
         if (t.getElementType() != null) {
-            typeStr = "A" + convert2Jasmin(t.getElementType().toString());
+            typeStr = "[" + convert2Jasmin(t.getElementType().toString());
         } else {
             typeStr = convert2Jasmin(t.toString());
         }
@@ -20,9 +20,9 @@ public class AST2JasminHelper {
             case "boolean": typeIRStr = "Z"; break;
             case "int":     typeIRStr = "I"; break;
             case "float":   typeIRStr = "F"; break;
-            case "string":  typeIRStr = "U"; break;
             case "char":    typeIRStr = "C"; break;
             case "void":    typeIRStr = "V"; break;
+            case "string":  typeIRStr = "Ljava/lang/String;"; break;
             default:        typeIRStr = null; break;
         }
         return typeIRStr;
