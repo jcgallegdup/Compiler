@@ -13,6 +13,10 @@ public class IRFuncCall extends IRExpression {
         this.args = args;
     }
 
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
+    }
+
     // e.g. 'CALL foo (I F)' if calling 'foo(int arg1, float arg2)'
     public String toString() {
         String argsStr = "(";

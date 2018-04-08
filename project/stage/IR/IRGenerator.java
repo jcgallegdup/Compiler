@@ -49,6 +49,7 @@ public class IRGenerator {
 
     public void visit(Function f) {
         this.curFunc = new IRFunction(
+            this.prog,
             f.funcDecl.id.name,
             f.funcDecl.returnType.type,
             f.funcDecl.params.getTypes()

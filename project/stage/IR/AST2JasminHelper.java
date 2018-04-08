@@ -1,8 +1,22 @@
 package IR;
 
+import java.util.List;
+
 import Type.*;
 
 public class AST2JasminHelper {
+
+    // used for both function declaration and invocation
+    public static String getFuncNameWithTypes(String funcName, List<Type> paramTypes, Type returnType) {
+        String typeStr = "(";
+        String separator = "";
+        for (Type t : paramTypes) {
+            typeStr += separator + AST2JasminHelper.getTypeStr(t);
+            separator = " ";
+        }
+        typeStr += ")";
+        return funcName + typeStr + getTypeStr(returnType);
+    }
 
     public static Object getLiteral(Type type, Object literal) {
         String typeStr = type.toString();
@@ -19,7 +33,7 @@ public class AST2JasminHelper {
         return val;
     }
 
-    public static String getStorePrefixTypeStr(Type t) {
+    public static String getPrefixTypeStr(Type t) {
         String typePrefix;
         switch (t.toString()) {
             case "boolean": typePrefix = "i"; break;
@@ -27,12 +41,13 @@ public class AST2JasminHelper {
             case "char":    typePrefix = "i"; break;
             case "float":   typePrefix = "f"; break;
             case "string":  typePrefix = "a"; break;
+            case "void":    typePrefix = ""; break;
             default:        typePrefix = null; break;
         }
         return typePrefix;
     }
 
-    public static String getJasminTypeStr(Type t) {
+    public static String getTypeStr(Type t) {
         String typeStr;
         // TODO check if type is array in a non-hacky way :^(
         if (t.getElementType() != null) {

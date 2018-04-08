@@ -6,10 +6,12 @@ import java.util.List;
 import IR.AST2IRHelper;
 import IR.IR2Jasmin;
 import IR.IRInstruction;
+import IR.IRProgram;
 import IR.IRVarDecl;
 import Type.*;
 
 public class IRFunction {
+    IRProgram prog;
     // TODO verify this should be a str
     String name;
     // TODO consult someone else regarding how to represent the fun signature
@@ -18,7 +20,8 @@ public class IRFunction {
     List<IRVarDecl> varDecls;
     List<IRInstruction> instrs;
 
-    public IRFunction(String name, Type returnType, List<Type> paramTypes) {
+    public IRFunction(IRProgram prog, String name, Type returnType, List<Type> paramTypes) {
+        this.prog = prog;
         this.name = name;
         this.returnType = returnType;
         this.paramTypes = paramTypes;

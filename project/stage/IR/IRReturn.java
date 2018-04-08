@@ -14,6 +14,10 @@ public class IRReturn extends IRInstruction {
         this.var = null;
     }
 
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
+    }
+
     public String toString() {
         if (this.var == null) {
             return "RETURN ;";

@@ -8,6 +8,10 @@ public class IRExpressionInstruction extends IRInstruction {
         this.e = e;
     }
 
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
+    }
+
     public String toString() {
         return this.e.toString() + ";";
     }
