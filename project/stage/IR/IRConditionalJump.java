@@ -10,6 +10,10 @@ public class IRConditionalJump extends IRJump {
         this.cond = cond;
     }
 
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
+    }
+
     public String toString() {
         return "IF " + this.cond + " GOTO " + label.labelStr() + ";";
     }

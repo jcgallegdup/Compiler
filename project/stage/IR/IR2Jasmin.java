@@ -9,6 +9,7 @@ import java.util.HashMap;
 
 import IR.AST2JasminHelper;
 import IR.IRArrayAccess;
+import IR.IRConditionalJump;
 import IR.IRExpression;
 import IR.IRExpressionInstruction;
 import IR.IRFuncCall;
@@ -56,7 +57,7 @@ public class IR2Jasmin {
             varDecl.accept(this);
         }
         // TODO: change this dynamically
-        println(".limit stack 20");
+        println(".limit stack 20\n");
 
         // 3. generate jasmin instructions
         for (IRInstruction instr : func.instrs) {
@@ -73,6 +74,21 @@ public class IR2Jasmin {
     // remove once accept method in IRInstruction is made abstract
     public void visit(IRInstruction instr) {
         return ;
+    }
+
+    public void visit(IRLabel label) {
+        println("L" + label.id + ":");
+    }
+
+    public void visit(IRJump instr) {
+        println("goto L" + instr.label.id);
+    }
+
+    public void visit(IRConditionalJump instr) {
+        String loadCond = AST2JasminHelper.getPrefixTypeStr(instr.cond.type) + "load " + instr.cond.id;
+        String jumpOnCond = "ifne L" + instr.label.id;
+        println(loadCond);
+        println(jumpOnCond);
     }
 
     public void visit(IRPrint instr) {

@@ -1,0 +1,13 @@
+void main () {
+    if (true) {
+        println "always executes";
+    } else {
+        println "never executes";
+    }
+
+    if (false) {
+        println "never executes";
+    } else {
+        println "always executes";
+    }
+}
