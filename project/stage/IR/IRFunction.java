@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import IR.AST2IRHelper;
+import IR.IR2Jasmin;
 import IR.IRInstruction;
 import IR.IRVarDecl;
 import Type.*;
@@ -52,5 +53,9 @@ public class IRFunction {
         allInstrs.addAll(this.varDecls);
         allInstrs.addAll(this.instrs);
         return allInstrs;
+    }
+
+    public void accept(IR2Jasmin v) {
+        v.visit(this);
     }
 }
