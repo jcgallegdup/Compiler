@@ -207,13 +207,14 @@ public class IR2Jasmin {
             intCompare(t, op);
             return;
         }
+        String performOp;
         switch (op) {
-            case ADD:    break;
-            case SUB:    break;
-            case MULT:   break;
-
-            default: break;
+            case ADD:   performOp = "iadd"; break;
+            case SUB:   performOp = "isub"; break;
+            case MULT:  performOp = "imul"; break;
+            default:    performOp = null;   break;
         }
+        println(performOp);
     }
 
     private void intCompare(Type t, IRBinaryOp.Ops op) {
