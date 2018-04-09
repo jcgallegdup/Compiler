@@ -1,11 +1,17 @@
 void main() {
-    print "should be two";
+    print "should be two ";
     println 1 + 2 - 1;
 
-    print "should be zero";
+    print "should be two point O";
+    println 1.0 + 2.0 - 1.0;
+
+    print "should be zero ";
     println 0 * 100;
 
-    print "should be b";
+    print "should be zero point O ";
+    println 0.0 * 1.0;
+
+    print "should be b ";
     println 'c' - 'b' + 'a';
 
     if (1 == 1) {

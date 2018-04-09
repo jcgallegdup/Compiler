@@ -194,12 +194,29 @@ public class IR2Jasmin {
             // TODO: stringBinOp();
 
         } else if (e.type.toString().equals("float")) {
-            // TODO floatBinOp();
+            floatBinOp(e.type, e.op);
 
         } else {
             // char treated as int
             intBinOp(e.type, e.op);
         }
+    }
+
+    private void floatBinOp(Type t, IRBinaryOp.Ops op) {
+        if (op == IRBinaryOp.Ops.GREATER_THAN || op == IRBinaryOp.Ops.EQUALS) {
+            // TODO: floatCompare(t, op);
+            return;
+        }
+
+        // TODO: collapse this with int/char add/sub/mult logic (it's basically the same)
+        String performOp;
+        switch (op) {
+            case ADD:   performOp = "fadd"; break;
+            case SUB:   performOp = "fsub"; break;
+            case MULT:  performOp = "fmul"; break;
+            default:    performOp = null;   break;
+        }
+        println(performOp);
     }
 
     private void intBinOp(Type t, IRBinaryOp.Ops op) {
