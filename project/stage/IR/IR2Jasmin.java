@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.HashMap;
 
 import IR.AST2JasminHelper;
+import IR.IR2JasminHelper;
 import IR.IRArrayAccess;
 import IR.IRBinaryOp;
 import IR.IRConditionalJump;
@@ -204,7 +205,7 @@ public class IR2Jasmin {
 
     private void floatBinOp(Type t, IRBinaryOp.Ops op) {
         if (op == IRBinaryOp.Ops.GREATER_THAN || op == IRBinaryOp.Ops.EQUALS) {
-            // TODO: floatCompare(t, op);
+            numCompare(t, op);
             return;
         }
 
@@ -221,7 +222,7 @@ public class IR2Jasmin {
 
     private void intBinOp(Type t, IRBinaryOp.Ops op) {
         if (op == IRBinaryOp.Ops.GREATER_THAN || op == IRBinaryOp.Ops.EQUALS) {
-            intCompare(t, op);
+            numCompare(t, op);
             return;
         }
         String performOp;
@@ -234,38 +235,37 @@ public class IR2Jasmin {
         println(performOp);
     }
 
-    private void intCompare(Type t, IRBinaryOp.Ops op) {
+    private void numCompare(Type t, IRBinaryOp.Ops op) {
         // set up labels
         String trueLabel = "L" + this.labelCount++;
         String endLabel = "L" + this.labelCount++;
 
-        String compare;
+        List<String> comparisonInstrs;
         switch(op) {
             // NOTE: subtraction == 0 <=> values are equal
             case EQUALS:
-                compare = "ifeq " + trueLabel;
+                comparisonInstrs = IR2JasminHelper.getEqualsCompStr(t, trueLabel);
                 break;
 
             // NOTE: subtraction < 0 <=> left < right
             case GREATER_THAN:
-                compare = "iflt " + trueLabel;
+                comparisonInstrs = IR2JasminHelper.getLessThanCompStr(t, trueLabel);
                 break;
 
             default:
-                compare = null;
+                comparisonInstrs = null;
                 break;
         }
-
-        // compare values (alredy on stack)
-        String subtract = "isub";
 
         // load boolean value based on result of comparison
         String setFalse = "ldc 0";
         String skipToEnd = "goto " + endLabel;
         String setTrue = "ldc 1";
 
-        println(subtract);
-        println(compare);
+        // compare values (already on stack)
+        for (String instr : comparisonInstrs) {
+            println(instr);
+        }
         println(setFalse);
         println(skipToEnd);
         println(trueLabel + ":");

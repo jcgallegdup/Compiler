@@ -26,6 +26,12 @@ void main() {
         println "char not equals char working WOOO";
     }
 
+    if (1.0 == 2.0) {
+        println "should not print this ever either";
+    } else {
+        println "float not equals float working WOOO";
+    }
+
     if (1 < 2) {
         println "int less than int working WOO";
     } else {
@@ -34,6 +40,18 @@ void main() {
 
     if ('c' < 'd') {
         println "char less than char working WOOO";
+    } else {
+        println "should not print this ever either";
+    }
+
+    if (1.0 < 2.0) {
+        println "float less than float working WOOO";
+    } else {
+        println "should not print this ever either";
+    }
+
+    if (true == true) {
+        println "boolean equals boolean working WOOO";
     } else {
         println "should not print this ever either";
     }
