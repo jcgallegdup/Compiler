@@ -194,45 +194,25 @@ public class IR2Jasmin {
         if (e.type.toString().equals("string")) {
             // TODO: stringBinOp();
 
-        } else if (e.type.toString().equals("float")) {
-            floatBinOp(e.type, e.op);
-
         } else {
             // char treated as int
-            intBinOp(e.type, e.op);
+            numBinOp(e.type, e.op);
         }
     }
 
-    private void floatBinOp(Type t, IRBinaryOp.Ops op) {
-        if (op == IRBinaryOp.Ops.GREATER_THAN || op == IRBinaryOp.Ops.EQUALS) {
-            numCompare(t, op);
-            return;
-        }
-
-        // TODO: collapse this with int/char add/sub/mult logic (it's basically the same)
-        String performOp;
-        switch (op) {
-            case ADD:   performOp = "fadd"; break;
-            case SUB:   performOp = "fsub"; break;
-            case MULT:  performOp = "fmul"; break;
-            default:    performOp = null;   break;
-        }
-        println(performOp);
-    }
-
-    private void intBinOp(Type t, IRBinaryOp.Ops op) {
+    private void numBinOp(Type t, IRBinaryOp.Ops op) {
         if (op == IRBinaryOp.Ops.GREATER_THAN || op == IRBinaryOp.Ops.EQUALS) {
             numCompare(t, op);
             return;
         }
         String performOp;
         switch (op) {
-            case ADD:   performOp = "iadd"; break;
-            case SUB:   performOp = "isub"; break;
-            case MULT:  performOp = "imul"; break;
+            case ADD:   performOp = "add"; break;
+            case SUB:   performOp = "sub"; break;
+            case MULT:  performOp = "mul"; break;
             default:    performOp = null;   break;
         }
-        println(performOp);
+        println(AST2JasminHelper.getPrefixTypeStr(t) + performOp);
     }
 
     private void numCompare(Type t, IRBinaryOp.Ops op) {
