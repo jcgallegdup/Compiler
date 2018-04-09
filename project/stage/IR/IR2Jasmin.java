@@ -217,34 +217,42 @@ public class IR2Jasmin {
     }
 
     private void intCompare(Type t, IRBinaryOp.Ops op) {
+        // set up labels
+        String trueLabel = "L" + this.labelCount++;
+        String endLabel = "L" + this.labelCount++;
+
+        String compare;
         switch(op) {
+            // NOTE: subtraction == 0 <=> values are equal
             case EQUALS:
-                // set up labels
-                String trueLabel = "L" + this.labelCount++;
-                String endLabel = "L" + this.labelCount++;
+                compare = "ifeq " + trueLabel;
+                break;
 
-                // compare values (alredy on stack)
-                String subtract = "isub";
-
-                // load boolean value based on result of comparison
-                // NOTE: subtraction == 0 <=> values are equal
-                String jumpIfEqual = "ifeq " + trueLabel;
-                String setFalse = "ldc 0";
-                String skipToEnd = "goto " + endLabel;
-                String setTrue = "ldc 1";
-
-                println(subtract);
-                println(jumpIfEqual);
-                println(setFalse);
-                println(skipToEnd);
-                println(trueLabel + ":");
-                println(setTrue);
-                println(endLabel + ":");
+            // NOTE: subtraction < 0 <=> left < right
+            case GREATER_THAN:
+                compare = "iflt " + trueLabel;
                 break;
 
             default:
+                compare = null;
                 break;
         }
+
+        // compare values (alredy on stack)
+        String subtract = "isub";
+
+        // load boolean value based on result of comparison
+        String setFalse = "ldc 0";
+        String skipToEnd = "goto " + endLabel;
+        String setTrue = "ldc 1";
+
+        println(subtract);
+        println(compare);
+        println(setFalse);
+        println(skipToEnd);
+        println(trueLabel + ":");
+        println(setTrue);
+        println(endLabel + ":");
     }
 
     public void visit(IRUnaryOp e) {

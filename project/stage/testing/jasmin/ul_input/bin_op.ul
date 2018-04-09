@@ -10,4 +10,16 @@ void main() {
     } else {
         println "char not equals char working WOOO";
     }
+
+    if (1 < 2) {
+        println "int less than int working WOO";
+    } else {
+        println "should not print this ever";
+    }
+
+    if ('c' < 'd') {
+        println "char less than char working WOOO";
+    } else {
+        println "should not print this ever either";
+    }
 }
