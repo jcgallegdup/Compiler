@@ -1,8 +1,8 @@
 # Compiler
-### Set up
+## Set up
 - set the classpath: `source project/setclasspath`
 
-### Semantic Testing
+## Semantic Testing
 Test the semantic analysis phase of the compiler: test the compiler's enforcement of type rules.
 - move to `stage` directory: `cd project/stage`
 - build project: `make`
@@ -20,7 +20,7 @@ Test the semantic analysis phase of the compiler: test the compiler's enforcemen
   - e.g. `echo "void main() {}" >> tests/accept/simple_program.ul`
 
 
-### Parse Testing
+## Parse Testing
 Test the tokenization phase of the compiler: test that the correct grammar is accepted.
 - move to `stage` directory: `cd project/stage`
 - create a results directory: `mkdir results`
